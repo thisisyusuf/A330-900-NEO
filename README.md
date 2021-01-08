@@ -64,8 +64,11 @@ INSTALLATION:
 In the folder you will find these 5 folders: "Airplanes", "Effects", "Gauges", "Sound" and "Options".
 
 2 - Copy/paste the content of the "Airplanes" folder in your FSX\SimObjects\Airplanes folder.
+
 3 - Copy/paste the content of the "Effects" folder in your FSX\Effects folder.
+
 4 - Copy/paste the content of the "Gauges" folder in your FSX\Gauges folder.
+
 5 - Copy/paste the content of the "Sound" folder in your FSX\Sound folder.
 
 Note: You may need Administrator's permissions to do the above.
