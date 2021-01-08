@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0" id="pfd">
+	<Descr>AceXML Document</Descr>
+	<Filename>pfd.xml</Filename>
+	<SimGauge.Gauge id="pfd" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>283,282</Size>
+
+		<Element id="PFD">
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+			<Element id="Background">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Image id="pfd_background.bmp" Name="pfd_background.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Roll Scale">
+				<FloatPosition>67.000,59.000</FloatPosition>
+				<Image id="pfd_fixed_roll_scale.bmp" Name="pfd_fixed_roll_scale.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="ATT Ball">
+				<FloatPosition>74.000,70.000</FloatPosition>
+				<Image id="pfd_sky_ground_strip.bmp" Name="pfd_sky_ground_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>79.000,367.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_sky_ground_strip_mask_outer.bmp" Name="pfd_sky_ground_strip_mask_outer.bmp">
+					<Axis>63.000,74.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,-2.888</Scale>
+					<Expression id="Expression">
+						<Minimum>-90.000</Minimum>
+						<Maximum>90.000</Maximum>
+						<Script>(A:ATTITUDE INDICATOR PITCH DEGREES, degrees)</Script>
+					</Expression>
+				</Shift>
+				<Rotation id="Rotation">
+					<Expression id="Expression">
+						<Script>(A:ATTITUDE INDICATOR BANK DEGREES, radians)</Script>
+					</Expression>
+				</Rotation>
+			</Element>
+			<Element id="Sky Ground Line">
+				<FloatPosition>59.000,90.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="pfd_sky_ground_strip_cutoff_line.bmp" Name="pfd_sky_ground_strip_cutoff_line.bmp">
+					<Transparent>True</Transparent>
+					<Axis>0.000,1.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_sky_ground_strip_mask_inner.bmp" Name="pfd_sky_ground_strip_mask_inner.bmp">
+				</MaskImage>
+			</Element>
+			<Element id="Sky Ground - Bottom">
+				<FloatPosition>59.000,90.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image Name="pfd_sky_ground_strip_cutoff_line_bottom.bmp">
+					<Axis>0.000,-111.000</Axis>
+				</Image>
+				<MaskImage Name="pfd_sky_ground_strip_mask_inner.bmp">
+				</MaskImage>
+			</Element>
+			<Element id="Fixed Aircraft Symbol">
+				<FloatPosition>77.000,143.000</FloatPosition>
+				<Image id="pfd_fixed_plane_marker.bmp" Name="pfd_fixed_plane_marker.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="FD">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool)</Visibility>
+				<Element id="FD Vertical">
+					<FloatPosition>103.000,145.000</FloatPosition>
+					<Image id="pfd_flight_director_pitch_bar.bmp" Name="pfd_flight_director_pitch_bar.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+					<Shift id="Shift">
+						<Scale>0.000,2.500</Scale>
+						<Expression id="Expression">
+							<Minimum>-15.000</Minimum>
+							<Maximum>15.000</Maximum>
+							<Script>(A:AUTOPILOT FLIGHT DIRECTOR PITCH, degrees) (A:ATTITUDE INDICATOR PITCH DEGREES:1, degrees) -</Script>
+						</Expression>
+					</Shift>
+				</Element>
+				<Element id="FD Lateral">
+					<FloatPosition>136.000,110.000</FloatPosition>
+					<Image id="pfd_flight_director_yaw_bar.bmp" Name="pfd_flight_director_yaw_bar.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+					<Shift id="Shift">
+						<Scale>2.700,0.000</Scale>
+						<Expression id="Expression">
+							<Minimum>-20.000</Minimum>
+							<Maximum>20.000</Maximum>
+							<Script>(A:AUTOPILOT FLIGHT DIRECTOR BANK, radians) (A:ATTITUDE INDICATOR BANK DEGREES:1, radians) - /-/</Script>
+						</Expression>
+					</Shift>
+				</Element>
+			</Element>
+			<Element id="Slip Indicator">
+				<FloatPosition>136.000,145.000</FloatPosition>
+				<Image id="pfd_slip_indicator.bmp" Name="pfd_slip_indicator.bmp">
+					<Transparent>True</Transparent>
+					<Axis>8,67</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>8.000,0.000</Scale>
+					<Expression id="Expression">
+						<Minimum>-1.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:TURN COORDINATOR BALL, position)</Script>
+					</Expression>
+				</Shift>
+				<Rotation id="Rotation">
+					<PointsTo>NORTH</PointsTo>
+					<Expression id="Expression">
+						<Minimum>-360.000</Minimum>
+						<Maximum>360.000</Maximum>
+						<Script>(A:ATTITUDE INDICATOR BANK DEGREES:1, degrees)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-60.000</ExpressionResult>
+							<FloatPosition>86.000,83.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-45.000</ExpressionResult>
+							<FloatPosition>95.000,71.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-30.000</ExpressionResult>
+							<FloatPosition>108.000,61.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>136.000,53.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>30.000</ExpressionResult>
+							<FloatPosition>164.000,60.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>45.000</ExpressionResult>
+							<FloatPosition>177.000,71.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<FloatPosition>186.000,82.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="Roll Indicator">
+				<FloatPosition>136.000,145.000</FloatPosition>
+				<Image id="pfd_roll_indicator.bmp" Name="pfd_roll_indicator.bmp">
+					<Transparent>True</Transparent>
+					<Axis>5.000,75.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>NORTH</PointsTo>
+					<Expression id="Expression">
+						<Minimum>-360.000</Minimum>
+						<Maximum>360.000</Maximum>
+						<Script>(A:ATTITUDE INDICATOR BANK DEGREES:1, degrees) </Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-60.000</ExpressionResult>
+							<FloatPosition>68.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-45.000</ExpressionResult>
+							<FloatPosition>79.000,89.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-30.000</ExpressionResult>
+							<FloatPosition>93.000,74.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>136.000,53.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>30.000</ExpressionResult>
+							<FloatPosition>179.000,74.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>45.000</ExpressionResult>
+							<FloatPosition>192.000,89.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>60.000</ExpressionResult>
+							<FloatPosition>202.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="Pitch Warning Chevron  DOWN">
+				<FloatPosition>106.000,188.000</FloatPosition>
+				<Visibility>(A:ATTITUDE INDICATOR PITCH DEGREES, degrees) -30 &lt;=</Visibility>
+				<Image id="Image" Name="pfd_decrease_pitch_arrows.bmp">
+					<Transparent>True</Transparent>
+				</Image>
+			</Element>
+			<Element id="Pitch Warning Chevron  UP">
+				<FloatPosition>106.000,81.000</FloatPosition>
+				<Visibility>(A:ATTITUDE INDICATOR PITCH DEGREES, degrees) 30 &gt;=</Visibility>
+				<Image id="Image" Name="pfd_increase_pitch_arrows.bmp">
+					<Transparent>True</Transparent>
+				</Image>
+			</Element>
+
+			<Element id="Airspeed Tape">
+				<FloatPosition>22.000,70.000</FloatPosition>
+				<Image id="pfd_asi_strip.bmp" Name="pfd_asi_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>0.000,776.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_asi_strip_mask.bmp" Name="pfd_asi_strip_mask.bmp">
+					<Axis>0.000,75.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,1.742</Scale>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>500.000</Maximum>
+						<Script>(A:AIRSPEED SELECT INDICATED OR TRUE, knots) 0 max 400 min</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ASI Border">
+				<FloatPosition>22.000,70.000</FloatPosition>
+				<Image id="pfd_asi_strip_border.bmp" Name="pfd_asi_strip_border.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_asi_strip_mask.bmp" Name="pfd_asi_strip_mask.bmp">
+				</MaskImage>
+			</Element>
+			<Element id="ASI Pointer">
+				<FloatPosition>19.000,140.000</FloatPosition>
+				<Image id="pfd_asi_pointer.bmp" Name="pfd_asi_pointer.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="Speed Bug">
+				<FloatPosition>56.000,138.000</FloatPosition>
+				<Image Name="pfd_asi_speed_bug.bmp">
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,1.75</Scale>
+					<Expression id="Expression">
+						<Minimum>-43.000</Minimum>
+						<Maximum>43.000</Maximum>
+						<Script>(A:AIRSPEED SELECT INDICATED OR TRUE, knots) (A:AUTOPILOT AIRSPEED HOLD VAR, knots)  -</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ALT Strip">
+				<FloatPosition>210.000,70.000</FloatPosition>
+				<Image id="pfd_altimeter_strip.bmp" Name="pfd_altimeter_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>0.000,6515.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_strip_mask.bmp" Name="pfd_altimeter_strip_mask.bmp">
+					<Axis>0.000,75.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,13.016</Scale>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>500.000</Maximum>
+						<Script>(P:Units of measure, enum) 2 == if{ (A:INDICATED ALTITUDE:1, meters) } els{ (A:INDICATED ALTITUDE:1, feet) } 100 / 500 min 0 max</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="Ground Reference Strip">
+				<FloatPosition>210.000,70.000</FloatPosition>
+				<Image id="pfd_altimeter_ground_reference_strip.bmp" Name="pfd_altimeter_ground_reference_strip.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_strip_mask.bmp" Name="pfd_altimeter_strip_mask.bmp">
+					<Axis>29.000,75.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,0.200</Scale>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>400.000</Maximum>
+						<Script>(A:Radio Height,feet)</Script>
+					</Expression>
+				</Shift>
+			</Element>
+
+			<Element id="ALT Detail Window">
+				<FloatPosition>211.000,132.000</FloatPosition>
+				<Visibility>1</Visibility>
+				<Image id="pfd_altimeter_detail_window.bmp" Name="pfd_altimeter_detail_window.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_detail_mask.bmp" Name="pfd_altimeter_detail_mask.bmp">
+					<Transparent>True</Transparent>
+				</MaskImage>
+			</Element>
+			<Element id="Negative ALT Minus Sign">
+				<FloatPosition>211.000,134.000</FloatPosition>
+				<Visibility>(A:INDICATED ALTITUDE:1, feet) 0 &lt;</Visibility>
+				<GaugeText id="Negative ALT Minus Sign">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>17</FontHeight>
+					<GaugeString>-</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>12,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="ALT Ten Thousands">
+				<FloatPosition>211.000,132.000</FloatPosition>
+				<Visibility>(A:INDICATED ALTITUDE:1, feet) 0 &gt;=</Visibility>
+				<Image id="pfd_altimeter_detail_ten_thousands_strip.bmp" Name="pfd_altimeter_detail_ten_thousands_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>-2.000,148.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_detail_mask.bmp" Name="pfd_altimeter_detail_mask.bmp">
+					<Axis>0.000,16.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,12.9</Scale>
+					<Expression id="Expression">
+						<Minimum>-10.000</Minimum>
+						<Maximum>10.000</Maximum>
+						<Script>
+							(P:Units of measure, enum) 2 ==
+							if{ (A:INDICATED ALTITUDE:1, meters) } els{ (A:INDICATED ALTITUDE:1, feet) }
+							10000 / int
+						</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ALT Thousands">
+				<FloatPosition>211.000,132.000</FloatPosition>
+				<Image id="pfd_altimeter_detail_thousands_strip.bmp" Name="pfd_altimeter_detail_thousands_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>-12.000,148.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_detail_mask.bmp" Name="pfd_altimeter_detail_mask.bmp">
+					<Axis>0.000,16.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,12.9</Scale>
+					<Expression id="Expression">
+						<Minimum>-10.000</Minimum>
+						<Maximum>10.000</Maximum>
+						<Script>
+							(P:Units of measure, enum) 2 ==
+							if{ (A:INDICATED ALTITUDE:1, meters) } els{ (A:INDICATED ALTITUDE:1, feet) }
+							10000 %
+							1000 / int
+						</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ALT Hundreds">
+				<FloatPosition>211.000,132.000</FloatPosition>
+				<Image id="pfd_altimeter_detail_hundreds_strip.bmp" Name="pfd_altimeter_detail_hundreds_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>-22.000,148.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_detail_mask.bmp" Name="pfd_altimeter_detail_mask.bmp">
+					<Axis>0.000,16.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,12.9</Scale>
+					<Expression id="Expression">
+						<Minimum>-10.000</Minimum>
+						<Maximum>10.000</Maximum>
+						<Script>
+							(P:Units of measure, enum) 2 ==
+							if{ (A:INDICATED ALTITUDE:1, meters) } els{ (A:INDICATED ALTITUDE:1, feet) }
+							1000 %
+							100 / int
+						</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+
+			<Element id="ALT Tens">
+				<FloatPosition>211.000,132.000</FloatPosition>
+				<Image id="pfd_altimeter_detail_tens_strip.bmp" Name="pfd_altimeter_detail_tens_strip.bmp">
+					<Transparent>True</Transparent>
+					<Axis>-32.000,92.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_detail_mask.bmp" Name="pfd_altimeter_detail_mask.bmp">
+					<Axis>0.000,15.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>0.000,0.730</Scale>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>
+							(P:Units of measure, enum) 2 ==
+							if{ (A:INDICATED ALTITUDE:1, meters) } els{ (A:INDICATED ALTITUDE:1, feet) }
+							100 %
+						</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ALT Bug">
+				<FloatPosition>206.000,132.000</FloatPosition>
+				<Image id="pfd_altimeter_bug.bmp" Name="pfd_altimeter_bug.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,0.200</Scale>
+					<Expression id="Expression">
+						<Minimum>-370.000</Minimum>
+						<Maximum>400.000</Maximum>
+						<Script>(P:Units of measure, enum) 2 == if{ (A:INDICATED ALTITUDE:1, meters) (A:AUTOPILOT ALTITUDE LOCK VAR, meters)  -  } els{ (A:INDICATED ALTITUDE:1, feet) (A:AUTOPILOT ALTITUDE LOCK VAR, feet)  -  }</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="ALT Border">
+				<FloatPosition>210.000,70.000</FloatPosition>
+				<Image id="pfd_altimeter_strip_border.bmp" Name="pfd_altimeter_strip_border.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_altimeter_strip_mask.bmp" Name="pfd_altimeter_strip_mask.bmp">
+				</MaskImage>
+			</Element>
+			<Element>
+				<FloatPosition>209.000,131.000</FloatPosition>
+				<Image Name="pfd_altimeter_detail_window copy.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="VSI Scale">
+				<FloatPosition>257.000,69.000</FloatPosition>
+				<Image id="pfd_vsi_scale.bmp" Name="pfd_vsi_scale.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="VSI Needle">
+				<FloatPosition>257.000,69.000</FloatPosition>
+				<Image id="pfd_vsi_needle.bmp" Name="pfd_vsi_needle.bmp">
+					<Transparent>True</Transparent>
+					<Axis>81.000,1.000</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_vsi_needle_mask.bmp" Name="pfd_vsi_needle_mask.bmp">
+					<Axis>25.000,75.000</Axis>
+				</MaskImage>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+					<Expression id="Expression">
+						<Minimum>-3000.000</Minimum>
+						<Maximum>3000.000</Maximum>
+						<Script>(A:VERTICAL SPEED, feet per minute)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-3000.000</ExpressionResult>
+							<Degrees>-70.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-2500.000</ExpressionResult>
+							<Degrees>-66.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-2000.000</ExpressionResult>
+							<Degrees>-61.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-1000.000</ExpressionResult>
+							<Degrees>-48.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<Degrees>0.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<Degrees>47.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<Degrees>61.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2500.000</ExpressionResult>
+							<Degrees>66.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>3000.000</ExpressionResult>
+							<Degrees>70.000</Degrees>
+							<FloatPosition>0.000,0.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Rotation>
+			</Element>
+			<Element id="Compass Border">
+				<FloatPosition>74.000,250.000</FloatPosition>
+				<Image id="pfd_compass_strip_border.bmp" Name="pfd_compass_strip_border.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_compass_strip_mask.bmp" Name="pfd_compass_strip_mask.bmp">
+				</MaskImage>
+			</Element>
+			<Element id="Compass Strip">
+				<FloatPosition>74.000,250.000</FloatPosition>
+				<Image id="pfd_compass_strip.bmp" Name="pfd_compass_strip.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<MaskImage id="pfd_compass_strip_mask.bmp" Name="pfd_compass_strip_mask.bmp">
+					<Axis>63.000,0.000</Axis>
+				</MaskImage>
+				<Shift id="Shift">
+					<Scale>-1.000,0.000</Scale>
+					<Expression id="Expression">
+						<Script>(A:PLANE HEADING DEGREES GYRO, degrees) 2.46944 * 74 +</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Gauge">
+							<Fail_Key>GAUGE_MAGNETIC_COMPASS</Fail_Key>
+							<Fail_Action>Freeze</Fail_Action>
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+			<Element id="Compass Pointer">
+				<FloatPosition>136.000,237.000</FloatPosition>
+				<Image id="pfd_compass_pointer.bmp" Name="pfd_compass_pointer.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="ILS Elements">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Visibility>(L:ILS Mode, bool)</Visibility>
+				<Element id="LOC GS Scale">
+					<FloatPosition>98.000,107.000</FloatPosition>
+					<Image id="pfd_localizer_glideslope_scale.bmp" Name="pfd_localizer_glideslope_scale.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Element>
+				<Element id="Localizer Pointer">
+					<FloatPosition>130.000,222.000</FloatPosition>
+					<Image id="pfd_localizer_pointer.bmp" Name="pfd_localizer_pointer.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+					<Shift id="Shift">
+						<Scale>35.000,0.000</Scale>
+						<Expression id="Expression">
+							<Minimum>-1.000</Minimum>
+							<Maximum>1.000</Maximum>
+							<Script>(A:HSI CDI NEEDLE, number) 127 /</Script>
+						</Expression>
+						<FailureTable id="FailureTable">
+							<Failure id="Failure">
+								<Fail_Key>GAUGE_NAVIGATION_VOR1</Fail_Key>
+								<Fail_Action>Zero</Fail_Action>
+							</Failure>
+							<Failure id="Failure">
+								<Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+								<Fail_Action>Zero</Fail_Action>
+							</Failure>
+						</FailureTable>
+					</Shift>
+				</Element>
+				<Element id="Glideslope Pointer">
+					<FloatPosition>198.000,139.000</FloatPosition>
+					<Image id="pfd_glideslope_pointer.bmp" Name="pfd_glideslope_pointer.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+					<Shift id="Shift">
+						<Scale>0.000,36.000</Scale>
+						<Expression id="Expression">
+							<Minimum>-1.000</Minimum>
+							<Maximum>1.000</Maximum>
+							<Script>(A:HSI CDI NEEDLE, number) 120 /</Script>
+						</Expression>
+						<FailureTable id="FailureTable">
+							<Failure id="Failure">
+								<Fail_Key>GAUGE_NAVIGATION_VOR1</Fail_Key>
+								<Fail_Action>Zero</Fail_Action>
+							</Failure>
+							<Failure id="Failure">
+								<Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+								<Fail_Action>Zero</Fail_Action>
+							</Failure>
+						</FailureTable>
+					</Shift>
+				</Element>
+			</Element>
+			<Element id="AP FMA Col 1 - Speed Hold">
+				<FloatPosition>20.000,8.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT AIRSPEED HOLD, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>SPEED</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>44,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 1 - TO/GA Hold">
+				<FloatPosition>20.000,8.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) (A:FLY BY WIRE ALPHA PROTECTION, bool) ! and </Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>MAN</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>44,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 1 - TO/GA Hold">
+				<FloatPosition>20.000,22.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>TOGA</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>44,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 1 - Alpha Floor">
+				<FloatPosition>10.000,36.000</FloatPosition>
+				<Visibility>(A:FLY BY WIRE ALPHA PROTECTION, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>red</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>A.FLOOR</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>54,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA - ALT Hold">
+				<FloatPosition>68.000,8.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT ALTITUDE LOCK, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>ALT</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>51,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA - G/S Hold">
+				<FloatPosition>68.000,22.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT GLIDESLOPE HOLD, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>G/S</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>51,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 3 - HDG Hold">
+				<FloatPosition>122.000,8.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT HEADING LOCK, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>HDG</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>51,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 3 - LOC Hold">
+				<FloatPosition>122.000,22.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT NAV1 LOCK, bool)</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>LOC</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>51,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 3 - TRK Hold">
+				<FloatPosition>122.000,8.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<GaugeText id="FMA">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>TRK</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>51,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 5 - AP 1 Active">
+				<FloatPosition>231.000,8.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT MASTER, bool)</Visibility>
+				<GaugeText id="AP1 Active">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>AP1</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>48,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 5 - Flight Director">
+				<FloatPosition>231.000,22.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool)</Visibility>
+				<GaugeText id="1FD2">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>1FD2</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>48,13</Size>
+				</GaugeText>
+			</Element>
+			<Element id="AP FMA Col 5 - A/THR">
+				<FloatPosition>231.000,36.000</FloatPosition>
+				<Visibility>(A:AUTOPILOT THROTTLE ARM, bool)</Visibility>
+				<GaugeText id="A/THR">
+					<BackgroundColor>#171134</BackgroundColor>
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>A/THR</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>48,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="NAV 1 Ident">
+				<FloatPosition>18.000,250.000</FloatPosition>
+				<GaugeText id="NAV Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>magenta</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:GPS DRIVES NAV1, bool))%{if}GPS%{else}%((A:NAV1 IDENT, string))%!s!%{end}</GaugeString>
+					<Size>60,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="NAV 1 Brg">
+				<FloatPosition>18.000,262.000</FloatPosition>
+				<GaugeText id="NAV Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>magenta</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:NAV1 OBS, degrees))%!3d!&#xB0;</GaugeString>
+					<Size>60,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="RAD ALT Readout">
+				<FloatPosition>119.000,205.000</FloatPosition>
+				<Visibility>(A:Radio Height,feet) 2500 &lt;=</Visibility>
+				<GaugeText id="RAD ALT Readout">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>15</FontHeight>
+					<GaugeString>%((A:RADIO HEIGHT, feet))%!d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>34,16</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="AP Altitude Hold Readout">
+				<FloatPosition>202.000,56.000</FloatPosition>
+				<GaugeText id="AP Alt Hold">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontColor>0xFC83FF</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((P:Units of measure, enum) 2 == if{ (A:AUTOPILOT ALTITUDE LOCK VAR, meters) } els{ (A:AUTOPILOT ALTITUDE LOCK VAR, feet) } 99999 min 0 max)%!5d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>42,16</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Baro Readout">
+				<FloatPosition>180.000,250.000</FloatPosition>
+				<Visibility>(A:KOHLSMAN SETTING HG:1,inHg) 100 * near 2992 !=</Visibility>
+				<GaugeText id="Baro IN">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>cyan</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>
+						%((L:HPA Button, number))%{case}%{:0}%((A:KOHLSMAN SETTING HG:1,inHg))%!6.2f!%{else}%((A:KOHLSMAN SETTING HG:1, mbar))%!6.1f!%{end}
+					</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>60,12</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="STD">
+				<FloatPosition>218.000,252.000</FloatPosition>
+				<Visibility>(A:KOHLSMAN SETTING HG:1, inHg) 100 * near 2992 ==</Visibility>
+				<Image id="pfd_text_std.bmp" Name="pfd_text_std.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="Mach Readout">
+				<FloatPosition>27.000,230.000</FloatPosition>
+				<Visibility>(A:AIRSPEED MACH, mach) 0.5 &gt;</Visibility>
+				<GaugeText id="Baro IN">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:AIRSPEED MACH, mach))%!6.2f!</GaugeString>
+					<Size>30,12</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="OM">
+				<FloatPosition>146.000,204.000</FloatPosition>
+				<Visibility>(A:OUTER MARKER, bool)</Visibility>
+				<GaugeText id="Baro IN">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>orange</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>OM</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>60,12</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="IM">
+				<FloatPosition>148.000,204.000</FloatPosition>
+				<Visibility>(A:INNER MARKER, bool)</Visibility>
+				<GaugeText id="Baro IN">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>WHITE</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>IM</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>60,12</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="MM">
+				<FloatPosition>146.000,204.000</FloatPosition>
+				<Visibility>(A:MIDDLE MARKER, bool)</Visibility>
+				<GaugeText id="Baro IN">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>CYAN</FontColor>
+					<FontHeight>11</FontHeight>
+					<GaugeString>MM</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>60,12</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+		</Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>283,282</Size>
+			<MouseArea id="Full Size Me">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>283,282</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script> 500 (&gt;K:PANEL_ID_TOGGLE)</Script>
+				</MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_PFD</DefaultId>
+                </Tooltip>
+			</MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>HELPID_GAUGE_PFD</DefaultId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

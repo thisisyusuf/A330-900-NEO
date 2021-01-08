@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="VSpeed_A330" Version="1.2">
+  <Update Frequency="6" />
+  <Size X="330" Y="175" />
+
+  <Element>
+    <Visible>(A:SIM ON GROUND, bool)</Visible>
+    <Element>
+      <Visible>(L:VSLights VSLightsOnOff, enum) 0 ==</Visible>
+      <Position X="0" Y="0" />
+      <Image Name="VSpeed_Background.bmp" Luminous="No" Bright="No" />
+    </Element>
+    <Element>
+      <Visible>(L:VSLights VSLightsOnOff, enum) 1 ==</Visible>
+      <Position X="0" Y="0" />
+      <Image Name="VSpeed_Background.bmp" Luminous="Yes" Bright="No" />
+    </Element>
+    <Element>
+      <Visible>(L:VSLights VSLightsOnOff, enum) 1 &gt;</Visible>
+      <Position X="0" Y="0" />
+      <Image Name="VSpeed_Background_night.bmp" Luminous="No" Bright="Yes" />
+    </Element>
+
+    <Element>
+      <Select>
+        <Value>
+          (A:AIRSPEED INDICATED, knots) 60 &lt;
+          if{ 1 (&gt;G:Var8) }
+
+          (A:RADIO HEIGHT, feet) 800 &lt;
+          if{ 1 (&gt;G:Var9) } els{ 0 (&gt;G:Var9) }
+        </Value>
+      </Select>
+    </Element>
+    <Comment>Switch gauge On/Off so we don't get callouts when airborne.</Comment>
+
+    <!-- Environmental variables -->
+    <Element Name="Environmental variables">
+      <Element>
+        <Select>
+          <Value>
+            (A:TOTAL WEIGHT, pounds) (&gt;G:Var1)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>This is the current total aircraft weight.</Comment>
+      <Element>
+        <Select>
+          <Value>
+            230 (A:BAROMETER PRESSURE, Millibars) 10 div - (&gt;G:Var2)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>This is the estimated V1 speed based on barometric pressure.</Comment>
+      <Element>
+        <Select>
+          <Value>
+            (G:Var1) (A:EMPTY WEIGHT, pounds) div (G:Var2) * (&gt;G:Var3)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>Divide total weight by empty weight and add the default V1 speed.</Comment>
+      <Comment>the result here is the estimated flaps0 V1 speed.</Comment>
+      <Element>
+        <Select>
+          <Value>
+            (A:TRAILING EDGE FLAPS0 LEFT ANGLE, degrees) (&gt;G:Var7)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>Set flaps-factor level for later use</Comment>
+      <Element>
+        <Select>
+          <Value>
+            (G:Var3) (G:Var7) - (&gt;G:Var4)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>Subtract flaps-factor level from estimated flaps0 V1 speed</Comment>
+      <Comment>the result here is the estimated current config V1 speed</Comment>
+      <Element>
+        <Select>
+          <Value>
+            (G:Var4) 27 + (&gt;G:Var5)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>Add this to estimated flaps0 Vr speed</Comment>
+      <Comment>the result here is the estimated current config Vr speed</Comment>
+      <Element>
+        <Select>
+          <Value>
+            (G:Var4) 41 + (&gt;G:Var6)
+          </Value>
+        </Select>
+      </Element>
+      <Comment>Add this to estimated flaps0 V2 speed</Comment>
+      <Comment>the result here is the estimated current config V2 speed</Comment>
+    </Element>
+    <Comment>This is where the environmental variables are defined</Comment>
+    <Comment>
+(G:Var1) is payload + fuel weight
+(G:Var2) is generic default V1 speed (same for all aircraft)
+(G:Var3) is the estimated flaps0 V1 speed (based on aircraft weight)
+(G:Var4) is V1 speed (with calculated barometric pressure)
+(G:Var5) is Vr speed
+(G:Var6) is V2 speed
+(G:Var7) is flaps storage variable
+(G:Var8) is speed-lock (so the same sound isn't played twice)
+(G:Var9) is gauge on/off master-check
+    </Comment>
+    <!-- Display -->
+    <Element Name="Display">
+      <Element>
+        <Position X="5" Y="55"/>
+        <Element>
+          <Position X="0" Y="0"/>
+          <Text X="97" Y="18" Bright="Yes" Length="13" FontWeight="700" Font="Trebuchet" Color="gold" Adjust="Center" VerticalAdjust="Center" Fixed="No">
+            <String>%((A:INDICATED ALTITUDE, feet))%!d! Feet</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="5" Y="112"/>
+          <Text X="97" Y="18" Bright="Yes" Length="13" FontWeight="700" Font="Trebuchet" Color="gold" Adjust="Center" VerticalAdjust="Center" Fixed="No">
+            <String>%((A:BAROMETER PRESSURE, Millibars))%!d! Mb</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="116" Y="55"/>
+          <Text X="97" Y="18" Bright="Yes" Length="13" FontWeight="700" Font="Trebuchet" Color="gold" Adjust="Center" VerticalAdjust="Center" Fixed="No">
+            <String>%((A:TOTAL WEIGHT, pounds))%!d! Lbs</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="116" Y="112"/>
+          <Text X="72" Y="18" Bright="Yes" Length="13" FontWeight="700" Font="Trebuchet" Color="gold" Adjust="Center" VerticalAdjust="Center" Fixed="No">
+            <String>L %((A:TRAILING EDGE FLAPS0 LEFT ANGLE, degrees))%!d! / R %((A:TRAILING EDGE FLAPS0 RIGHT ANGLE, degrees))%!d!</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="227" Y="60"/>
+          <Text X="97" Y="18" Length="28" Font="Trebuchet" Color="gold" Bright="Yes" Adjust="Center" VerticalAdjust="Center" Multiline="No">
+            <String>V1  %((G:Var4))%!d!</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="227" Y="86"/>
+          <Text X="97" Y="18" Length="28" Font="Trebuchet" Color="gold" Bright="Yes" Adjust="Center" VerticalAdjust="Center" Multiline="No">
+            <String>VR  %((G:Var5))%!d!</String>
+          </Text>
+        </Element>
+      </Element>
+      <Element>
+        <Element>
+          <Position X="227" Y="112"/>
+          <Text X="97" Y="18" Length="28" Font="Trebuchet" Color="gold" Bright="Yes" Adjust="Center" VerticalAdjust="Center" Multiline="No">
+            <String>V2  %((G:Var6))%!d!</String>
+          </Text>
+        </Element>
+      </Element>
+      <!--       Audio Active             -->
+      <Element>
+        <Position X="200" Y="90" />
+        <Select>
+          <Value>(L:VSpeed_sound_active, bool)</Value>
+          <Case Value="0">
+            <Image Name="Audio_off.bmp" ImageSizes="16,16" Bright="Yes"/>
+          </Case>
+          <Case Value="1">
+            <Image Name="Audio_on.bmp" ImageSizes="16,16" Bright="Yes"/>
+          </Case>
+        </Select>
+      </Element>
+      <Comment>Display take-off parameters</Comment>
+    </Element>
+
+    <!-- Gauge sound -->
+    <Element Name="Gauge sound">
+      <Element>
+        <Select>
+        <Value>
+		(G:Var9) 1 ==
+		if{
+
+			(A:AIRSPEED INDICATED, knots) 80 &gt;=
+			if{ (G:Var8) 1 ==
+				if{
+					1 (&gt;L:VSpeed_sound_V80, enum)
+					2 (&gt;G:Var8)
+				}
+			}
+
+			(A:AIRSPEED INDICATED, knots) (G:Var4) &gt;=
+			if{ (G:Var8) 2 ==
+				if{
+					1 (&gt;L:VSpeed_sound_V1, enum)
+					3 (&gt;G:Var8)
+				}
+			}
+
+			(A:AIRSPEED INDICATED, knots) (G:Var5) &gt;=
+			if{ (G:Var8) 3 ==
+				if{
+					1 (&gt;L:VSpeed_sound_Vr, enum)
+					4 (&gt;G:Var8)
+				}
+			}
+
+			(A:AIRSPEED INDICATED, knots) (G:Var6) &gt;=
+			if{ (G:Var8) 4 ==
+				if{
+					1 (&gt;L:VSpeed_sound_V2, enum)
+					5 (&gt;G:Var8)
+				}
+			}
+
+			(A:VERTICAL SPEED, feet per minute) 170 &gt;
+			(A:RADIO HEIGHT, feet) 20 &gt; &amp;&amp;
+			if{ (G:Var8) 5 ==
+				if{
+					1 (&gt;L:VSpeed_sound_GearUpCall, enum)
+					6 (&gt;G:Var8)
+				}
+			}
+
+			(A:GEAR CENTER POSITION, percent) 75 &lt;
+			if{ (G:Var8) 6 ==
+				if{
+					1 (&gt;L:VSpeed_sound_GearGoingUp, enum)
+					7 (&gt;G:Var8)
+				}
+			}
+
+			(A:GEAR CENTER POSITION, percent) 1 &lt;
+			if{ (G:Var8) 7 ==
+				if{
+					1 (&gt;L:VSpeed_sound_GearUpLocked, enum)
+					8 (&gt;G:Var8)
+				}
+			}
+
+		}
+        </Value>
+        </Select>
+      </Element>
+    </Element>
+    <Comment>VSpeed audio callout</Comment>
+    <Comment>
+(G:Var1) is payload + fuel weight
+(G:Var2) is generic default V1 speed
+(G:Var3) is the estimated flaps0 V1 speed (based on aircraft weight)
+(G:Var4) is V1 speed (with calculated barometric pressure)
+(G:Var5) is Vr speed
+(G:Var6) is V2 speed
+(G:Var7) is flaps storage variable
+(G:Var8) is speed-lock (so the same sound isn't played twice)
+(G:Var9) is gauge on/off master-check
+    </Comment>
+  </Element>
+
+  <Mouse>
+    <Area Left="199" Top="89" Width="18" Height="18">
+      <Cursor Type="Hand" />
+      <Click>
+        1 (&gt;L:VSpeed_sound_check, enum)
+        1 (&gt;L:VSpeed_sound_active, bool)
+      </Click>
+      <Tooltip>Voice check</Tooltip>
+    </Area>
+    <Area Left="198" Top="116" Width="18" Height="18">
+      <Cursor Type="Hand" />
+      <Click>70 (&gt;K:PANEL_ID_TOGGLE)</Click>
+      <Tooltip>Close Panel</Tooltip>
+    </Area>
+  </Mouse>
+
+</Gauge>

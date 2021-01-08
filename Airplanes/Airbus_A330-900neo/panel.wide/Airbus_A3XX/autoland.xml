@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Original file by Stefan Liebe -->
+<!-- modified with permission by Francois Dore mars 2012 V2.1 -->
+<SimBase.Document Type="AceXML" version="1,0" id="autoland">
+    <Descr>AceXML Document</Descr>
+    <Filename>autoland.xml</Filename>
+    <SimGauge.Gauge id="Gauge">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Update id="Update">
+            <Script>
+			(A:Autopilot Glideslope Hold, bool) 1 == (G:Var1,bool) 0 == and if { 1 (>G:Var1,bool) }
+			(G:Var1,bool) 0 == if{ g:900 }
+			(A:Autopilot Glideslope Hold, bool) 1 ==
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 == and
+			45 60 (A:RADIO HEIGHT, feet) rng and
+			(A:AUTOPILOT APPROACH HOLD, bool) 1 == and if{ 1 (>K:AP_APR_HOLD_OFF) 1 (>K:AP_ALT_HOLD_ON) 0 (>K:AP_ALT_VAR_SET_ENGLISH) 1 (&gt;K:AP_NAV1_HOLD_ON) -450 (&gt;K:AP_VS_VAR_SET_ENGLISH) 1 (>G:Var1,bool) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			25 45 (A:RADIO HEIGHT, feet) rng and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and
+			(A:AUTOPILOT THROTTLE ARM, bool) 1 == and if{ 0 (&gt;K:AP_VS_VAR_SET_ENGLISH) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			15 25 (A:RADIO HEIGHT, feet) rng and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and
+			(A:AUTOPILOT THROTTLE ARM, bool) 1 == and if{ 1 (&gt;K:AUTO_THROTTLE_ARM) 0 (&gt;K:THROTTLE_SET) 0 (&gt;K:AP_VS_VAR_SET_ENGLISH) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			(G:Var2,bool) 0 == and
+			10 15 (A:RADIO HEIGHT, feet) rng and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and
+			(A:AUTOPILOT THROTTLE ARM, bool) 1 == and if{ (A:RADIO HEIGHT, feet) 500 + (>K:AP_ALT_VAR_SET_ENGLISH) -350 (&gt;K:AP_VS_VAR_SET_ENGLISH) 1 (>G:Var2,bool) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			5 10 (A:RADIO HEIGHT, feet) rng and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and
+			(A:AUTOPILOT THROTTLE ARM, bool) 0 == and if{ 1 (&gt;K:AP_AIRSPEED_OFF) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			(A:Sim on ground,bool) 1 == and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and if{ 1 (&gt;K:AP_ALT_HOLD_OFF) 1 (&gt;K:AXIS_ELEV_TRIM_SET) 1 (&gt;K:AXIS_ELEVATOR_SET) 0 (>K:AP_ALT_VAR_SET_ENGLISH) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 0 ==
+			(A:VELOCITY BODY Z, knots) 50 &lt; and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and if{ (&gt;K:AUTOPILOT_OFF) 1 (&gt;K:AP_ALT_HOLD_OFF) (&gt;K:AP_NAV1_HOLD_OFF) 0 (&gt;K:AXIS_ELEV_TRIM_SET) 0 (&gt;K:AXIS_ELEVATOR_SET) 0 (>G:Var2,bool) 0 (>G:Var1,bool) }
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 1 ==
+			(A:AUTOPILOT ALTITUDE LOCK, bool) 0 == and
+			(A:AUTOPILOT APPROACH HOLD, bool) 1 == and if{ 0 (>K:AP_VS_VAR_SET_ENGLISH) 1200 (>K:AP_VS_VAR_SET_ENGLISH) (>K:AP_APR_HOLD) (>K:AP_NAV1_HOLD) (>K:AP_PANEL_ALTITUDE_HOLD) 0 (>G:Var1,bool) } 
+			(A:AUTOPILOT TAKEOFF POWER ACTIVE, bool) 1 ==
+			(A:AUTOPILOT ALTITUDE LOCK, bool) 0 == and
+			(A:AUTOPILOT NAV1 LOCK, bool) 1 == and if{ 0 (&gt;K:AP_VS_VAR_SET_ENGLISH) 1200 (>K:AP_VS_VAR_SET_ENGLISH)  (&gt;K:AP_PANEL_ALTITUDE_HOLD) 0 (>G:Var1,bool) } 
+			:900
+			</Script>
+        </Update>
+    </SimGauge.Gauge>
+</SimBase.Document>

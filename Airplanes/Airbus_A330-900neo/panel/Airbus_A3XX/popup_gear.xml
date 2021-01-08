@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>popup_gear.xml</Filename>
+	<SimGauge.Gauge id="popup_gear" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>252,277</Size>
+		<Image id="Image" Name="popup_gear_background.bmp">
+			<Transparent>True</Transparent>
+		</Image>
+
+		<Element id="Auto Brake Knob">
+			<FloatPosition>176,160</FloatPosition>
+			<Image id="Image" Name="Autobrake_knob.bmp">
+				<Transparent>True</Transparent>
+				<Axis>14.937,14.500</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>4.000</Maximum>
+					<Script>(A:AUTO BRAKE SWITCH CB, enum)</Script>
+				</Expression>
+				<PointsTo>EAST</PointsTo>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>0</ExpressionResult>
+						<Degrees>-138</Degrees>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>1</ExpressionResult>
+						<Degrees>-93</Degrees>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>2</ExpressionResult>
+						<Degrees>-42</Degrees>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>3</ExpressionResult>
+						<Degrees>0</Degrees>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>4</ExpressionResult>
+						<Degrees>47</Degrees>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+			</Rotation>
+		</Element>
+
+		<Element id="Auto Brake Lo - Off">
+			<FloatPosition>62.000,89.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_auto_brk_lo_out_annunciators_off.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Auto Brake Lo - On">
+			<FloatPosition>62.000,89.000</FloatPosition>
+			<Visibility>(A:AUTO BRAKE SWITCH CB, enum) 2 ==</Visibility>
+			<Image id="Image" Name="popup_gear_button_auto_brk_lo_out_annunciators_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Auto Brake Med - Off">
+			<FloatPosition>93.000,89.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_auto_brk_med_out_annunciators_off.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Auto Brake Med - On">
+			<FloatPosition>93.000,89.000</FloatPosition>
+			<Visibility>(A:AUTO BRAKE SWITCH CB, enum) 3 ==</Visibility>
+			<Image id="Image" Name="popup_gear_button_auto_brk_med_out_annunciators_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Auto Brake Max - Off">
+			<FloatPosition>123.000,89.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_auto_brk_max_out_annunciators_off.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Auto Brake Max - On">
+			<FloatPosition>123.000,89.000</FloatPosition>
+			<Visibility>(A:AUTO BRAKE SWITCH CB, enum) 4 == (A:AUTO BRAKE SWITCH CB, enum) 0 == ||</Visibility>
+			<Image id="Image" Name="popup_gear_button_auto_brk_max_out_annunciators_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<Element id="Left Gear">
+			<FloatPosition>65.000,39.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_left_out_annunciators_off.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Left Gear - Down">
+			<FloatPosition>69.000,53.000</FloatPosition>
+			<Visibility>(A:GEAR LEFT POSITION, percent) near 100 ==</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_left_out_annunciator_arrow_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Left Gear - Unlocked">
+			<FloatPosition>67.000,43.000</FloatPosition>
+			<Visibility>(A:GEAR LEFT POSITION, percent) s0 100 &lt; s1 l0 0 &gt; l1 &amp;&amp;</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_left_out_annunciator_unlk_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<Element id="Nose Gear">
+			<FloatPosition>95.000,39.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_nose_out_annunciators_off.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Nose Gear - Down">
+			<FloatPosition>99.000,53.000</FloatPosition>
+			<Visibility>(A:GEAR CENTER POSITION, percent) near 100 ==</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_nose_out_annunciator_arrow_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Nose Gear - Unlocked">
+			<FloatPosition>97.000,43.000</FloatPosition>
+			<Visibility>(A:GEAR CENTER POSITION, percent) s0 100 &lt; s1 l0 0 &gt; l1 &amp;&amp;</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_nose_out_annunciator_unlk_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<Element id="Right Gear">
+			<FloatPosition>125.000,39.000</FloatPosition>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_right_out_annunciators_off.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Right Gear - Down">
+			<FloatPosition>129.000,53.000</FloatPosition>
+			<Visibility>(A:GEAR RIGHT POSITION, percent) near 100 ==</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_right_out_annunciator_arrow_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Right Gear - Unlocked">
+			<FloatPosition>127.000,43.000</FloatPosition>
+			<Visibility>(A:GEAR RIGHT POSITION, percent) s0 100 &lt; s1 l0 0 &gt; l1 &amp;&amp;</Visibility>
+			<Image id="Image" Name="popup_gear_button_ldg_gear_right_out_annunciator_unlk_on.bmp">
+				<Bright>True</Bright>
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<Element id="Gear Lever - Down">
+			<FloatPosition>33.000,126.000</FloatPosition>
+			<Visibility>(A:GEAR HANDLE POSITION, percent) 50 &gt;</Visibility>
+			<Image id="Image" Name="popup_gear_lever_gear_down.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Gear Lever - Up">
+			<FloatPosition>33.000,126.000</FloatPosition>
+			<Visibility>(A:GEAR HANDLE POSITION, percent) 51 &lt;</Visibility>
+			<Image id="Image" Name="popup_gear_lever_gear_up.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<Element id="Anti-Skid Switch">
+			<FloatPosition>160.000,26.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(A:ANTISKID BRAKES ACTIVE, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_gear_switch_anti_skid_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_gear_switch_anti_skid_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>252,277</Size>
+
+			<MouseArea id="Auto Brake Knob">
+				<FloatPosition>163,146</FloatPosition>
+				<Size>26,45</Size>
+				<MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+					<Size>13,45</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>
+						(&gt;K:DECREASE_AUTOBRAKE_CONTROL)
+						(L:AutoBrake, enum) 1 - -1 max (&gt;L:AutoBrake, enum)
+						</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+					<Tooltip id="Tooltip">
+						<DefaultId></DefaultId>
+					</Tooltip>
+				</MouseArea>
+				<MouseArea id="Increment">
+					<FloatPosition>14.000,0.000</FloatPosition>
+					<Size>13,45</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>
+						(&gt;K:INCREASE_AUTOBRAKE_CONTROL)
+						(L:AutoBrake, enum) 1 + 2 min (&gt;L:AutoBrake, enum)
+						</Script>
+					<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="Auto Brake Lo">
+				<FloatPosition>62.000,89.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOBRAKE_LO</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="Auto Brake Med">
+				<FloatPosition>93.000,89.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOBRAKE_MED</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="Auto Brake Max">
+				<FloatPosition>123.000,89.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOBRAKE_MAX</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="L Gear Light">
+				<FloatPosition>65.000,40.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LIGHT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="Nose Gear Light">
+				<FloatPosition>95.000,40.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LIGHT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="R Gear Light">
+				<FloatPosition>125.000,40.000</FloatPosition>
+				<Size>28,28</Size>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LIGHT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="Anti Skid">
+				<FloatPosition>163.000,65.000</FloatPosition>
+				<Size>26,45</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>ANTISKID_BRAKES_TOGGLE</KeyEvent>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LIGHT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="Gear Lever">
+				<FloatPosition>58.000,142.000</FloatPosition>
+				<Size>29,96</Size>
+				<MouseArea id="Gear Up">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>29,48</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<KeyEvent>GEAR_UP</KeyEvent>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Gear Down">
+					<FloatPosition>0.000,48.000</FloatPosition>
+					<Size>29,48</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<KeyEvent>GEAR_DOWN</KeyEvent>
+					</MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LEVER</DefaultId>
+				</Tooltip>
+			</MouseArea>
+		</MouseArea>
+		
+	</SimGauge.Gauge>
+</SimBase.Document>

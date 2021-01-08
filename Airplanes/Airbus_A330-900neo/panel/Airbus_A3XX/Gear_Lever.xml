@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>Gear_Lever.xml</Filename>
+	<SimGauge.Gauge id="Gear_Lever" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>90,148</Size>
+
+		<Element id="Gear Lever - Down">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Visibility>(A:GEAR HANDLE POSITION, percent) 50 &gt;</Visibility>
+			<Image id="Image" Name="popup_gear_lever_gear_down.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Gear Lever - Up">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Visibility>(A:GEAR HANDLE POSITION, percent) 51 &lt;</Visibility>
+			<Image id="Image" Name="popup_gear_lever_gear_up.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>90,148</Size>
+
+			<MouseArea id="Gear Lever">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>60,96</Size>
+				<MouseArea id="Gear Up">
+					<FloatPosition>20.000,0.000</FloatPosition>
+					<Size>60,48</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<KeyEvent>GEAR_UP</KeyEvent>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Gear Down">
+					<FloatPosition>20.000,48.000</FloatPosition>
+					<Size>60,48</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<KeyEvent>GEAR_DOWN</KeyEvent>
+					</MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GEAR_LEVER</DefaultId>
+				</Tooltip>
+			</MouseArea>
+		</MouseArea>
+
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Gauge Name="Wiper Switch" Version="1.0">
+   <Element>
+      <Position X="0" Y="0"/>
+      <Select>
+         <Value>(L:Wiper, enum)</Value>
+         <Case Value="0">
+            <Image Name="Wiper_Off.bmp" ImageSizes="83,76" />
+         </Case>
+         <Case Value="1">
+            <Image Name="Wiper_Slow.bmp" ImageSizes="83,76" />
+         </Case>
+         <Case Value="2">
+            <Image Name="Wiper_Fast.bmp" ImageSizes="83,76" />
+         </Case>
+      </Select>
+   </Element>
+   <Mouse>
+	<Tooltip>Wipers</Tooltip>
+      <Area Left="0" Top="9" Width="25" Height="38">
+         <Cursor Type="Hand"/>
+         <Click Kind="LeftSingle">0 (&gt;L:Wiper, enum)</Click>
+      </Area>
+      <Area Left="26" Top="9" Width="25" Height="38">
+         <Cursor Type="Hand"/>
+         <Click Kind="LeftSingle">1 (&gt;L:Wiper, enum)</Click>
+      </Area>
+      <Area Left="51" Top="9" Width="25" Height="38">
+         <Cursor Type="Hand"/>
+         <Click Kind="LeftSingle">2 (&gt;L:Wiper, enum)</Click>
+      </Area>
+   </Mouse>
+</Gauge>

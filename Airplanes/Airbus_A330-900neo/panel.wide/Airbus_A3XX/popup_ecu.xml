@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>popup_ecu.xml</Filename>
+    <SimGauge.Gauge id="popup_ecu" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>279,479</Size>
+        
+        <Element id="Background">
+            <FloatPosition>0.000,30.000</FloatPosition>
+            <Image id="Image" Name="popup_ecu_background.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        
+        <Element id="Elevator Trim">
+            <FloatPosition>44.000,67.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>-30.000</Minimum>
+                    <Maximum>50.000</Maximum>
+                    <Script>
+                    	(A:ELEVATOR TRIM PCT, percent over 100) s0
+                    	l0 1.0 &gt;= if{ 50 g0 }
+                    	l0 0.9 &gt;= if{ 45 g0 }
+                    	l0 0.8 &gt;= if{ 40 g0 }
+                    	l0 0.7 &gt;= if{ 35 g0 }
+                    	l0 0.6 &gt;= if{ 30 g0 }
+                    	l0 0.5 &gt;= if{ 25 g0 }
+                    	l0 0.4 &gt;= if{ 20 g0 }
+                    	l0 0.3 &gt;= if{ 15 g0 }
+                    	l0 0.2 &gt;= if{ 10 g0 }
+                    	l0 0.1 &gt;= if{ 5 g0 }
+                    	l0 -0.1667 &gt; if{ 0 g0 }
+                    	l0 -0.3334 &gt; if{ -5 g0 }
+                    	l0 -0.5000 &gt; if{ -10 g0 }
+                    	l0 -0.6667 &gt; if{ -15 g0 }
+                    	l0 -0.8334 &gt; if{ -20 g0 }
+                    	l0 -1.0000 &gt; if{ -25 g0 }
+                    	-30
+                    	:0
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>50</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_01.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>45</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_02.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>40</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevatorl_trim_indicator_03.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>35</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_04.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>30</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_05.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>25</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_06.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>20</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_07.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>15</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_08.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>10</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_09.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>5</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_10.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_11.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-5</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_12.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-10</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_13.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-15</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_14.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-20</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_15.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-25</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_16.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>-30</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_indicator_17.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        
+        <Element id="TOGA">
+            <FloatPosition>80.000,30.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Autopilot Takeoff Power Active, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_toga_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_toga_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Eng 2 Fire">
+            <FloatPosition>161.000,355.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Eng On Fire:2,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_2_out_annunciators_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_2_out_fire_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_2_out_fault_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_2_out_fault _and _fire_annunciators_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Eng 1 Fire">
+            <FloatPosition>75.000,355.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Eng On Fire:1,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_1_out_annunciators_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_1_out_fire_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_1_out_fault_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_eng_1_out_fault _and _fire_annunciators_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Eng Ignition Mode">
+            <FloatPosition>119.000,342.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:TURB ENG IGNITION SWITCH:1, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_knob_eng_mode_norm.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_knob_eng_mode_ign_start.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Eng 1 On-Off">
+            <FloatPosition>75.000,256.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Turb Eng Master Starter Switch:1, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_switch_eng_1_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_switch_eng_1_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Eng 2 On-Off">
+            <FloatPosition>141.000,256.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Turb Eng Master Starter Switch:2, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_switch_eng_2_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_switch_eng_2_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Flaps">
+            <FloatPosition>204.000,275.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>4.000</Maximum>
+                    <Script>(A:Flaps handle index, number)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_flaps_0.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_flaps_1.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_flaps_2.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_flaps_3.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>4</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_flaps_full.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Gear Release">
+            <FloatPosition>184.000,406.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:GEAR EMERGENCY HANDLE POSITION, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_gravity_gear_release_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_gravity_gear_release_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Parking Brake">
+            <FloatPosition>99.000,402.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Brake parking position,Bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_park_brake_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_park_brake_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Rudder Trim Readout">
+            <FloatPosition>18.000,400.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="Rudder Trim Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>14</FontHeight>
+                <GaugeString>
+					%((A:RUDDER TRIM PCT, percent) -0.09 &lt;)%{if}L%{else}%((A:RUDDER TRIM PCT, percent) 0.09 &gt;)%{if}R%{end}%{end} %((A:RUDDER TRIM PCT, percent) abs 0.2 *)%!1.1f!
+                </GaugeString>
+                <HorizontalAlign>RIGHT</HorizontalAlign>
+                <Size>37,19</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+        <Element id="Rudder Trim">
+            <FloatPosition>44.000,420.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>-1.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>
+                    	(L:TRIM_INIT) 3 &lt; if{ (L:TRIM_INIT) ++ (&gt;L:TRIM_INIT) 0 }
+                    	els{
+							(L:RUDDER_TRIM_DLYCTR) 0 != 
+							if{ 
+								(L:RUDDER_TRIM_DLYCTR)  0 &gt; 
+								if{ (L:RUDDER_TRIM_DLYCTR) 1 - (&gt;L:RUDDER_TRIM_DLYCTR) 1 }
+								els{ (L:RUDDER_TRIM_DLYCTR) 1 + (&gt;L:RUDDER_TRIM_DLYCTR) -1 }
+							  }
+							els{
+								(L:RudderTrimPrev) (A:RUDDER TRIM, degrees) !=
+								if{ 
+									(L:RudderTrimPrev) (A:RUDDER TRIM, degrees) &gt;
+									if{ -10 (&gt;L:RUDDER_TRIM_DLYCTR) -1 }
+									els{ 10 (&gt;L:RUDDER_TRIM_DLYCTR) 1 }
+								  }
+								 els{ 0 }
+							}
+						}
+						s0
+						(A:RUDDER TRIM, degrees) (&gt;L:RudderTrimPrev)
+						l0
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>-1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_knob_rudder_trim_left.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_knob_rudder_trim_middle.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_knob_rudder_trim_right.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Rudder Trim Reset">
+            <FloatPosition>14.000,444.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Rudder Trim Reset Pressed,Bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_rudder_trim_reset_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_button_rudder_trim_reset_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Speed Brake">
+            <FloatPosition>2.000,276.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>5.000</Maximum>
+                    <Script>(A:SPOILERS HANDLE POSITION, number) 0 max 1 min 4 * near 1 +</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_speed_brake_1.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_speed_brake_2.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_speed_brake_3.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>4</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_speed_brake_4.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>5</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_lever_speed_brake_5.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Elevator Trim Wheel">
+            <FloatPosition>17.000,47.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>9.000</Maximum>
+                    <Script>(G:Var1)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_01.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_02.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_03.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_04.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>4</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_05.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>5</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_06.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>6</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_07.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>7</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_08.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>8</ExpressionResult>
+					<Image id="Image" Name="popup_ecu_elevator_trim_wheel_09.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="Throttle - Left">
+            <FloatPosition>60.000,127.000</FloatPosition>
+            <Image id="Image" Name="popup_ecu_lever_throttle_left.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-100.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                    <Script>(A:General Eng Throttle Lever Position:1,percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+        
+        <Element id="Throtle - Right">
+            <FloatPosition>140.000,127.000</FloatPosition>
+            <Image id="Image" Name="popup_ecu_lever_throttle_right.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+            <Shift id="Shift">
+                <Scale>0.000,-1.00</Scale>
+                <Expression id="Expression">
+                    <Minimum>-100.000</Minimum>
+                    <Maximum>100.000</Maximum>
+                    <Script>(A:General Eng Throttle Lever Position:2,percent)</Script>
+                </Expression>
+            </Shift>
+        </Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>279,479</Size>
+
+            <MouseArea id="TOGA Switch">
+                <FloatPosition>84.000,30.000</FloatPosition>
+                <Size>31,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                     <KeyEvent>AUTO_THROTTLE_TO_GA</KeyEvent>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_TOGA</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="Throttle - Left">
+                <FloatPosition>72.000,60.000</FloatPosition>
+                <Size>62,182</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+ 						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  (&gt;K:THROTTLE1_SET)                    
+                   </Script>
+                    <ClickType>LeftSingle+LeftDrag</ClickType>
+                    <MouseWheelFlip>True</MouseWheelFlip>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_THROTTLE_ENG1_THROTTLE_PERCENT</DefaultId>
+                </Tooltip>
+			</MouseArea>
+			<MouseArea id="Throttle - Both">
+				<FloatPosition>134.000,60.000</FloatPosition>
+				<Size>12,182</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  d (&gt;K:THROTTLE1_SET) (&gt;K:THROTTLE2_SET)                  
+				   </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="Throttle - Right">
+				<FloatPosition>146.000,60.000</FloatPosition>
+				<Size>62,182</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+                    <Script>
+ 						(M:Y) 60 - 135 /  0  max 1 min  1 - /-/  1 
+						(A:Throttle lower limit,part) 
+						s0 - * l0 +  16384.0 *  (&gt;K:THROTTLE2_SET)                    
+                   </Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_THROTTLE_ENG2_THROTTLE_PERCENT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			
+            <MouseArea id="Trim Wheel - Left">
+                <FloatPosition>20.000,45.000</FloatPosition>
+                <Size>29,231</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>29,115</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                     	<Script>
+                   			(G:Var1) ++ 10 % (&gt;G:Var1)
+                    		1 (&gt;K:ELEV_TRIM_DN)
+                    	</Script>
+                        <ClickRepeat>True</ClickRepeat>
+						<MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>0.000,116.000</FloatPosition>
+                    <Size>29,116</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                     	<Script>
+                   			(G:Var1) -- s0 0 &lt; if{ 9 (&gt;G:Var1) } els{ l0 (&gt;G:Var1) }
+                    		1 (&gt;K:ELEV_TRIM_UP)
+                    	</Script>
+                         <ClickRepeat>True</ClickRepeat>
+						<MouseWheelFlip>True</MouseWheelFlip>
+                   </MouseClick>
+                </MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_PITCH_TRIM</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="Trim Wheel - Right">
+                <FloatPosition>226.000,45.000</FloatPosition>
+                <Size>37,231</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>37,115</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                    	<Script>
+                     		(G:Var1) ++ 10 % (&gt;G:Var1)
+                   			1 (&gt;K:ELEV_TRIM_DN)
+                    	</Script>
+                        <ClickRepeat>True</ClickRepeat>
+						<MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>0.000,116.000</FloatPosition>
+                    <Size>37,116</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                    	<Script>
+                    		(G:Var1) -- s0 0 &lt; if{ 9 (&gt;G:Var1) } els{ l0 (&gt;G:Var1) }
+                    		1 (&gt;K:ELEV_TRIM_UP)
+                    	</Script>
+                        <ClickRepeat>True</ClickRepeat>
+ 						<MouseWheelFlip>True</MouseWheelFlip>
+                   </MouseClick>
+                </MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_PITCH_TRIM</DefaultId>
+				</Tooltip>
+		   </MouseArea>
+		   
+           <MouseArea id="Eng 1 On-Off">
+                <FloatPosition>100.000,296.000</FloatPosition>
+                <Size>24,44</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                     <Script>1 (&gt;K:TOGGLE_MASTER_STARTER_SWITCH)</Script>
+               </MouseClick>
+				<Tooltip id="Tooltip">
+						<DefaultId>TOOLTIPTEXT_A321_MASTER_STARTER_ENG1</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="Eng 2 On-Off">
+                <FloatPosition>155.000,296.000</FloatPosition>
+                <Size>24,44</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                     <Script>2 (&gt;K:TOGGLE_MASTER_STARTER_SWITCH)</Script>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_A321_MASTER_STARTER_ENG2</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="Engine Ignition Mode">
+                <FloatPosition>118.000,343.000</FloatPosition>
+                <Size>38,36</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+                    	1 (&gt;K:TURBINE_IGNITION_SWITCH_TOGGLE)
+                    	2 (&gt;K:TURBINE_IGNITION_SWITCH_TOGGLE)
+                    </Script>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_A321_IGNITION_MODE</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			
+            <MouseArea id="Speed Brake">
+                <FloatPosition>17.000,288.000</FloatPosition>
+                <Size>42,100</Size>
+                <CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(M:Y) 100 / 0 max 1 min 16384 * (&gt;K:SPOILERS_SET)</Script>
+					<ClickType>LeftSingle+LeftDrag</ClickType>
+					<MouseWheelFlip>True</MouseWheelFlip>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_SPEED_BRAKE</DefaultId>
+				</Tooltip>
+            </MouseArea>
+
+            <MouseArea id="Flaps Handle">
+                <FloatPosition>222.000,287.000</FloatPosition>
+                <Size>48,100</Size>
+                <MouseArea id="Dec">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>48,50</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>FLAPS_DECR</KeyEvent>
+                        <MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inc">
+                    <FloatPosition>0.000,50.000</FloatPosition>
+                    <Size>48,50</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>FLAPS_INCR</KeyEvent>
+                        <MouseWheelFlip>True</MouseWheelFlip>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_FLAP_LEVER_DEGREES</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            
+			<MouseArea id="Rudder Trim Reset">
+				<FloatPosition>11.000,442.000</FloatPosition>
+				<Size>24,24</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+					(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:Rudder Trim Reset Pressed) 0 (&gt;K:RUDDER_TRIM_SET) } 
+					(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:Rudder Trim Reset Pressed) }
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+					<ClickRepeat>True</ClickRepeat>
+				</MouseClick>
+			</MouseArea>
+			
+            <MouseArea id="Rudder Trim Left">
+                <FloatPosition>49.000,424.000</FloatPosition>
+                <Size>41,42</Size>
+                <CursorType>Hand</CursorType>
+                <MouseArea id="Rudder Trim Left">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>21,42</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                    	<Script>
+                    		1 (&gt;K:RUDDER_TRIM_LEFT)
+                    		-7 (&gt;L:RUDDER_TRIM_DLYCTR)
+                    	</Script>
+                        <ClickRepeat>True</ClickRepeat>
+                        <MouseWheelFlip>False</MouseWheelFlip>                   
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Rudder Trim Right">
+                    <FloatPosition>21.000,0.000</FloatPosition>
+                    <Size>20,42</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                    	<Script>
+                    		1 (&gt;K:RUDDER_TRIM_RIGHT)
+                    		7 (&gt;L:RUDDER_TRIM_DLYCTR)
+                    	</Script>
+                        <ClickRepeat>True</ClickRepeat>
+                        <MouseWheelFlip>False</MouseWheelFlip>                   
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_YAW_TRIM</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            
+            <MouseArea id="Parking Brake">
+                <FloatPosition>114.000,397.000</FloatPosition>
+                <Size>54,72</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>PARKING_BRAKES</KeyEvent>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_PARKING_BRAKE</DefaultId>
+				</Tooltip>
+			</MouseArea>
+	    
+            <MouseArea id="Gear Freefall">
+                <FloatPosition>185.000,397.000</FloatPosition>
+                <Size>85,72</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                	<KeyEvent>GEAR_EMERGENCY_HANDLE_TOGGLE</KeyEvent>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_EMERGENCY_GEAR_HANDLE</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_ECU</DefaultId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

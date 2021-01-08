@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Gauge Name="Brakes" Version="1.0">
+	<Image Name="Brakes_BG.bmp" ImageSizes="271,271" Luminous="Yes" />
+
+	<!-- ******* Front Gear ******* -->
+	<Element>
+		<Position X="133" Y="39" />
+		<Image Name="Brakes_Needle.bmp" PointsTo="East" ImageSizes="104,11" Luminous="Yes">
+			<Axis X="26" Y="5" />
+		</Image>
+		<Rotate>
+			<Value Minimum="0" Maximum="100">(A:BRAKE INDICATOR, enum)</Value>
+			<Failures>
+				<SYSTEM_ELECTRICAL_PANELS Action="0" />
+			</Failures>
+			<Nonlinearity>
+				<Item Value="0" X="192" Y="94" />
+				<Item Value="1.5" X="133" Y="121" />
+				<Item Value="3" X="74" Y="94" />
+			</Nonlinearity>
+			<Delay DegreesPerSecond="120" />
+		</Rotate>
+	</Element>
+
+	<!-- ******* Left Gear ******* -->
+	<Element>
+		<Position X="46" Y="194" />
+		<Image Name="Brakes_Needle.bmp" PointsTo="East" ImageSizes="104,11" Luminous="Yes">
+			<Axis X="26" Y="5" />
+		</Image>
+		<Rotate>
+			<Value Minimum="0" Maximum="100">(A:BRAKE INDICATOR, enum)</Value>
+			<Failures>
+				<SYSTEM_ELECTRICAL_PANELS Action="0" />
+			</Failures>
+			<Nonlinearity>
+				<Item Value="3" X="59" Y="117" />
+				<Item Value="1.5" X="112" Y="155" />
+				<Item Value="0" X="119" Y="222" />
+			</Nonlinearity>
+			<Delay DegreesPerSecond="120" />
+		</Rotate>
+	</Element>
+
+	<!-- ******* Right Gear ******* -->
+	<Element>
+		<Position X="224" Y="194" />
+		<Image Name="Brakes_Needle.bmp" PointsTo="East" ImageSizes="104,11" Luminous="Yes">
+			<Axis X="26" Y="5" />
+		</Image>
+		<Rotate>
+			<Value Minimum="0" Maximum="100">(A:BRAKE INDICATOR, enum)</Value>
+			<Failures>
+				<SYSTEM_ELECTRICAL_PANELS Action="0" />
+			</Failures>
+			<Nonlinearity>
+				<Item Value="0" X="146" Y="222" />
+				<Item Value="1.5" X="153" Y="155" />
+				<Item Value="3" X="206" Y="118" />
+			</Nonlinearity>
+			<Delay DegreesPerSecond="120" />
+		</Rotate>
+	</Element>
+ 
+	<Mouse>
+		<Tooltip>Brakes pressure</Tooltip>
+	</Mouse>
+
+</Gauge>

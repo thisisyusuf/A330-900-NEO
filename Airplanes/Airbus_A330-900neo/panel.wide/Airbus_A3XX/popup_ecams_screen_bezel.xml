@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>popup_ecams_screen_bezel.xml</Filename>
+    <SimGauge.Gauge id="popup_ecams_screen_bezel" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>341,353</Size>
+        <Image id="Image" Name="popup_ecams_screen_bezel_background.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="ENG">
+            <FloatPosition>28.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 1 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_eng_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_eng_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="BLEED">
+            <FloatPosition>70.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 2 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_bleed_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_bleed_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="PRESS">
+            <FloatPosition>111.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 3 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_press_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_press_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="APU">
+            <FloatPosition>153.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 4 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_apu_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_apu_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="HYD">
+            <FloatPosition>194.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 5 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_hyd_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_hyd_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="FUEL">
+            <FloatPosition>236.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 6 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_fuel_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_fuel_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <Element id="FCTL">
+            <FloatPosition>277.000,325.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(G:Var1) 7 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_fctl_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_ecams_screen_bezel_button_fctl_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+        </Element>
+
+        <MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+        	<Size>341,353</Size>
+            <MouseArea id="ENG">
+                <FloatPosition>28.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;G:Var1) 0 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="BLEED">
+                <FloatPosition>69.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 2 (&gt;G:Var1) 1 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="PRESS">
+                <FloatPosition>111.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 3 (&gt;G:Var1) 2 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="APU">
+                <FloatPosition>152.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 4 (&gt;G:Var1) 3 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="HYD">
+                <FloatPosition>193.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 5 (&gt;G:Var1) 4 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="FUEL">
+                <FloatPosition>235.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 6 (&gt;G:Var1) 5 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+            <MouseArea id="FCTL">
+                <FloatPosition>276.000,325.000</FloatPosition>
+                <Size>37,24</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 7 (&gt;G:Var1) 6 (&gt;L:ECAMS2 Display, number) }
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;G:Var1) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip"></Tooltip>
+            </MouseArea>
+      </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

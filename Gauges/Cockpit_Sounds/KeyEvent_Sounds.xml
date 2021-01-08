@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="KeyEvent Sounds" Version="1.1">
+  <Update Frequency="18"/>
+
+  <Keys>
+    <On Event="TOGGLE_AVIONICS_MASTER">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="TOGGLE_MASTER_BATTERY">
+      1 (&gt;L:CS_Switch_Battery, number)
+    </On>
+
+    <On Event="TOGGLE_MASTER_ALTERNATOR">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="TOGGLE_ALTERNATOR1">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="TOGGLE_ALTERNATOR2">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="APU_GENERATOR_SWITCH_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="TOGGLE_MASTER_IGNITION_SWITCH">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="TOGGLE_STARTER1">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_STARTER2">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_STARTER3">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_STARTER4">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="HYDRAULIC_SWITCH_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="MAGNETO_INCR">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO_DECR">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="MAGNETO_SET">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO_LEFT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO_RIGHT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO_OFF">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO_START">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="MAGNETO1_INCR">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_DECR">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_SET">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_LEFT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_RIGHT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_OFF">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO1_START">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="MAGNETO2_INCR">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO2_DECR">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="MAGNETO2_SET">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO2_LEFT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO2_RIGHT">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO2_OFF">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="MAGNETO2_START">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="INCREASE_AUTOBRAKE_CONTROL">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="DECREASE_AUTOBRAKE_CONTROL">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+
+    <On Event="ANTIDETONATION_TANK_VALVE_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="TOGGLE_ALTERNATE_STATIC">
+      1 (&gt;L:CS_Switch_Lever1, number)
+    </On>
+
+    <On Event="TOGGLE_NAV_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_TAXI_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="LANDING_LIGHTS_SET">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="LANDING_LIGHTS_ON">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="LANDING_LIGHTS_OFF">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="LANDING_LIGHTS_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="TOGGLE_BEACON_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="STROBES_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="STROBES_ON">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="STROBES_OFF">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="STROBES_SET">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="PANEL_LIGHTS_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="PANEL_LIGHTS_ON">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="PANEL_LIGHTS_OFF">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="PANEL_LIGHTS_SET">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="TOGGLE_WING_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="TOGGLE_RECOGNITION_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_LOGO_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="TOGGLE_CABIN_LIGHTS">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="TOGGLE_ELECTRIC_VACUUM_PUMP">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="TOGGLE_PROPELLER_SYNC">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+     <On Event="TOGGLE_PRIMER">
+      1 (&gt;L:CS_APU_Prime, number)
+    </On>
+     <On Event="TOGGLE_PRIMER1">
+      1 (&gt;L:CS_APU_Prime, number)
+    </On>
+     <On Event="TOGGLE_PRIMER2">
+      1 (&gt;L:CS_APU_Prime, number)
+    </On>
+
+    <On Event="PITOT_HEAT_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="ANTI_ICE_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="ANTI_ICE_SET_ENG1">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="ANTI_ICE_SET_ENG2">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="ANTI_ICE_SET_ENG3">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="ANTI_ICE_SET_ENG4">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="ANTI_ICE_TOGGLE_ENG1">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="ANTI_ICE_TOGGLE_ENG2">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="ANTI_ICE_TOGGLE_ENG3">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="ANTI_ICE_TOGGLE_ENG4">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+
+    <On Event="TOGGLE_STRUCTURAL_DEICE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="TOGGLE_PROPELLER_DEICE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="TOGGLE_FUEL_VALVE_ALL">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+    <On Event="TOGGLE_FUEL_VALVE_ENG1">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_FUEL_VALVE_ENG2">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_FUEL_VALVE_ENG3">
+     1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_FUEL_VALVE_ENG4">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="FUEL_SELECTOR_SET">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="FUEL_SELECTOR_RIGHT">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="FUEL_SELECTOR_OFF">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="FUEL_SELECTOR_LEFT">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="FUEL_SELECTOR_ALL">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="TOGGLE_ELECT_FUEL_PUMP">
+     1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="TOGGLE_ELECT_FUEL_PUMP1">
+     1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="TOGGLE_ELECT_FUEL_PUMP2">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="TOGGLE_ELECT_FUEL_PUMP3">
+     1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+    <On Event="TOGGLE_ELECT_FUEL_PUMP4">
+      1 (&gt;L:CS_Fuel_Pump_On, number)
+    </On>
+
+    <On Event="CROSS_FEED_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="FLAPS_INCR">
+      1 (&gt;L:CS_Switch_lever1, number)
+    </On>
+    <On Event="FLAPS_DECR">
+      1 (&gt;L:CS_Switch_lever1, number)
+    </On>
+
+    <On Event="SPOILERS_TOGGLE">
+      1 (&gt;L:CS_Switch_lever2, number)
+    </On>
+
+    <On Event="TOGGLE_GPS_DRIVES_NAV1">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="GPWS_SWITCH_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="ANTISKID_BRAKES_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="PARKING_BRAKES">
+      1 (&gt;L:CS_Parking_Brake, number)
+    </On>
+
+    <On Event="ADF_1_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF_1_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF_100_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF_100_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF_10_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF_10_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF1_RADIO_TENTHS_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF1_RADIO_TENTHS_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF1_WHOLE_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="ADF1_WHOLE_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM_RADIO_WHOLE_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM_RADIO_WHOLE_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM_RADIO_FRACT_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM_RADIO_FRACT_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM2_RADIO_WHOLE_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM2_RADIO_WHOLE_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM2_RADIO_FRACT_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="COM2_RADIO_FRACT_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV1_RADIO_FRACT_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV1_RADIO_FRACT_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV1_RADIO_WHOLE_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV1_RADIO_WHOLE_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV2_RADIO_FRACT_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV2_RADIO_FRACT_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV2_RADIO_WHOLE_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="NAV2_RADIO_WHOLE_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="XPNDR_10_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_10_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_1_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_1_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_100_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_100_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_1000_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="XPNDR_1000_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="RESET_G_FORCE_INDICATOR">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="ATTITUDE_CAGE_BUTTON">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="KOHLSMAN_DEC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+    <On Event="KOHLSMAN_INC">
+      1 (&gt;L:CS_Selector1, number)
+    </On>
+
+    <On Event="COM1_TRANSMIT_SELECT">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="COM2_TRANSMIT_SELECT">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="COM_RECEIVE_ALL_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="RADIO_VOR1_IDENT_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="RADIO_VOR2_IDENT_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="MARKER_SOUND_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="RADIO_SELECTED_DME_IDENT_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="RADIO_ADF_IDENT_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="COM_STBY_RADIO_SWAP">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="COM2_STBY_RADIO_SWAP">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="NAV1_RADIO_SWAP">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="NAV2_RADIO_SWAP">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="AUTO_THROTTLE_ARM">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+
+    <On Event="AUTOPILOT_ON">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="TOGGLE_FLIGHT_DIRECTOR">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_MASTER">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="YAW_DAMPER_TOGGLE">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_MACH_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_BC_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_AIRSPEED_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_APR_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_VS_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_NAV1_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_PANEL_SPEED_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_PANEL_MACH_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_PANEL_HEADING_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_PANEL_ALTITUDE_HOLD">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="AP_WING_LEVELER">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="VOR1_OBI_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="VOR1_OBI_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="HEADING_BUG_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="HEADING_BUG_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_ALT_VAR_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_ALT_VAR_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_VS_VAR_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_VS_VAR_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_MACH_VAR_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_MACH_VAR_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_SPD_VAR_INC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+    <On Event="AP_SPD_VAR_DEC">
+      1 (&gt;L:CS_Selector2, number)
+    </On>
+
+   <On Event="CABIN_SEATBELTS_ALERT_SWITCH_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal2, number)
+    </On>
+    <On Event="CABIN_NO_SMOKING_ALERT_SWITCH_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal3, number)
+    </On>
+
+    <On Event="TOGGLE_AIRCRAFT_EXIT">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="TOGGLE_JETWAY">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+    <On Event="REQUEST_FUEL_KEY">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="VIEW_ALWAYS_PAN_UP">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+    <On Event="VIEW_ALWAYS_PAN_DOWN">
+      1 (&gt;L:CS_Switch_Button, number)
+    </On>
+
+    <On Event="SMOKE_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+
+    <On Event="VIDEO_RECORD_TOGGLE">
+      1 (&gt;L:CS_Switch_Metal1, number)
+    </On>
+  </Keys>
+
+  <Element>
+    <Select>
+      <Value>
+      </Value>
+    </Select>
+  </Element>
+</Gauge>

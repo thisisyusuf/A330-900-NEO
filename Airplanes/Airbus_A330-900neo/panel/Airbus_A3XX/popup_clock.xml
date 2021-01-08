@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>popup_clock.xml</Filename>
+	<SimGauge.Gauge id="popup_clock" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>105,105</Size>
+		<Image id="Image" Name="popup_clock_background.bmp">
+			<Transparent>True</Transparent>
+		</Image>
+
+		<Element id="RN-HL-RS">
+			<FloatPosition>16.844,94.844</FloatPosition>
+			<Image id="Image" Name="popup_clock_button_bottom_left.bmp">
+				<Transparent>True</Transparent>
+				<Axis>10.844,3.844</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>WEST</PointsTo>
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>3.000</Maximum>
+					<Script>(L:Clock Run Hold, number) (L:Clock Stopwatch Reset,number) +</Script>
+				</Expression>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="HLD">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>5.000,88.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="RUN">
+						<ExpressionResult>1</ExpressionResult>
+						<FloatPosition>9.000,81.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="RST">
+						<ExpressionResult>2</ExpressionResult>
+						<FloatPosition>30.000,88.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="RST">
+						<ExpressionResult>3</ExpressionResult>
+						<FloatPosition>30.000,88.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+				<Delay id="Delay">
+					<DelayValue>360.000</DelayValue>
+					<DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+		<Element id="DAT">
+			<FloatPosition>94.156,14.500</FloatPosition>
+			<Image id="Image" Name="popup_clock_button_top_right.bmp">
+				<Transparent>True</Transparent>
+				<Axis>10.156,4.500</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>WEST</PointsTo>
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:Clock DAT Depressed, number)</Script>
+				</Expression>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="DN">
+						<ExpressionResult>1</ExpressionResult>
+						<FloatPosition>87.000,22.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="UP">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>84.000,14.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+				<Delay id="Delay">
+					<DelayValue>360.000</DelayValue>
+					<DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+
+		<Element id="CHR">
+			<FloatPosition>13.344,13.844</FloatPosition>
+			<Image id="Image" Name="popup_clock_button_top_left.bmp">
+				<Transparent>True</Transparent>
+				<Axis>7.344,7.844</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+			</Rotation>
+		</Element>
+
+		<Element id="TIME Readout">
+			<FloatPosition>36.000,29.000</FloatPosition>
+			<GaugeText id="VS Readout Readout">
+				<Bright>True</Bright>
+				<FontFace>Quartz</FontFace>
+				<FontColor>white</FontColor>
+				<FontHeight>14</FontHeight>
+				<GaugeString>
+					%((L:Clock DAT Function))%
+					%{case}
+						%{:0}%((P:Zulu time, hours) 24 % flr)%!02d!
+							 %((P:Zulu time, seconds) 2 % 0 ==)%{if}:%{else} %{end}
+							 %((P:Zulu time, minutes) 60 % flr)%!02d!
+						%{:1}%((P:Zulu day of month, number))%!2d! 
+							 %((P:Zulu month of year, number))%!2d!
+						%{:2}%((P:Zulu year, number))%!5d!
+					%{end}
+				</GaugeString>
+				<HorizontalAlign>CENTER</HorizontalAlign>
+				<Size>33,12</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+
+		<Element id="ET-CHR Readout">
+			<FloatPosition>36.000,64.000</FloatPosition>
+			<GaugeText id="ET-CHR Readout Readout">
+				<Bright>True</Bright>
+				<FontFace>Quartz</FontFace>
+				<FontColor>white</FontColor>
+				<FontHeight>15</FontHeight>
+				<GaugeString>
+					%((L:Clock Chronograph Mode, number) s1)
+					%{if}
+					%(
+						(L:Clock Stopwatch, number) s1
+						1 ==
+						if{
+							 (P:Absolute time, seconds)
+							 (L:Stopwatch Last Abs Time, seconds) 
+							 -
+							 (L:Stopwatch Seconds Elapsed,seconds)
+							 +
+							 (&gt;L:Stopwatch Seconds Elapsed,seconds)
+							}
+						(P:Absolute time, seconds) (&gt;L:Stopwatch Last Abs Time, seconds)
+					)
+					%{end}
+ 					%((L:Stopwatch Seconds Elapsed,seconds) abs 60 / flr 99 min)%!02d!
+					:
+					%((L:Stopwatch Seconds Elapsed,seconds) abs 60 % flr)%!02d!
+				</GaugeString>
+				<HorizontalAlign>CENTER</HorizontalAlign>
+				<Size>33,13</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+
+		<Element id="Sweep Needle">
+			<FloatPosition>53.000,53.156</FloatPosition>
+			<Image id="Image" Name="popup_clock_needle.bmp">
+				<Transparent>True</Transparent>
+				<Axis>5.000,35.156</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>60.000</Maximum>
+					<Script>
+						(L:Clock Chronograph Accumulated, seconds) 
+						(L:Clock Chronograph Mode, number) 
+						1 == if{ 
+							(P:Absolute time, seconds) 
+							(L:Clock Chronograph Start, seconds) -
+							+ 
+						} 
+						60 % flr
+					</Script>
+				</Expression>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>53.000,17.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>30</ExpressionResult>
+						<FloatPosition>53.000,88.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+			</Rotation>
+		</Element>
+
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>105,105</Size>
+			<Tooltip id="Tooltip">
+				<DefaultId>TOOLTIPTEXT_CLOCK</DefaultId>
+			</Tooltip>
+			<MouseArea id="CHR">
+				<FloatPosition>7.000,7.000</FloatPosition>
+				<Size>13,15</Size>
+				<CursorType>Hand</CursorType>
+				<HelpId>HELPID_GAUGE_CLOCK_MODE_SELECT</HelpId>
+				<MouseClick id="MouseClick">
+					<Script>
+						(L:Clock Chronograph Mode, number)  s1 
+						0 == if{ 
+								1 (&gt;L:Clock Chronograph Mode, number) 
+								(P:Absolute time, seconds) (&gt;L:Clock Chronograph Start, seconds) 
+								0 (&gt;L:Clock Chronograph Accumulated, seconds) 
+								} 
+
+						l1 
+						1 == if{ 
+								2 (&gt;L:Clock Chronograph Mode, number) 
+								(L:Clock Chronograph Accumulated, seconds) 
+								(P:Absolute time, seconds) 
+								(L:Clock Chronograph Start, seconds) -
+								+ 
+								(&gt;L:Clock Chronograph Accumulated, seconds) 
+								} 
+
+						l1
+						2 == if{ 
+								0 (&gt;L:Clock Chronograph Mode, number) 
+								0 (&gt;L:Clock Chronograph Accumulated, seconds) 
+								} 
+					</Script>
+				</MouseClick>
+			</MouseArea>
+			<MouseArea id="DAT  L:Clock DAT Function is DAT 0=Clock,1=Date,2=Year">
+ 				<FloatPosition>83.000,5.000</FloatPosition>
+				<Size>19,15</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:Clock DAT Depressed,number) } 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == 
+						if{ 0 (&gt;L:Clock DAT Depressed,number) 
+							(L:Clock DAT Function) 1 + 
+							3 % 
+							(&gt;L:Clock DAT Function) 
+						}
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+				</MouseClick>
+			</MouseArea>
+			<MouseArea id="RUN HLD">
+				<FloatPosition>0.000,75.000</FloatPosition>
+				<Size>16,30</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(L:Clock Run Hold, number) ++ 2 % (&gt;L:Clock Run Hold, number)
+						(G:Var1) 2 &lt;
+						if{
+							1 (&gt;L:Clock Stopwatch)
+							0 (&gt;L:Stopwatch Seconds Elapsed, seconds)
+						}
+						els{
+ 							(L:Clock Stopwatch, number) ++ 2 % s0 (&gt;L:Clock Stopwatch) 
+						}
+						(P:Absolute time, seconds, seconds) (&gt;L:Stopwatch Seconds T0, seconds)
+						2 (&gt;G:Var1) 
+					</Script>
+				</MouseClick>
+			</MouseArea>
+			<MouseArea id="RST">
+				<FloatPosition>17.000,89.000</FloatPosition>
+				<Size>19,16</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Event) &apos;LeftSingle&apos; 
+						scmp 0 == 
+						if{
+							2 (&gt;L:Clock Stopwatch Reset,number)
+							2 (&gt;G:Var1) 
+							1 (&gt;L:Clock Stopwatch)
+							(P:Absolute time, seconds, seconds) (&gt;L:Stopwatch Seconds T0, seconds)
+							0 (&gt;L:Stopwatch Seconds Elapsed, seconds)
+						} 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:Clock Stopwatch Reset,number) }
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+				</MouseClick>
+			</MouseArea>
+			<Tooltip id="Tooltip">
+				<DefaultId>HELPID_GAUGE_CLOCK</DefaultId>
+			</Tooltip>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

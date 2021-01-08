@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>mfd_terrain.xml</Filename>
+	<SimGauge.Gauge id="mfd_terrain" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>27,17</Size>
+
+		<Element id="TERRAIN">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:Terrain Mode, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="mfd_terrain_off.bmp">
+						<Transparent>True</Transparent>
+						<Luminous>True</Luminous>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="mfd_terrain_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="TERRAIN">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>27,17</Size>
+			<CursorType>Hand</CursorType>
+			<MouseClick id="MouseClick">
+				<Script>
+					(L:Terrain Mode, bool) ! (&gt;L:Terrain Mode, bool) 1 (&gt;L:CS_Switch_Button, enum)
+				</Script>
+				<ClickType>LeftSingle</ClickType>
+			</MouseClick>
+		</MouseArea>
+
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>autopilot.xml</Filename>
+    <SimGauge.Gauge id="autopilot" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>339,110</Size>
+        <Image id="Image" Name="autopilot_background.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+
+        <Element id="SPD MACH">
+            <FloatPosition>5.000,84.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:SPD MACH Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_spd_mach_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_spd_mach_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+		<Element id="IAS MACH Readout  (G:Var6 controls IAS-Mach) 0=IAS">
+			<Visibility>(G:Var6,number) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <FloatPosition>13.000,16.000</FloatPosition>
+            <GaugeText id="IAS MACH Readout">
+            	<Bold>True</Bold>
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:AUTOPILOT AIRSPEED HOLD var, knots))%!4d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>50,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+		<Element id="IAS MACH Readout  (G:Var6 controls IAS-Mach) 1=Mach">
+			<Visibility>(G:Var6,number) 1 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <FloatPosition>7.000,16.000</FloatPosition>
+            <GaugeText id="IAS MACH Readout">
+            	<Bold>True</Bold>
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:AUTOPILOT MACH HOLD VAR, mach))%!6.2f!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>60,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+
+		<Element id="HDG Readout">
+            <FloatPosition>66.000,16.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="HDG Readout">
+            	<Bold>True</Bold>
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:AUTOPILOT HEADING LOCK DIR, degrees) near 360 % d 0 == if{ 360 } )%!4d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>40,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+
+		<Element id="CRS Readout">
+            <FloatPosition>113.000,16.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="CRS Readout">
+                <Bright>True</Bright>
+                <Bold>True</Bold>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:NAV1 OBS, degrees) near 360 % d 0 == if{ 360 })%!3d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>40,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+
+		<Element id="ALT Readout">
+            <FloatPosition>205.000,16.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="ALT Readout">
+            	<Bold>True</Bold>
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((P:Units of measure, enum) 2 == if{ (A:AUTOPILOT ALTITUDE LOCK VAR, meters) } els{ (A:AUTOPILOT ALTITUDE LOCK VAR, feet) } 99999 min 0 max)%!05d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>56,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+
+		<Element id="VS Readout">
+            <FloatPosition>265.000,16.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+            <GaugeText id="VS Readout Readout">
+            	<Bold>True</Bold>
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>17</FontHeight>
+                <GaugeString>%((A:AUTOPILOT VERTICAL HOLD VAR, feet per minute))%!04d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>50,18</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+		</Element>
+
+        <Element id="APR">
+            <FloatPosition>85.000,91.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT APPROACH HOLD, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_apr_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_apr_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="LOC">
+            <FloatPosition>113.000,91.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT NAV1 LOCK, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_loc_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_loc_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="AP">
+            <FloatPosition>161.000,42.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT MASTER, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_ap_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_ap_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="ATHR">
+            <FloatPosition>161.000,65.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT THROTTLE ARM, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_athr_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_button_athr_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="Speed Knob">
+            <FloatPosition>31.000,47.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT AIRSPEED HOLD, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_1_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_1_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                 </Case>
+            </Select>
+        </Element>
+
+        <Element id="HDG Knob">
+            <FloatPosition>76.000,47.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT HEADING LOCK, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_2_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_2_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                 </Case>
+            </Select>
+        </Element>
+
+        <Element id="CRS Knob">
+            <FloatPosition>121.000,47.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>0</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image Name="autopilot_knob_crs_out.bmp">
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image Name="autopilot_knob_crs_in.bmp">
+					</Image>
+                 </Case>
+            </Select>
+        </Element>
+
+        <Element id="Altitude Outer Concentric Knob">
+            <FloatPosition>208.000,44.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:AUTOPILOT ALTITUDE LOCK, bool) 2 * (L:AP ALT CHG RATE, number) +</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_3_100_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_3_1000_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_3_100_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_3_1000_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="Vertical Speed Knob">
+            <FloatPosition>279.000,57.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:AUTOPILOT VERTICAL HOLD, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_4_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="autopilot_knob_4_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+            </Select>
+        </Element>
+
+        <Element id="SPD">
+            <FloatPosition>33.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_spd.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="HDG">
+            <FloatPosition>80.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_hdg_1.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="LAT">
+            <FloatPosition>124.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_crs.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="VS">
+            <FloatPosition>164.000,15.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_vs_2.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="ALT">
+            <FloatPosition>203.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_alt.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="LVL CH">
+            <FloatPosition>228.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_lvl_ch.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+        <Element id="VS">
+            <FloatPosition>288.000,6.000</FloatPosition>
+            <Image id="Image" Name="autopilot_text_vs_2.bmp">
+                <Transparent>True</Transparent>
+                <Bright>True</Bright>
+            </Image>
+        </Element>
+
+        <MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+        	<Size>339,110</Size>
+			<MouseArea id="IAS-Mach Pushbutton">
+				<FloatPosition>8.000,86.000</FloatPosition>
+				<Size>19,19</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+				    (M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:IAS Mach Pressed,bool)
+				    (G:Var6) 1 + 2 % (&gt;G:Var6,number) }
+				    (M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:IAS Mach Pressed,bool) }
+				    </Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>HELPID_B737_AUTOPILOT_IAS_MACH_SELECT</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="Speed Knob (IAS or MACH)">
+                <FloatPosition>27.000,43.000</FloatPosition>
+                <Size>33,33</Size>
+                <HelpId>HELPID_AUTOPILOT_SPEED_HOLD</HelpId>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>14,33</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var6,number) 0 ==
+                        	if{ 1 (&gt;K:AP_SPD_VAR_DEC) }
+                        	els{ 1 (&gt;K:AP_MACH_VAR_DEC) }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.000,0.000</FloatPosition>
+                    <Size>15,33</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(G:Var6,number) 0 ==
+                        	if{ 1 (&gt;K:AP_SPD_VAR_INC) }
+                        	els{ 1 (&gt;K:AP_MACH_VAR_INC) }
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_SPEED_INDICATOR_KNOTS</DefaultId>
+                    <MetricId>TOOLTIPTEXT_AUTOPILOT_SPEED_INDICATOR_KILOS</MetricId>
+                    <EnglishId>TOOLTIPTEXT_AUTOPILOT_SPEED_INDICATOR_KNOTS</EnglishId>
+                </Tooltip>
+            </MouseArea>
+		   <MouseArea id="SPD Knob Push-Pull">
+				<FloatPosition>41.000,43.000</FloatPosition>
+				<Size>6,33</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_PANEL_SPEED_HOLD</KeyEvent>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOPILOT_SPEED_HOLD</DefaultId>
+					<MetricId>TOOLTIPTEXT_AUTOPILOT_SPEED_HOLD</MetricId>
+					<EnglishId>TOOLTIPTEXT_AUTOPILOT_SPEED_HOLD</EnglishId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="HDG Knob">
+                <FloatPosition>71.000,43.000</FloatPosition>
+                <Size>33,33</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>14,25</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>HEADING_BUG_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>20.500,0.000</FloatPosition>
+                    <Size>15,33</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>HEADING_BUG_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_HEADING_REF</DefaultId>
+                    <MetricId>TOOLTIPTEXT_AUTOPILOT_HEADING_REF</MetricId>
+                    <EnglishId>TOOLTIPTEXT_AUTOPILOT_HEADING_REF</EnglishId>
+                </Tooltip>
+            </MouseArea>
+		   <MouseArea id="HDG Knob Push-Pull">
+				<FloatPosition>85.000,43.000</FloatPosition>
+				<Size>6,33</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_PANEL_HEADING_HOLD</KeyEvent>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_HEADING_HOLD</DefaultId>
+                    <MetricId>TOOLTIPTEXT_AUTOPILOT_HEADING_HOLD</MetricId>
+                    <EnglishId>TOOLTIPTEXT_AUTOPILOT_HEADING_HOLD</EnglishId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="Course Knob">
+                <FloatPosition>117.000,43.000</FloatPosition>
+                <Size>28,30</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>18,32</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <HelpId>HELPID_GAUGE_HSI_OBS1</HelpId>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>VOR1_OBI_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>14.000,0.000</FloatPosition>
+                    <Size>18,32</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <HelpId>HELPID_GAUGE_HSI_OBS1</HelpId>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>VOR1_OBI_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_HSI_HEADING_COURSE</DefaultId>
+				</Tooltip>
+            </MouseArea>
+
+			<MouseArea id="APR Pushbutton">
+				<FloatPosition>85.000,90.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_APR_HOLD</KeyEvent>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_APP_HOLD</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="VOR LOC Pushbutton">
+				<FloatPosition>113.000,90.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_NAV1_HOLD</KeyEvent>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_NAV_HOLD</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="AP Pushbutton">
+				<FloatPosition>161.000,42.000</FloatPosition>
+				<Size>22,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_MASTER</KeyEvent>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOPILOT_MASTER</DefaultId>
+				</Tooltip>
+			</MouseArea>
+			<MouseArea id="ATHR Pushbutton">
+				<FloatPosition>161.000,65.000</FloatPosition>
+				<Size>22,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(A:AUTOPILOT THROTTLE ARM, bool) 1 == if{ 1 (&gt;K:AUTO_THROTTLE_ARM) } els{ 0 (&gt;K:AUTO_THROTTLE_ARM) }</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOPILOT_AUTOTHROTTLE</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="Altitude Change Rate Knob - 100">
+                <FloatPosition>215.000,51.000</FloatPosition>
+                <Size>9,35</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:AP ALT CHG RATE, number) ++ 2 % (&gt;L:AP ALT CHG RATE, number)</Script>
+				</MouseClick>
+                 <Tooltip id="Tooltip">
+                    <DefaultId></DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Altitude Change Rate Knob - 1000">
+				<FloatPosition>247.000,51.000</FloatPosition>
+				<Size>9,35</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:AP ALT CHG RATE, number) ++ 2 % (&gt;L:AP ALT CHG RATE, number)</Script>
+				</MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId></DefaultId>
+                </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="Altitude Knob">
+                <FloatPosition>224.000,58.000</FloatPosition>
+                <Size>22,22</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>8,22</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(L:AP ALT CHG RATE, number)
+                        	0 ==
+                        	if{ 100 } els{ 1000 }
+                        	(&gt;K:AP_ALT_VAR_DEC)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>14.000,0.000</FloatPosition>
+                    <Size>8,22</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        	(L:AP ALT CHG RATE, number)
+                        	0 ==
+                        	if{ 100 } els{ 1000 }
+                        	(&gt;K:AP_ALT_VAR_INC)
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_ALTITUDE_INDICATOR_FEET</DefaultId>
+                    <MetricId>TOOLTIPTEXT_AUTOPILOT_ALTITUDE_INDICATOR_METERS</MetricId>
+                    <EnglishId>TOOLTIPTEXT_AUTOPILOT_ALTITUDE_INDICATOR_FEET</EnglishId>
+                </Tooltip>
+            </MouseArea>
+		   <MouseArea id="ALT Knob Push-Pull">
+				<FloatPosition>232.000,58.000</FloatPosition>
+				<Size>6,22</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>AP_PANEL_ALTITUDE_HOLD</KeyEvent>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_ALTITUDE_HOLD</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+            <MouseArea id="VS Knob">
+                <FloatPosition>274.000,52.000</FloatPosition>
+                <Size>32,32</Size>
+                <MouseArea id="Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>13,32</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>AP_VS_VAR_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Increment">
+                    <FloatPosition>19.000,0.000</FloatPosition>
+                    <Size>13.32</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>AP_VS_VAR_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_AUTOPILOT_VSI_INDICATOR_FTMIN</DefaultId>
+                    <MetricId>TOOLTIPTEXT_AUTOPILOT_VSI_INDICATOR_MS</MetricId>
+                    <EnglishId>TOOLTIPTEXT_AUTOPILOT_VSI_INDICATOR_FTMIN</EnglishId>
+                </Tooltip>
+           </MouseArea>
+		   <MouseArea id="VS Knob Push to Level Off">
+				<FloatPosition>287.000,52.000</FloatPosition>
+				<Size>6,32</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						0 (&gt;K:AP_VS_VAR_SET_ENGLISH)
+						(A:Indicated Altitude, feet) 100 / int 100 *
+						(&gt;K:AP_ALT_VAR_SET_ENGLISH)
+					</Script>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+                    <DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+        </MouseArea>
+
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>pfd_mfd_select_panel_fo.xml</Filename>
+	<SimGauge.Gauge id="pfd_mfd_select_panel_fo" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>207,110</Size>
+		<Image id="Image" Name="pfd_mfd_select_panel_background_fo.bmp">
+			<Transparent>True</Transparent>
+		</Image>
+
+		<Element id="Baro Readout">
+			<FloatPosition>153.000,23.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+			<GaugeText id="Baro IN">
+				<Bold>True</Bold>
+				<Bright>True</Bright>
+				<FontFace>Quartz</FontFace>
+				<FontColor>white</FontColor>
+				<FontHeight>14</FontHeight>
+				<GaugeString>%((L:HPA Button, number))%{case}%{:0}%((A:KOHLSMAN SETTING HG:1, inHg))%!6.2f!%{else}%((A:KOHLSMAN SETTING HG:1, mbar))%!6.1f!%{end}</GaugeString>
+				<HorizontalAlign>CENTER</HorizontalAlign>
+				<Size>47,18</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+
+		<Element id="FD Button">
+			<FloatPosition>153.000,87.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(A:AUTOPILOT FLIGHT DIRECTOR ACTIVE, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_fd_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_fd_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="ILS Button">
+			<FloatPosition>180.000,87.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:ILS Mode, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_ils_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_ils_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Show CSTR">
+			<FloatPosition>9.000,12.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>0</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_cstr_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_cstr_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Show Waypoints">
+			<FloatPosition>36.000,12.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (L:MapItem Shown, number) 0 == } els{ 0 }</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_wpt_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_wpt_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Show VORD">
+			<FloatPosition>64.000,12.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (L:MapItem Shown, number) 1 == } els{ 0 }</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_vor_d_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_vor_d_annunciator_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Show NDBs">
+			<FloatPosition>92.000,12.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (L:MapItem Shown, number) 2 == } els{ 0 }</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_ndb_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_ndb_annunciator_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Show Airports">
+			<FloatPosition>120.000,12.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (L:MapItem Shown, number) 3 == } els{ 0 }</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_arpt_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_button_arpt_annunciator_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Baro Units Knob">
+			<FloatPosition>157.000,46.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:HPA Button, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_1_inhg.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_1_hpa.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="VOR 1 Switch">
+			<FloatPosition>11.000,87.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>2.000</Maximum>
+					<Script>(L:VOR 1 Switch, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_1_vor.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_1_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_1_adf.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="VOR 2 Switch">
+			<FloatPosition>74.000,87.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>2.000</Maximum>
+					<Script>(L:VOR 2 Switch, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_2_vor.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_2_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_switch_2_adf.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Display Mode Knob">
+			<FloatPosition>2.000,40.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>3.000</Maximum>
+					<Script>(L:Display Mode, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_2_ls.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_2_vor.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_2_nav.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_2_arc.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="Scale Knob">
+			<FloatPosition>79.000,40.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>5.000</Maximum>
+					<Script>(L:Display Scale, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_10.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_20.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_40.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_80.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>4</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_160.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>5</ExpressionResult>
+					<Image id="Image" Name="pfd_mfd_select_panel_knob_3_320.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>207,110</Size>
+
+			<MouseArea id="Baro Knob">
+				<FloatPosition>166.000,57.000</FloatPosition>
+				<Size>22,22</Size>
+				<MouseArea id="Decrement">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>7,22</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>1 (&gt; K:KOHLSMAN_DEC, number)</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Increment">
+					<FloatPosition>15.000,0.000</FloatPosition>
+					<Size>7,22</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>1 (&gt; K:KOHLSMAN_INC, number)</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_ALTIMETER_KOHLSMAN_INHG</DefaultId>
+					<MetricId>TOOLTIPTEXT_ALTIMETER_KOHLSMAN_MBAR</MetricId>
+					<EnglishId>TOOLTIPTEXT_ALTIMETER_KOHLSMAN_INHG</EnglishId>
+				</Tooltip>
+			</MouseArea>
+
+ 			<MouseArea id="Baro Mode">
+				<FloatPosition>158.000,50.000</FloatPosition>
+				<Size>7,36</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:HPA Button, number) ++ 2 % (&gt;L:HPA Button, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="Baro Mode">
+				<FloatPosition>189.000,50.000</FloatPosition>
+				<Size>7,36</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:HPA Button, number) ++ 2 % (&gt;L:HPA Button, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="Baro Mode">
+				<FloatPosition>167.000,50.000</FloatPosition>
+				<Size>14,6</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:HPA Button, number) ++ 2 % (&gt;L:HPA Button, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="Baro Mode">
+				<FloatPosition>166.000,79.000</FloatPosition>
+				<Size>14,6</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:HPA Button, number) ++ 2 % (&gt;L:HPA Button, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="PULL STD Baro - Center Knob">
+				<FloatPosition>174.000,56.000</FloatPosition>
+				<Size>8,23</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>1 (&gt; K:BAROMETRIC_STD_PRESSURE, number)</Script>
+			   	</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_A321_STD_BARO_PULL</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="FD Button">
+				<FloatPosition>152.000,87.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>TOGGLE_FLIGHT_DIRECTOR</KeyEvent>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_AUTOPILOT_FLIGHT_DIRECTOR_SWITCH</DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="ILS Button">
+				<FloatPosition>180.000,87.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:ILS Mode, bool) ! (&gt;L:ILS Mode, bool)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+  			<MouseArea id="WYPT Button">
+				<FloatPosition>36.000,13.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>0 (&gt;L:MapItem Shown, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="VORD Button">
+				<FloatPosition>64.000,13.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>1 (&gt;L:MapItem Shown, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="NDB Button">
+				<FloatPosition>91.000,13.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>2 (&gt;L:MapItem Shown, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="ARPT Button">
+				<FloatPosition>119.000,13.000</FloatPosition>
+				<Size>21,18</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>3 (&gt;L:MapItem Shown, number)</Script>
+			   </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="Display Mode Knob">
+				<FloatPosition>20.000,40.000</FloatPosition>
+				<Size>38,38</Size>
+				<MouseArea id="Decrement">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>19,38</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Display Mode, number) -- s0 -1 &gt; if{ l0 (&gt;L:Display Mode, number) }</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Increment">
+					<FloatPosition>19.000,0.000</FloatPosition>
+					<Size>19,38</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Display Mode, number) ++ s0 4 &lt; if{ l0 (&gt;L:Display Mode, number) }</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+                </MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="Display Range Knob">
+				<FloatPosition>90.000,40.000</FloatPosition>
+				<Size>42,38</Size>
+				<MouseArea id="Decrement">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>21,38</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Display Scale, number) -- s0 -1 &gt; if{ l0 (&gt;L:Display Scale, number) }</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Increment">
+					<FloatPosition>21.000,0.000</FloatPosition>
+					<Size>21,38</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Display Scale, number) ++ s0 6 &lt; if{ l0 (&gt;L:Display Scale, number) }</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+                </MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="VOR 1 Toggle Switch">
+				<FloatPosition>20.000,83.000</FloatPosition>
+				<Size>40,24</Size>
+				<MouseArea id="VOR 1 Toggle Switch DEC">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>20,24</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:VOR 1 Switch, number) ++ s0 2 &gt; if{ 2 } els{ l0 } (&gt;L:VOR 1 Switch, number)</Script>
+				    </MouseClick>
+				</MouseArea>
+				<MouseArea id="VOR 1 Toggle Switch INC">
+					<FloatPosition>20.000,0.000</FloatPosition>
+					<Size>20,24</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:VOR 1 Switch, number) -- s0 0 &lt; if{ 0 } els{ l0 } (&gt;L:VOR 1 Switch, number)</Script>
+				   </MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+ 			<MouseArea id="VOR 2 Toggle Switch">
+				<FloatPosition>82.000,83.000</FloatPosition>
+				<Size>40,24</Size>
+				<CursorType>Hand</CursorType>
+				<MouseArea id="VOR 2 Toggle Switch DEC">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>20,24</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:VOR 2 Switch, number) ++ s0 2 &gt; if{ 2 } els{ l0 } (&gt;L:VOR 2 Switch, number)</Script>
+				   </MouseClick>
+				</MouseArea>
+				<MouseArea id="VOR 2 Toggle Switch INC">
+					<FloatPosition>20.000,0.000</FloatPosition>
+					<Size>20,24</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:VOR 2 Switch, number) -- s0 0 &lt; if{ 0 } els{ l0 } (&gt;L:VOR 2 Switch, number)</Script>
+				   </MouseClick>
+				</MouseArea>
+				<Tooltip id="Tooltip">
+					<DefaultId></DefaultId>
+				</Tooltip>
+			</MouseArea>
+      </MouseArea>
+
+	</SimGauge.Gauge>
+</SimBase.Document>

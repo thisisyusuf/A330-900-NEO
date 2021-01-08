@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>Attitude_Backup.xml</Filename>
+	<SimGauge.Gauge id="Attitude_Backup" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>105,104</Size>
+		<Element id="Background">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Background.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Attitude Ball">
+			<FloatPosition>8.000,9.000</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Sky_Ground_Strip.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+				<Axis>47,150</Axis>
+			</Image>
+			<MaskImage id="Image" Name="Attitude_Backup_Sky_Ground_Strip_Mask.bmp">
+				<Transparent>True</Transparent>
+				<Axis>40,40</Axis>
+			</MaskImage>
+			<Shift id="Shift">
+				<Scale>0.000,-1.07</Scale>
+				<Expression id="Expression">
+					<Minimum>-90.000</Minimum>
+					<Maximum>90.000</Maximum>
+					<Script>(A:ATTITUDE INDICATOR PITCH DEGREES:2, degrees) </Script>
+				</Expression>
+			</Shift>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Script>(A:ATTITUDE INDICATOR BANK DEGREES:2, radians)</Script>
+				</Expression>
+			</Rotation>
+		</Element>
+		<Element id="Aircraft Symbol">
+			<FloatPosition>8.000,10.000</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Plane_Symbol.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>-18,-39</Axis>
+			</Image>
+			<MaskImage id="MaskImage" Name="Attitude_Backup_Sky_Ground_Strip_Mask.bmp">
+			</MaskImage>
+			<Shift id="Shift">
+				<Scale>0.000,-1.000</Scale>
+				<Expression id="Expression">
+					<Minimum>-10.000</Minimum>
+					<Maximum>10.000</Maximum>
+					<Script>(G:Var3, number)</Script>
+				</Expression>
+			</Shift>
+		</Element>
+		<Element id="Outer Ring">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Outer_Ring.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+			</Image>
+		</Element>
+		<Element id="Roll Indicator">
+			<FloatPosition>49.000,49.667</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Roll_Indicator.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+				<Axis>3.000,41.667</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Minimum>-60.000</Minimum>
+					<Maximum>60.000</Maximum>
+					<Script>(A:ATTITUDE INDICATOR BANK DEGREES:2, degrees)</Script>
+				</Expression>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>-60</ExpressionResult>
+						<FloatPosition>13.000,28.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>-45</ExpressionResult>
+						<FloatPosition>19.000,20.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>-30</ExpressionResult>
+						<FloatPosition>28.000,14.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>48.000,8.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>30</ExpressionResult>
+						<FloatPosition>68.000,14.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>45</ExpressionResult>
+						<FloatPosition>77.000,20.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>60</ExpressionResult>
+						<FloatPosition>83.000,29.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+			</Rotation>
+		</Element>
+		<Element id="Shadow">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Image id="Attitude Shadow" Alpha="True" Name="Attitude_Backup_Shadow.bmp">
+				<Transparent>True</Transparent>
+			</Image>
+		</Element>
+		<Element id="Calibration Knob">
+			<FloatPosition>90.500,89.500</FloatPosition>
+			<Image id="Image" Name="Attitude_Backup_Knob.bmp">
+				<Transparent>True</Transparent>
+				<Axis>13.5,13.5</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>360.000</Maximum>
+					<Script>(G:Var2, number) dgrd</Script>
+				</Expression>
+			</Rotation>
+		</Element>
+
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>105,104</Size>
+			<MouseArea id="Calibration Knob">
+				<FloatPosition>79.000,80.000</FloatPosition>
+				<Size>25,25</Size>
+				<MouseArea id="Decrement">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>12,25</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>
+							(G:Var3) 1 - s1 -10 &lt; if{ -10 } els{ l1 } (&gt;G:Var3) 
+							(G:Var3) -10 &gt;
+							if{ (G:Var2) 10 - s0 0 &lt; if{ 340 } els{ l0 } (&gt;G:Var2) c }
+						</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Increment">
+					<FloatPosition>13.000,0.000</FloatPosition>
+					<Size>13,25</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>
+							(G:Var3) 1 + s1 10 &gt; if{ 10 } els{ l1 } (&gt;G:Var3)
+							(G:Var3) 10 &lt;
+							if{	(G:Var2) 10 + s0 360 &gt; if{ 0 (&gt;G:Var2) } els{ l0 } (&gt;G:Var2) c }
+						</Script>
+						<ClickRepeat>True</ClickRepeat>
+					</MouseClick>
+				</MouseArea>
+			</MouseArea>
+			<Tooltip id="Tooltip">
+				<DefaultId>HELPID_GAUGE_BACKUP_ATTITUDE</DefaultId>
+			</Tooltip>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

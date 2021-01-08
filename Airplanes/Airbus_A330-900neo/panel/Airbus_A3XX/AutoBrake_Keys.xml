@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Gauge Name="AutoBrake_Keys" Version="1.4">
+  <copyright>(c)2008 Hiroshi Igami, EDITED 2013 KENWIGAIR, Edited 2020 Phil Marion</copyright>
+
+  <Keys>
+    <On Event="SPOILERS_ARM_TOGGLE">
+    (A:SIM ON GROUND, bool) 1 == if{
+      (L:AutoBrake, enum) 0 == if{
+        -1 (&gt;L:AutoBrake, enum)
+      } els{
+        0 (&gt;L:AutoBrake, enum)
+      }
+    } els{
+      (L:AutoBrake, enum) 0 == if{
+        2 (&gt;L:AutoBrake, enum)
+      } els{
+        0 (&gt;L:AutoBrake, enum)
+      }
+    }
+    </On>
+  </Keys>  
+
+</Gauge>
+ 

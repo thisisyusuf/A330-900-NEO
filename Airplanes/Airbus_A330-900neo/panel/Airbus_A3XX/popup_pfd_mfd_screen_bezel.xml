@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>popup_pfd_mfd_screen_bezel.xml</Filename>
+    <SimGauge.Gauge id="popup_pfd_mfd_screen_bezel" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>341,353</Size>
+        <Image id="Image" Name="popup_pfd_mfd_screen_bezel_background.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>annunciator_panel_1.xml</Filename>
+	<SimGauge.Gauge id="annunciator_panel_1" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>438,103</Size>
+		<Image id="Image" Name="annunciator_panel_1_background.bmp">
+			<Transparent>True</Transparent>
+		</Image>
+
+	<!-- ******** WARNINGS ******** -->
+		<Macro Name="Fire_Eng1_Warning">
+			<MacroValue>(A:ENG1 ON FIRE, bool)</MacroValue>
+		</Macro>
+		<Macro Name="Fire_Eng2_Warning">
+			<MacroValue> (A:ENG2 ON FIRE, bool)</MacroValue>
+		</Macro>
+		<Macro Name="Fire_Apu_Warning">
+			<MacroValue> (A:APU ON FIRE DETECTED, bool)</MacroValue>
+		</Macro>
+		<Macro Name="OilPressure_Eng1_Warning">
+			<MacroValue> (A:ENG1 OIL PRESSURE, PSF) 3312 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="OilPressure_Eng2_Warning">
+			<MacroValue> (A:ENG2 OIL PRESSURE, PSF) 3312 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="FuelPressure_Eng1_Warning">
+			<MacroValue> (A:GENERAL ENG FUEL PRESSURE:1, PSF) 720 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="FuelPressure_Eng2_Warning">
+			<MacroValue> (A:GENERAL ENG FUEL PRESSURE:2, PSF) 720 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="HydraulicPressure_Eng1_Warning">
+			<MacroValue> (A:ENG HYDRAULIC PRESSURE:1, psi) 1450 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="HydraulicPressure_Eng2_Warning">
+			<MacroValue> (A:ENG HYDRAULIC PRESSURE:2, psi) 1450 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="Fuel_Qty_Total_Warning">
+			<MacroValue> (A:FUEL TOTAL QUANTITY, gallons) (A:FUEL TOTAL CAPACITY, gallons) / 0.10 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="Main_Door_Open_Warning">
+			<MacroValue> (A:CANOPY OPEN, bool) </MacroValue>
+		</Macro>
+		<Macro Name="Gear_Warning">
+			<MacroValue> (A:GEAR WARNING, bool)</MacroValue>
+		</Macro>
+		<Macro Name="Stall_Warning">
+			<MacroValue> (A:STALL WARNING, bool) </MacroValue>
+		</Macro>
+		<Macro Name="Overspeed_Warning">
+			<MacroValue> (A:OVERSPEED WARNING, bool) </MacroValue>
+		</Macro>
+
+		<Macro Name="WarningCondition">
+			<MacroValue>
+				@Fire_Eng1_Warning
+				@Fire_Eng2_Warning or
+				@Fire_Apu_Warning or
+				@OilPressure_Eng1_Warning or
+				@OilPressure_Eng2_Warning or
+				@FuelPressure_Eng1_Warning or
+				@FuelPressure_Eng2_Warning or
+				@HydraulicPressure_Eng1_Warning or
+				@HydraulicPressure_Eng2_Warning or
+				@Fuel_Qty_Total_Warning or 
+				@Main_Door_Open_Warning or 
+				@Gear_Warning or
+				@Stall_Warning or 
+				@Overspeed_Warning or
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Fire_Eng1_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Fire_Eng1_Warning (L:Fire_Eng1_Warning) ! &amp;&amp;
+				if{
+					1 (&gt;L:Fire_Eng1_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Fire_Eng1_Warning ! (L:Fire_Eng1_Warning) &amp;&amp;
+				if{
+					0 (&gt;L:Fire_Eng1_Warning)
+				}
+				(L:Fire_Eng1_Warning) (L:WarningsCleared) ! &amp;&amp;
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Fire_Eng2_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Fire_Eng2_Warning (L:Fire_Eng2_Warning) ! and
+				if{
+					1 (&gt;L:Fire_Eng2_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Fire_Eng2_Warning ! (L:Fire_Eng2_Warning) and
+				if{
+					0 (&gt;L:Fire_Eng2_Warning)
+				}
+				(L:Fire_Eng2_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Fire_Apu_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Fire_Apu_Warning (L:Fire_Apu_Warning) ! and
+				if{
+					1 (&gt;L:Fire_Apu_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Fire_Apu_Warning ! (L:Fire_Apu_Warning) and
+				if{
+					0 (&gt;L:Fire_Apu_Warning)
+				}
+				(L:Fire_Apu_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="OilPressure_Eng1_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@OilPressure_Eng1_Warning (L:OilPressure_Eng1_Warning) ! and
+				if{
+					1 (&gt;L:OilPressure_Eng1_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@OilPressure_Eng1_Warning ! (L:OilPressure_Eng1_Warning) and
+				if{
+					0 (&gt;L:OilPressure_Eng1_Warning)
+				}
+				(L:OilPressure_Eng1_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="OilPressure_Eng2_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@OilPressure_Eng2_Warning (L:OilPressure_Eng2_Warning) ! and
+				if{
+					1 (&gt;L:OilPressure_Eng2_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@OilPressure_Eng2_Warning ! (L:OilPressure_Eng2_Warning) and
+				if{
+					0 (&gt;L:OilPressure_Eng2_Warning)
+				}
+				(L:OilPressure_Eng2_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelPressure_Eng1_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelPressure_Eng1_Warning (L:FuelPressure_Eng1_Warning) ! and
+				if{
+					1 (&gt;L:FuelPressure_Eng1_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelPressure_Eng1_Warning ! (L:FuelPressure_Eng1_Warning) and
+				if{
+					0 (&gt;L:FuelPressure_Eng1_Warning)
+				}
+				(L:FuelPressure_Eng1_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelPressure_Eng2_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelPressure_Eng2_Warning (L:FuelPressure_Eng2_Warning) ! and
+				if{
+					1 (&gt;L:FuelPressure_Eng2_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelPressure_Eng2_Warning ! (L:FuelPressure_Eng2_Warning) and
+				if{
+					0 (&gt;L:FuelPressure_Eng2_Warning)
+				}
+				(L:FuelPressure_Eng2_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="HydraulicPressure_Eng1_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@HydraulicPressure_Eng1_Warning (L:HydraulicPressure_Eng1_Warning) ! and
+				if{
+					1 (&gt;L:HydraulicPressure_Eng1_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@HydraulicPressure_Eng1_Warning ! (L:HydraulicPressure_Eng1_Warning) and
+				if{
+					0 (&gt;L:HydraulicPressure_Eng1_Warning)
+				}
+				(L:HydraulicPressure_Eng1_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="HydraulicPressure_Eng2_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@HydraulicPressure_Eng2_Warning (L:HydraulicPressure_Eng2_Warning) ! and
+				if{
+					1 (&gt;L:HydraulicPressure_Eng2_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@HydraulicPressure_Eng2_Warning ! (L:HydraulicPressure_Eng2_Warning) and
+				if{
+					0 (&gt;L:HydraulicPressure_Eng2_Warning)
+				}
+				(L:HydraulicPressure_Eng2_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Fuel_Qty_Total_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Fuel_Qty_Total_Warning (L:Fuel_Qty_Total_Warning) ! and
+				if{
+					1 (&gt;L:Fuel_Qty_Total_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Fuel_Qty_Total_Warning ! (L:Fuel_Qty_Total_Warning) and
+				if{
+					0 (&gt;L:Fuel_Qty_Total_Warning)
+				}
+				(L:Fuel_Qty_Total_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Main_Door_Open_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Main_Door_Open_Warning (L:Main_Door_Open_Warning) ! &amp;&amp;
+				if{
+					1 (&gt;L:Main_Door_Open_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Main_Door_Open_Warning ! (L:Main_Door_Open_Warning) &amp;&amp;
+				if{
+					0 (&gt;L:Main_Door_Open_Warning)
+				}
+				(L:Main_Door_Open_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Gear_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Gear_Warning (L:Gear_Warning) ! and
+				if{
+					1 (&gt;L:Gear_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Gear_Warning ! (L:Gear_Warning) and
+				if{
+					0 (&gt;L:Gear_Warning)
+				}
+				(L:Gear_Warning) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Stall_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Stall_Warning (L:Stall_Warning) ! and
+				if{
+					1 (&gt;L:Stall_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Stall_Warning ! (L:Stall_Warning) and
+				if{
+					0 (&gt;L:Stall_Warning)
+				}
+				(L:Stall_Warning) (L:WarningsCleared) ! and 
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Overspeed_Warning_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Overspeed_Warning (L:Overspeed_Warning) ! and
+				if{
+					1 (&gt;L:Overspeed_Warning)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Overspeed_Warning ! (L:Overspeed_Warning) and
+				if{
+					0 (&gt;L:Overspeed_Warning)
+				}
+				(L:Overspeed_Warning) (L:WarningsCleared) ! and 
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="NewWarningCondition">
+			<MacroValue>
+				@Fire_Eng1_Warning_New
+				@Fire_Eng2_Warning_New or
+				@Fire_Apu_Warning_New or
+				@OilPressure_Eng1_Warning_New or
+				@OilPressure_Eng2_Warning_New or
+				@FuelPressure_Eng1_Warning_New or
+				@FuelPressure_Eng2_Warning_New or
+				@HydraulicPressure_Eng1_Warning_New or
+				@HydraulicPressure_Eng2_Warning_New or
+				@Fuel_Qty_Total_Warning_New or
+				@Main_Door_Open_Warning_New or
+				@Gear_Warning_New or
+				@Stall_Warning_New or
+				@Overspeed_Warning_New or
+			</MacroValue>
+		</Macro>
+
+	<!-- ******** CAUTIONS ******** -->
+		<Macro Name="FuelQty_LeftTank_Caution">
+			<MacroValue> (A:FUEL TANK LEFT MAIN QUANTITY, gallons) 40 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="FuelQty_RightTank_Caution">
+			<MacroValue> (A:FUEL TANK RIGHT MAIN QUANTITY, gallons) 40 &lt; </MacroValue>
+		</Macro>
+		<Macro Name="FuelImbalance_Caution">
+			<MacroValue>(A:FUEL TANK RIGHT MAIN QUANTITY, gallons) (A:FUEL TANK LEFT MAIN QUANTITY, gallons) - abs 74.6 &gt;</MacroValue>
+		</Macro>
+		<Macro Name="FuelXFeed_Caution">
+			<MacroValue>(A:FUEL CROSS FEED, bool)</MacroValue>
+		</Macro>
+		<Macro Name="BrakeAcumPress_Caution">
+			<MacroValue>(A:BRAKE DEPENDENT HYDRAULIC PRESSURE, PSF) 28800 &lt;</MacroValue>
+		</Macro>
+		<Macro Name="GenFail_Eng1_Caution">
+			<MacroValue>(A:GENERAL ENG GENERATOR ACTIVE:1, bool) 0 ==</MacroValue>
+		</Macro>
+		<Macro Name="GenFail_Eng2_Caution">
+			<MacroValue>(A:GENERAL ENG GENERATOR ACTIVE:2, bool) 0 ==</MacroValue>
+		</Macro>
+		<Macro Name="Ice_Caution">
+			<MacroValue>(A:GENERAL ENG1 ANTI ICE POSITION, bool) 0 == (A:GENERAL ENG2 ANTI ICE POSITION, bool) 0 == (A:TOTAL AIR TEMPERATURE, celsius) 5 &lt;= &amp;&amp; &amp;&amp;</MacroValue>
+		</Macro>
+		<Macro Name="Parking_Brake_Caution">
+			<MacroValue>(A:BRAKE PARKING POSITION, percent) 50 &gt; </MacroValue>
+		</Macro>  
+
+		<Macro Name="CautionCondition">
+			<MacroValue>
+				@FuelQty_LeftTank_Caution
+				@FuelQty_RightTank_Caution or
+				@FuelImbalance_Caution or
+				@FuelXFeed_Caution or
+				@BrakeAcumPress_Caution or
+				@GenFail_Eng1_Caution or
+				@GenFail_Eng2_Caution or
+				@Ice_Caution or 
+				@Parking_Brake_Caution or
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelQty_LeftTank_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelQty_LeftTank_Caution (L:FuelQty_LeftTank_Caution) ! and
+				if{
+					1 (&gt;L:FuelQty_LeftTank_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelQty_LeftTank_Caution ! (L:FuelQty_LeftTank_Caution) and
+				if{
+					0 (&gt;L:FuelQty_LeftTank_Caution)
+				}
+				(L:FuelQty_LeftTank_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelQty_RightTank_Caution_New">
+            <MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelQty_RightTank_Caution (L:FuelQty_RightTank_Caution) ! and
+				if{
+					1 (&gt;L:FuelQty_RightTank_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelQty_RightTank_Caution ! (L:FuelQty_RightTank_Caution) and
+				if{
+					0 (&gt;L:FuelQty_RightTank_Caution)
+				}
+				(L:FuelQty_RightTank_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelImbalance_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelImbalance_Caution (L:FuelImbalance_Caution) ! and
+				if{
+					1 (&gt;L:FuelImbalance_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelQty_RightTank_Caution ! (L:FuelQty_RightTank_Caution) and
+				if{
+					0 (&gt;L:FuelImbalance_Caution)
+				}
+				(L:FuelImbalance_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="FuelXFeed_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@FuelXFeed_Caution (L:FuelXFeed_Caution) ! and
+				if{
+					1 (&gt;L:FuelXFeed_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@FuelXFeed_Caution ! (L:FuelXFeed_Caution) and
+				if{
+					0 (&gt;L:FuelXFeed_Caution)
+				}
+				(L:FuelXFeed_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="BrakeAcumPress_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@BrakeAcumPress_Caution (L:BrakeAcumPress_Caution) ! and
+				if{
+					1 (&gt;L:BrakeAcumPress_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@BrakeAcumPress_Caution ! (L:BrakeAcumPress_Caution) and
+				if{
+					0 (&gt;L:BrakeAcumPress_Caution)
+				}
+				(L:BrakeAcumPress_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="GenFail_Eng1_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@GenFail_Eng1_Caution (L:GenFail_Eng1_Caution) ! and
+				if{
+					1 (&gt;L:GenFail_Eng1_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@GenFail_Eng1_Caution ! (L:GenFail_Eng1_Caution) and
+				if{
+					0 (&gt;L:GenFail_Eng1_Caution)
+				}
+				(L:GenFail_Eng1_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="GenFail_Eng2_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@GenFail_Eng2_Caution (L:GenFail_Eng2_Caution) ! and
+				if{
+					1 (&gt;L:GenFail_Eng2_Caution)
+					0 (&gt;L:WarningsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@GenFail_Eng2_Caution ! (L:GenFail_Eng2_Caution) and
+				if{
+					0 (&gt;L:GenFail_Eng2_Caution)
+				}
+				(L:GenFail_Eng2_Caution) (L:WarningsCleared) ! and
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="Ice_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Ice_Caution (L:Ice_Caution) ! and
+				if{
+					1 (&gt;L:Ice_Caution)
+					0 (&gt;L:CautionsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Ice_Caution ! (L:Ice_Caution) and
+				if{
+					0 (&gt;L:Ice_Caution)
+				}
+				(L:Ice_Caution) (L:CautionsCleared) ! and 
+			</MacroValue>
+		</Macro>
+
+      <Macro Name="Parking_Brake_Caution_New">
+			<MacroValue>
+				(* see if the warning state has just been triggered. Unclear master caution if so *)
+				@Parking_Brake_Caution (L:Parking_Brake_Caution) ! and
+				if{
+					1 (&gt;L:Parking_Brake_Caution)
+					0 (&gt;L:CautionsCleared)
+				}
+
+				(* see if warning state has just gone away. Unset previous frame variable if so *)
+				@Parking_Brake_Caution ! (L:Parking_Brake_Caution) and
+				if{
+					0 (&gt;L:Parking_Brake_Caution)
+				}
+				(L:Parking_Brake_Caution) (L:CautionsCleared) ! and 
+			</MacroValue>
+		</Macro>
+
+		<Macro Name="NewCautionCondition">
+			<MacroValue>
+				@FuelQty_LeftTank_Caution_New
+				@FuelQty_RightTank_Caution_New or
+				@FuelImbalance_Caution_New or
+				@FuelXFeed_Caution_New or
+				@BrakeAcumPress_Caution_New or
+				@GenFail_Eng1_Caution_New or
+				@GenFail_Eng2_Caution_New or
+				@Ice_Caution_New or
+				@Parking_Brake_Caution_New or
+			</MacroValue>
+		</Macro>
+
+		<Element id="NAV-GPS Switch">
+			<FloatPosition>47.000,41.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>3.000</Maximum>
+					<Script>
+						(A:CIRCUIT GENERAL PANEL ON, bool) 1 ==
+						if{ (L:NAV GPS Pressed, number) 0 == if{ (A:GPS DRIVES NAV1, bool) 1 + } els{ 3 } } els{ 0 }
+					</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image Name="annunciator_panel_1_button_nav_gps_out_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image Name="annunciator_panel_1_button_nav_gps_out_nav_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>2</ExpressionResult>
+					<Image Name="annunciator_panel_1_button_nav_gps_out_gps_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>3</ExpressionResult>
+					<Image Name="annunciator_panel_1_button_nav_gps_in_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="MAST CAUT">
+			<FloatPosition>299.000,61.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>@CautionCondition @NewCautionCondition &amp;&amp;</Script>
+				</Expression>
+				<Case id="Caution Off">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_mast_caut_out_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Caution On">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_mast_caut_out_annunciator_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="MAST WARN">
+			<FloatPosition>309.000,11.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>@WarningCondition @NewWarningCondition &amp;&amp; (E:Zulu Time, seconds) flr 2 % 1 == &amp;&amp;</Script>
+				</Expression>
+				<Case id="Warn Off">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_mast_warn_out_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Warn On">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_mast_warn_out_annunciator_on.bmp">
+						<Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="CHRONO">
+			<FloatPosition>375.000,20.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:Chrono Pressed, number)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_chrono_out.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="annunciator_panel_1_button_chrono_in.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<Element id="SIDESTICK">
+			<FloatPosition>391.000,67.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(G:Var1)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="annunciator_sidestick_cpt.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="annunciator_sidestick_fo.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>438,103</Size>
+
+			<MouseArea id="NAV SOURCE">
+				<FloatPosition>86.000,64.000</FloatPosition>
+				<Size>32,30</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 ==
+						if{
+							1 (&gt;L:NAV GPS Pressed, number)
+							(&gt;K:TOGGLE_GPS_DRIVES_NAV1)
+						}
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:NAV GPS Pressed, number) }
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_NAV_GPS_SWITCH</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="MAST WARN">
+				<FloatPosition>330.000,23.000</FloatPosition>
+				<Size>30,30</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>1 (&gt;L:WarningsCleared, bool)</Script>
+					<ClickType>LeftSingle</ClickType>
+				</MouseClick>
+				<Tooltip id="Tooltip">TOOLTIPTEXT_MASTER_WARN</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="MAST CAUT">
+				<FloatPosition>330.000,64.000</FloatPosition>
+				<Size>30,30</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						1 (&gt;L:CautionsCleared, bool)
+					</Script>
+					<ClickType>LeftSingle</ClickType>
+				</MouseClick>
+				<Tooltip id="Tooltip">HELPID_GAUGE_MASTER_CAUTION_LIGHT</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="CHRONO">
+				<FloatPosition>392.000,31.000</FloatPosition>
+				<Size>20,20</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 ==
+						if{
+							1 (&gt;L:Chrono Pressed, number)
+							270 (&gt;K:PANEL_ID_TOGGLE)
+						}
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:Chrono Pressed, number) }
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+				</MouseClick>
+				<Tooltip id="Tooltip">TOOLTIPTEXT_A321_PFD_CHRONO</Tooltip>
+			</MouseArea>
+
+			<MouseArea id="SIDESTICK">
+				<FloatPosition>391.000,67.000</FloatPosition>
+				<Size>24,25</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(G:Var1) ! (&gt;G:Var1) 1 (&gt;L:CS_Switch_Button, enum)
+					</Script>
+					<ClickType>LeftSingle</ClickType>
+				</MouseClick>
+			</MouseArea>
+
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

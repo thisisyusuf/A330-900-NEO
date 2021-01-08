@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>ecams.xml</Filename>
+    <SimGauge.Gauge id="ecams_apu" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>283,282</Size>
+
+        <Element id="ENG Primary Screen ------------------------">
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+			<Image id="Image" Name="ecams_engine_primary_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>true</Bright>
+			</Image>
+
+			<Element id="N1 Needle Left">
+				<FloatPosition>36.062,44.687</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_n1_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>26.062,0.687</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>120.000</Maximum>
+						<Script>(A:TURB ENG1 N1, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>15.000,65.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>56.000,25.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120.000</ExpressionResult>
+							<FloatPosition>64.000,44.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 1 N1 Readout">
+				<FloatPosition>30.000,48.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:TURB ENG1 N1, percent) abs 100.1 &gt; if{ 'red' } els{ 'white' )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG1 N1, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="N1 Needle Right">
+				<FloatPosition>121.875,44.875</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_n1_right_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>26.875,0.875</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>120.000</Maximum>
+						<Script>(A:TURB ENG2 N1, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>100.000,64.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>141.000,25.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120.000</ExpressionResult>
+							<FloatPosition>149.000,44.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 2 N1 Readout">
+				<FloatPosition>115.000,48.000</FloatPosition>
+				<GaugeText id="N2 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:TURB ENG2 N1, percent) abs 100.1 &gt; if{ 'red' } els{ 'white' )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG2 N1, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="EGT Needle Left">
+				<FloatPosition>36.437,106.562</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_egt_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>27.437,1.562</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>2000.000</Maximum>
+						<Script>(A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>16.000,126.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<FloatPosition>9.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<FloatPosition>46.000,81.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<FloatPosition>64.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 1 EGT Readout">
+				<FloatPosition>29.000,110.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ &apos;white&apos; )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>26,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="EGT Needle Right">
+				<FloatPosition>121.875,106.562</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_egt_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>27.437,1.562</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>2000.000</Maximum>
+						<Script>(A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>100.000,126.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<FloatPosition>95.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<FloatPosition>132.000,80.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<FloatPosition>149.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 2 EGT Readout">
+				<FloatPosition>115.000,110.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ &apos;white&apos; )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>25,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Eng 1 N2 - Normal Range">
+				<Visibility>(A:TURB ENG1 N2, percent) 105.0 &lt;= </Visibility>
+				<Element id="Eng 1 N2 Readout">
+					<FloatPosition>8.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+						<Bold>True</Bold>
+						<FontColor>0x01E00D</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG1 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>RIGHT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+			<Element id="Eng 1 N2 - Red Range">
+				<Visibility>(A:TURB ENG1 N2, percent) 105.0 &gt; </Visibility>
+				<Element id="Eng 1 N2 Readout">
+					<FloatPosition>8.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>red</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG1 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>RIGHT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+
+			<Element id="Eng 2 N2 - Normal Range">
+				<Visibility>(A:TURB ENG2 N2, percent) 105.0 &lt;= </Visibility>
+				<Element id="Eng 2 N2 Readout">
+					<FloatPosition>110.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>0x01E00D</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG2 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>LEFT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+			<Element id="Eng 2 N2 - Red Range">
+				<Visibility>(A:TURB ENG2 N2, percent) 105.0 &gt; </Visibility>
+				<Element id="Eng 2 N2 Readout">
+					<FloatPosition>110.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>red</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG2 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>LEFT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+
+			<Element id="Eng 1 - Fuel Flow PPH">
+				<FloatPosition>0.000,189.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<Bold>True</Bold>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG1 FUEL FLOW PPH, PPH) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 - Fuel Flow PPH">
+				<FloatPosition>112.000,189.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG2 FUEL FLOW PPH, PPH) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Total Fuel Flow PPH">
+				<FloatPosition>225.000,78.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG1 FUEL FLOW PPH, PPH) (A:TURB ENG2 FUEL FLOW PPH, PPH) + abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="FOB - Fuel On Board">
+				<FloatPosition>204.000,100.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL LEFT QUANTITY, gallons) (A:FUEL TANK CENTER QUANTITY, gallons) + (A:FUEL RIGHT QUANTITY, gallons) + (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>38,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Flaps Indicator">
+				<FloatPosition>164.000,143.000</FloatPosition>
+				 <Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>30.000</Maximum>
+                    		<Script>
+                    		(A:TRAILING EDGE FLAPS0 LEFT ANGLE, degrees) (A:TRAILING EDGE FLAPS0 RIGHT ANGLE, degrees) (A:TRAILING EDGE FLAPS1 LEFT ANGLE, degrees) (A:TRAILING EDGE FLAPS1 RIGHT ANGLE, degrees) max max max near
+                    		s0
+							l0 30 &gt;= if{ 5 g0 }
+							l0 20 &gt;= if{ 4 g0 }
+							l0 10 &gt;= if{ 3 g0 }
+							l0 5 &gt;= if{ 2 g0 }
+							1 (* always display something *)
+							:0
+                    		</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_1.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_2.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_3.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>4</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_4.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>5</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_5.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+			<Element id="Flaps FULL">
+				<FloatPosition>202.000,170.000</FloatPosition>
+				<Visibility>(A:TRAILING EDGE FLAPS0 LEFT ANGLE, degrees) (A:TRAILING EDGE FLAPS0 RIGHT ANGLE, degrees) (A:TRAILING EDGE FLAPS1 LEFT ANGLE, degrees) (A:TRAILING EDGE FLAPS1 RIGHT ANGLE, degrees) max max max near 20 &gt;=</Visibility>
+				<Image id="Image" Name="ecams_engine_primary_text_flaps_full.bmp">
+					<Transparent>True</Transparent>
+					<Bright>true</Bright>
+				</Image>
+			</Element>
+
+			<Element id="***NYI***">
+				<Visibility>0</Visibility>
+					<Element id="Element">
+						<FloatPosition>200.000,80.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_text_xx.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+
+					<Element id="Element">
+						<FloatPosition>272.000,191.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_flaps_bug_4.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+					<Element id="Element">
+						<FloatPosition>270.000,175.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_flaps_bug_3.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+					<Element id="Element">
+						<FloatPosition>263.000,162.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_flaps_bug_2.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+					<Element id="Element">
+						<FloatPosition>248.000,154.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_flaps_bug_1.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+					<Element id="Element">
+						<FloatPosition>166.000,179.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_slats_bug_3.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+
+					<Element id="Element">
+						<FloatPosition>168.000,165.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_slats_bug_2.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+					<Element id="Element">
+						<FloatPosition>176.000,153.000</FloatPosition>
+						<Image id="Image" Name="ecams_engine_primary_slats_bug_1.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Element>
+				</Element>
+		</Element>
+
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>283,282</Size>
+			<MouseArea id="Full Size Me">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>283,282</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script> 502 (&gt;K:PANEL_ID_TOGGLE)</Script>
+				</MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_GAUGE_ECAMS</DefaultId>
+                </Tooltip>
+			</MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_ECAMS</DefaultId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>mfd.xml</Filename>
+	<SimGauge.Gauge id="mfd" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>285,285</Size>
+		<Element id="Element">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Image id="Image" Name="mfd_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+		</Element>
+
+		<Update>
+			<Script>
+				(L:Init) 0 == if{ 
+				0 (&gt;L:Display Scale, number) 
+				3 (&gt;L:Display Mode, number)
+				3 (&gt;L:MapItem Shown, number)
+				1 (&gt;L:Init)
+			</Script>
+		</Update>
+
+		<Macro Name="MapWidthCentered" MacroValue="195"/>
+		<Macro Name="MapHeightCentered" MacroValue="195"/>
+		<Macro Name="MapWidthExpanded" MacroValue="275"/>
+		<Macro Name="MapHeightExpanded" MacroValue="198"/>
+
+		<Macro Name="RangeMiles">
+			<MacroValue> 320 160 80 40 20 10 6 (L:Display Scale) case </MacroValue>
+		</Macro>
+
+		<Macro id="Macro" Name="TextDetailAirports">
+  			<MacroValue> 1 3 0 1 -1 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="TextDetailIntersections">
+  			<MacroValue> 0 0 0 0 1 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="TextDetailVORs">
+  			<MacroValue> 0 0 2 1 0 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="TextDetailILSs">
+  			<MacroValue> 2 0 0 0 0 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="TextDetailNDBs">
+  			<MacroValue> 0 0 0 1 0 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="TextDetailVehicles">
+  			<MacroValue> 1 1 2 2 2 5 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailLowAirports">
+  			<MacroValue> 2 2 1 2 5 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailHighAirports">
+  			<MacroValue> 2 2 1 2 2 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailAirportsScale">
+  			<MacroValue>@DetailLowAirports(@1) @DetailHighAirports(@1) (L:Display Scale) 1 &lt;= ?</MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailAirports">
+  			<MacroValue> 5 5 1 2 2 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="ObjectDetailAirports">
+  			<MacroValue>0x5</MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="ObjectDetailLargeAirports">
+  			<MacroValue>0x5</MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailVORs">
+  			<MacroValue> 2 1 2 2 2 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailILSs">
+  			<MacroValue> 1 0 0 0 0 6 @1 case </MacroValue>
+  		</Macro>
+  		<Macro id="Macro" Name="DetailNDBs">
+  			<MacroValue> 1 1 1 1 1 6 @1 case </MacroValue>
+  		</Macro>
+
+		<Macro id="mTextDetailLayerIntersections" Name="mTextDetailLayerIntersections">
+			<MacroValue>@TextDetailIntersections((L:MapItem Shown, number)) 0 (L:Display Scale) 4 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mDetailLayerAirports" Name="mDetailLayerAirports">
+			<MacroValue>@DetailAirports((L:MapItem Shown, number)) 2 (L:Display Scale) 4 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mObjectDetailLayerAirports" Name="mObjectDetailLayerAirports">
+			<MacroValue>@ObjectDetailAirports</MacroValue>
+		</Macro>
+		<Macro id="mTextDetailLayerAirports" Name="mTextDetailLayerAirports">
+			<MacroValue>@TextDetailAirports((L:MapItem Shown, number)) 0 (L:Display Scale) 5 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mDetailLayerILSs" Name="mDetailLayerILSs">
+			<MacroValue>@DetailILSs((L:MapItem Shown, number)) 0 (L:Display Scale) 4 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mTextDetailLayerILSs" Name="mTextDetailLayerILSs">
+			<MacroValue>@TextDetailILSs((ILS Mode, bool)) 0 (L:Display Scale) 4 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mTextDetailLayerNDBs" Name="mTextDetailLayerNDBs">
+			<MacroValue>@TextDetailNDBs((L:MapItem Shown, number)) 0 (L:Display Scale) 4 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mTextDetailVehicles" Name="mTextDetailVehicles">
+			<MacroValue>@TextDetailVehicles((L:MapItem Shown, number)) 0 (L:Display Scale) 5 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mDetailLayerVORs" Name="mDetailLayerVORs">
+			<MacroValue>@DetailVORs((L:MapItem Shown, number)) 0 (L:Display Scale) 5 &lt; ? </MacroValue>
+		</Macro>
+		<Macro id="mTextDetailLayerVORs" Name="mTextDetailLayerVORs">
+			<MacroValue>@TextDetailVORs((L:MapItem Shown, number)) 0 (L:Display Scale) 5 &lt; ? </MacroValue>
+		</Macro>
+
+		<Macro id="mDrawRescale" Name="mDrawRescale">
+			<MacroValue>
+				@mTextDetailLayerIntersections  (&gt;L:vTextDetailLayerIntersections, number)
+				@mDetailLayerAirports               (&gt;L:vDetailLayerAirports, number)
+				@mObjectDetailLayerAirports      (&gt;L:vObjectDetailLayerAirports, number)
+				@mTextDetailLayerAirports         (&gt;L:vTextDetailLayerAirports, number)
+				@mDetailLayerILSs                   (&gt;L:vDetailLayerILSs, number)
+				@mTextDetailLayerILSs             (&gt;L:vTextDetailLayerILSs, number)
+				@mTextDetailLayerNDBs            (&gt;L:vTextDetailLayerNDBs, number)
+				@mTextDetailVehicles               (&gt;L:vTextDetailVehicles, number)
+				@mDetailLayerVORs                  (&gt;L:vDetailLayerVORs, number)
+				@mTextDetailLayerVORs            (&gt;L:vTextDetailLayerVORs, number)
+			</MacroValue>
+		</Macro>
+
+		<Element id="Centered Map">
+			<Visibility>(L:Display Mode, number) 2 ==  d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<FloatPosition>47,45</FloatPosition>
+			<MaskImage id="MaskImage" Name="mfd_centered_map_mask.bmp">          
+			</MaskImage>
+
+			<CustomDraw Name="fs9gps:map" Bright="Yes">
+				<Size>195,195</Size>
+				<CustomDrawParam Name="BackgroundColor">
+					<Value>0x110505</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="X">
+					<Value>@MapWidthCentered</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Y">
+					<Value>@MapHeightCentered</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="CenterX">
+					<Value>@MapWidthCentered 2 /</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="CenterY">
+					<Value>@MapHeightCentered 2 /</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Zoom">
+					<Value>@RangeMiles 2000 *</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Latitude">
+					<Value>(A:GPS POSITION LAT, radians)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Longitude">
+					<Value>(A:GPS POSITION LON, radians)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Heading">
+					<Value> (L:Display Mode, number) 2 == if{ (A:GPS GROUND TRUE TRACK, radians) } els{ 0 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerILSs">
+					<Value>(L:ILS Mode, bool)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerIntersections">
+					<Value>0 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerVORs">
+					<Value>1 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerNDBs">
+					<Value>2 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerAirports">
+					<Value>3 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerFlightPlan">
+					<Value>1</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="ObjectDetailLayerAirports">
+					<Value>0x4F</Value>
+				</CustomDrawParam>
+      			<CustomDrawParam Name="ObjectDetailLayerFlightPlan">
+      				<Value>0xE 0xF (C:fs9gps:FlightPlanIsActiveApproach) ?</Value>
+      			</CustomDrawParam>
+			</CustomDraw>
+		</Element>
+
+		<Element id="Expanded Map">
+			<Visibility>(L:Display Mode, number) 3 == d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<FloatPosition>5,65</FloatPosition>
+			<MaskImage id="MaskImage" Name="mfd_expanded_map_mask.bmp">
+			</MaskImage>
+			<CustomDraw Name="fs9gps:map" Bright="Yes">
+				<Size>275,198</Size>
+
+				<CustomDrawParam Name="X">
+					<Value>@MapWidthExpanded</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Y">
+					<Value>@MapHeightExpanded</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="CenterX">
+					<Value>@MapWidthExpanded 2 /</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="CenterY">
+					<Value>@MapHeightExpanded</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Zoom">
+					<Value>@RangeMiles 1000 *</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Latitude">
+					<Value>(A:GPS POSITION LAT, radians)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Longitude">
+					<Value>(A:GPS POSITION LON, radians)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Heading">
+					<Value>(A:GPS GROUND TRUE TRACK, radians)</Value>
+				</CustomDrawParam>
+
+				<CustomDrawParam Name="LayerTerrain">
+					<Value>(L:Terrain Mode, bool) if{ "Yes" }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="DetailLayerTerrain">
+					<Value>(L:Terrain Mode, bool) if{ 2 } els{ 1 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation0Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x71A65C }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation1000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x259C7E }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation2000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x53D8EE }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation3000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x52C9F2 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation4000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x51BBF5 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation5000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x46A6E3 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation6000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x3B92D1 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation7000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x3081C4 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation8000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x2670B7 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation9000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x2169B5 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation10000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x1C62B3 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation11000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x175Ab0 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation12000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x1357AB }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation13000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x1053A6 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation14000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x0D4FA1 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation15000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x0A4B9C }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation16000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x074797 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="Elevation17000Color">
+					<Value>(L:Terrain Mode, bool) if{ 0x074797 }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="IceColor">
+					<Value>(L:Terrain Mode, bool) if{ 0xFFEEEE }</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="TerrainShadow">
+					<Value>0</Value>
+				</CustomDrawParam>
+
+				<CustomDrawParam Name="LayerILSs">
+					<Value>(L:ILS Mode, bool)</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerIntersections">
+					<Value>0 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerVORs">
+					<Value>1 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerNDBs">
+					<Value>2 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerAirports">
+					<Value>3 (L:MapItem Shown, number) ==</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerFlightPlan">
+					<Value>1</Value>
+				</CustomDrawParam>
+				<CustomDrawParam id="ObjectDetailLayerAirports" Name="ObjectDetailLayerAirports">
+					<Value>0x4F</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="LayerVehicles">
+					<Value>1</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="DetailLayerVehicles">
+					<Value>2</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="ObjectDetailLayerVehicles">
+					<Value>5</Value>
+				</CustomDrawParam>
+				<CustomDrawParam Name="TextDetailLayerVehicles">
+					<Value>(L:vTextDetailVehicles, number)</Value>
+				</CustomDrawParam>
+      			<CustomDrawParam Name="ObjectDetailLayerFlightPlan">
+      				<Value>0xE 0xF (C:fs9gps:FlightPlanIsActiveApproach) ?</Value>
+      			</CustomDrawParam>
+			</CustomDraw>
+		</Element>
+
+	<Element id="MFD CENTERED">
+		<Visibility>(L:Display Mode, number) 3 !=  d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+		<Element id="Centered Compass">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Image id="Image" Name="mfd_centered_compass_card.bmp">
+				<Transparent>True</Transparent>
+				<Axis>115.000,115.000</Axis>
+				<Bright>True</Bright>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:PLANE HEADING DEGREES GYRO, radians) /-/</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Failure">
+						<Fail_Key>GAUGE_GYRO_HEADING</Fail_Key>
+						<Fail_Action>Freeze</Fail_Action>
+					</Failure>
+					<Failure id="Failure">
+						<Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+						<Fail_Action>Freeze</Fail_Action>
+					</Failure>
+				</FailureTable>
+			</Rotation>
+		</Element>
+
+		<Element id="Track Ref">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Image Name="mfd_centered_actual_track.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>4,98</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+				  <Script>(A:GPS GROUND MAGNETIC TRACK, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+				<Delay id="Delay">
+				  <DelayValue>180.000</DelayValue>
+				  <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+
+		<Element id="Course Deviation Scale">
+			<Visibility>(L:Display Mode, number) 2 &lt; </Visibility>
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Image id="Image" Name="mfd_centered_course_deviation_scale.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>52.695,4.265</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>EAST</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:NAV1 OBS, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Failure">
+					</Failure>
+				</FailureTable>
+			</Rotation>
+		</Element>
+		<Element id="CRS Pointer">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Visibility>(L:Display Mode, number) 2 &lt; </Visibility>
+			<Image Name="mfd_centered_vor_course_pointer.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>6.500,96.500</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Script>(A:NAV1 OBS, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Failure">
+					</Failure>
+				</FailureTable>
+			</Rotation>
+        </Element>
+
+		<Element id="VOR 1 TO">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Visibility>(A:HSI TF FLAGS, enum) 1 == d (L:Display Mode, number) 1 == &amp;&amp;</Visibility>
+			<Image id="Image" Name="mfd_centered_mystery_blue_arrow_up.bmp">
+				<Transparent>True</Transparent>
+				<Axis>4.500,39.000</Axis>
+				<Bright>True</Bright>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:NAV1 OBS, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+			</Rotation>
+		</Element>
+		<Element id="VOR 1 FROM">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Visibility>(A:HSI TF FLAGS, enum) 2 == d (L:Display Mode, number) 1 == &amp;&amp;</Visibility>
+			<Image id="Image" Name="mfd_centered_mystery_blue_arrow_down.bmp">
+				<Transparent>True</Transparent>
+				<Axis>4.500,-33.000</Axis>
+				<Bright>True</Bright>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:NAV1 OBS, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+			</Rotation>
+		</Element>
+
+		<Element id="Lateral Deviation - CRS/LOC">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Visibility>(L:Display Mode, number) 2 &lt; </Visibility>
+			<Image Name="mfd_centered_vor_lateral_deviation_bar.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>1.500,36.500</Axis>
+			</Image>
+			<Shift id="Shift">
+				<Scale>0.833,0.000</Scale>
+				<Expression id="Expression">
+					<Minimum>-60.000</Minimum>
+					<Maximum>60.000</Maximum>
+					<Script>
+						(A:HSI CDI NEEDLE VALID, bool) if{ (A:HSI CDI NEEDLE, number)  } els{ 0 }
+					</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Failure">
+						<Fail_Key>GAUGE_NAVIGATION_VOR1</Fail_Key>
+						<Fail_Action>Zero</Fail_Action>
+					</Failure>
+					<Failure id="Failure">
+						<Fail_Key>SYSTEM_ELECTRICAL_AVIONICS</Fail_Key>
+						<Fail_Action>Zero</Fail_Action>
+					</Failure>
+				</FailureTable>
+				<Delay id="Delay">
+					<DelayValue>30.000</DelayValue>
+				</Delay>
+			</Shift>
+			<Rotation id="Rotation">
+				<PointsTo>EAST</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:NAV1 OBS, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - dgrd</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Failure">
+					</Failure>
+				</FailureTable>
+			</Rotation>
+		</Element>
+
+		<Element id="VOR Pointer #1">
+			<FloatPosition>143.695,142.265</FloatPosition>
+			<Visibility>(L:VOR 1 Switch, number) 0 ==</Visibility>
+			<Image id="Image" Name="mfd_centered_bearing_pointer_vor_1.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>6.695,96.265</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>(A:NAV1 RADIAL, radians) (A:PLANE HEADING DEGREES GYRO, radians) - pi + </Script>
+				</Expression>
+				<Delay id="Delay">
+					<DelayValue>180.000</DelayValue>
+					<DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+
+        <Element id="VOR Pointer #2">
+          <FloatPosition>143.695,142.265</FloatPosition>
+          <Visibility>(L:VOR 2 Switch, number) 0 ==</Visibility>
+          <Image id="Image" Name="mfd_centered_bearing_pointer_vor_2.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>7,96</Axis>
+          </Image>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>(A:NAV2 RADIAL, radians) (A:PLANE HEADING DEGREES GYRO, radians) - pi + </Script>
+            </Expression>
+            <Delay id="Delay">
+              <DelayValue>180.000</DelayValue>
+              <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+            </Delay>
+          </Rotation>
+        </Element>
+        <Element id="ADF 1 Pointer">
+          	<FloatPosition>143.695,142.265</FloatPosition>
+          	<Visibility>(L:VOR 1 Switch, number) 2 ==</Visibility>
+            <Image Name="mfd_centered_bearing_pointer_adf.bmp">
+            	<Transparent>True</Transparent>
+            	<Bright>True</Bright>
+            	<Axis>6,98</Axis>
+            </Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+				  <Script>
+					(A:ADF RADIAL:1, radians)
+				  </Script>
+				</Expression>
+				<Delay id="Delay">
+				  <DelayValue>180.000</DelayValue>
+				  <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+        </Element>
+        <Element id="ADF Pointer #2">
+          <FloatPosition>143.695,142.265</FloatPosition>
+          <Visibility>(L:VOR 2 Switch, number) 2 ==</Visibility>
+          <Image id="Image" Name="mfd_centered_bearing_pointer_vor_2.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>7,96</Axis>
+          </Image>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>
+              	(A:ADF RADIAL:1, radians)
+              </Script>
+            </Expression>
+            <Delay id="Delay">
+              <DelayValue>180.000</DelayValue>
+              <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+            </Delay>
+          </Rotation>
+        </Element>
+
+        <Element id="Fixed Aircraft Symbol">
+          <FloatPosition>41.000,40.000</FloatPosition>
+          <Image id="Image" Name="mfd_centered_fixed_plane_symbol.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+          </Image>
+        </Element>
+        <Element id="Heading Bug">
+          <FloatPosition>143.695,142.265</FloatPosition>
+          <Image id="Image" Name="mfd_centered_selected_heading.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>6.5,108</Axis>
+          </Image>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>
+                (A:AUTOPILOT HEADING LOCK DIR, degrees) d
+                (A:PARTIAL PANEL HEADING, bool)
+                (A:PARTIAL PANEL ELECTRICAL, bool) or 0 ==
+                if{
+                (A:PLANE HEADING DEGREES GYRO, degrees) -
+                } dgrd
+              </Script>
+            </Expression>
+          </Rotation>
+        </Element>
+
+        <Element id="Glideslope Scale">
+          <FloatPosition>266.000,72.000</FloatPosition>
+          <Visibility>(L:Display Mode, number) 0 == </Visibility>
+          <Image id="Image" Name="mfd_glideslope_scale.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+          </Image>
+        </Element>
+
+        <Element id="Glideslope Indicator">
+          <FloatPosition>267.000,136.000</FloatPosition>
+          <Visibility>(L:Display Mode, number) 0 == </Visibility>
+          <Image id="Image" Name="mfd_glideslope_bug.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+          </Image>
+          <Shift id="Shift">
+            <Scale>0.000,68.000</Scale>
+            <Expression id="Expression">
+              <Minimum>-1.000</Minimum>
+              <Maximum>1.000</Maximum>
+              <Script>(A:HSI GSI NEEDLE, number) 120 /</Script>
+            </Expression>
+            <FailureTable id="FailureTable">
+              <Failure id="Failure">
+                <Fail_Key>GAUGE_NAVIGATION_VOR1</Fail_Key>
+                <Fail_Action>Zero</Fail_Action>
+              </Failure>
+              <Failure id="Failure">
+                <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                <Fail_Action>Zero</Fail_Action>
+              </Failure>
+            </FailureTable>
+          </Shift>
+        </Element>
+        
+        <Element id="Range ring distance 1">
+          <FloatPosition>55, 187</FloatPosition>
+          <GaugeText id="Range Ring distance 1">
+            <Bold>True</Bold>
+            <Bright>True</Bright>
+            <FontColor>powderblue</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>11</FontHeight>
+            <GaugeString>%( @RangeMiles )%!d!</GaugeString>
+            <HorizontalAlign>CENTER</HorizontalAlign>
+            <Size>25,14</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+        <Element id="Range ring distance 2">
+          <FloatPosition>99, 166</FloatPosition>
+          <GaugeText id="Range Ring distance 1">
+            <Bold>True</Bold>
+            <Bright>True</Bright>
+            <FontColor>powderblue</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>11</FontHeight>
+            <GaugeString>%( @RangeMiles 2 / )%!d!</GaugeString>
+            <HorizontalAlign>CENTER</HorizontalAlign>
+            <Size>25,14</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+      </Element>
+
+      <Element id="MFD EXPANDED">
+        <Visibility>(L:Display Mode, number) 3 == d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+        <Element id="Element">
+          <FloatPosition>4.000,41.000</FloatPosition>
+          <Image id="Image" Name="mfd_expanded_compass_card.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>219.391,220.358</Axis>
+          </Image>
+          <MaskImage id="MaskImage" Name="mfd_expanded_compass_card_mask.bmp">
+            <Axis>138,220</Axis>
+          </MaskImage>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>(A:PLANE HEADING DEGREES GYRO, radians) /-/</Script>
+            </Expression>
+            <FailureTable id="FailureTable">
+              <Failure id="Failure">
+                <Fail_Key>GAUGE_GYRO_HEADING</Fail_Key>
+                <Fail_Action>Freeze</Fail_Action>
+              </Failure>
+              <Failure id="Failure">
+                <Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+                <Fail_Action>Freeze</Fail_Action>
+              </Failure>
+            </FailureTable>
+          </Rotation>
+        </Element>
+
+        <Element id="Pointer 2">
+          <FloatPosition>4.000,20.000</FloatPosition>
+          <Visibility>(L:VOR 2 Switch, number) 1 !=</Visibility>
+          <Image id="Image" Name="mfd_expanded_arrow_1.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>12.391,195.358</Axis>
+          </Image>
+          <MaskImage id="MaskImage" Name="mfd_expanded_compass_card_mask.bmp">
+            <Axis>138,241</Axis>
+          </MaskImage>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>
+              	(L:VOR 2 Switch, number) 0 ==
+              	if{ (A:NAV2 RADIAL, radians) (A:PLANE HEADING DEGREES GYRO, radians) - pi + }
+              	els{ (A:ADF RADIAL:1, radians) }
+              </Script>
+            </Expression>
+            <Delay id="Delay">
+              <DelayValue>180.000</DelayValue>
+              <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+            </Delay>
+          </Rotation>
+        </Element>
+        <Element id="Pointer 1">
+          <FloatPosition>4.000,20.000</FloatPosition>
+          <Visibility>(L:VOR 1 Switch, number) 1 !=</Visibility>
+          <Image id="Image" Name="mfd_expanded_arrow_2.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>8.391,195.358</Axis>
+          </Image>
+          <MaskImage id="MaskImage" Name="mfd_expanded_compass_card_mask.bmp">
+            <Axis>138,241</Axis>
+          </MaskImage>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>
+              	(L:VOR 1 Switch, number) 0 ==
+                if{ (A:NAV1 RADIAL, radians) (A:PLANE HEADING DEGREES GYRO, radians) - pi + }
+              	els{ (A:ADF RADIAL:1, radians) }
+              </Script>
+            </Expression>
+            <Delay id="Delay">
+              <DelayValue>180.000</DelayValue>
+              <DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+            </Delay>
+          </Rotation>
+        </Element>
+        <Element id="Fixed Plane Symbol">
+          <FloatPosition>132.000,60.000</FloatPosition>
+          <Image id="Image" Name="mfd_expanded_fixed_plane_symbol.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+          </Image>
+        </Element>
+        <Element id="Range ring distance 1">
+          <FloatPosition>3, 176</FloatPosition>
+          <GaugeText id="Range Ring distance 1">
+            <Bold>True</Bold>
+            <Bright>True</Bright>
+            <FontColor>powderblue</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>11</FontHeight>
+            <GaugeString>%( @RangeMiles 4 / 3 * )%!d!</GaugeString>
+            <HorizontalAlign>CENTER</HorizontalAlign>
+            <Size>25,14</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+        <Element id="Range ring distance 2">
+          <FloatPosition>41, 205</FloatPosition>
+          <GaugeText id="Range Ring distance 1">
+            <Bold>True</Bold>
+            <Bright>True</Bright>
+            <FontColor>powderblue</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>11</FontHeight>
+            <GaugeString>%( @RangeMiles 2 / )%!d!</GaugeString>
+            <HorizontalAlign>CENTER</HorizontalAlign>
+            <Size>25,14</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>        
+        <Element id="HDG Bug">
+          <FloatPosition>4.500,20.000</FloatPosition>
+          <Image id="Image" Name="mfd_expanded_selected_heading.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+            <Axis>7.00,205.358</Axis>
+          </Image>
+          <MaskImage id="MaskImage" Name="mfd_expanded_compass_card_mask.bmp">
+            <Axis>138,241</Axis>
+          </MaskImage>
+          <Rotation id="Rotation">
+            <PointsTo>NORTH</PointsTo>
+            <Expression id="Expression">
+              <Script>
+				(A:PARTIAL PANEL HEADING, bool) (A:PARTIAL PANEL ELECTRICAL, bool) or 0 ==
+				if{ 
+					(A:AUTOPILOT HEADING LOCK DIR, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - 360 + 360 % s0
+					180 &gt;
+					if{ l0 318 &lt; if{ 318 } els{ l0 } }
+					els{ l0 41 &gt; if{ 41 } els{ l0 } }
+					dgrd
+				}
+				els{ 0 }
+              </Script>
+            </Expression>
+          </Rotation>
+        </Element>
+
+      </Element>
+
+      <Element id="Wind Direction Readout">
+        <FloatPosition>20.000,26.000</FloatPosition>
+        <GaugeText id="Wind Direction Readout">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>0x01E00D</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>12</FontHeight>
+          <GaugeString>%((A:AMBIENT WIND DIRECTION, degrees) (A:MAGVAR, degrees) - s0 (A:AMBIENT WIND VELOCITY, knots) 0 &gt;)%{if}%(l0)%!03d!%{else}---%{end}</GaugeString>
+          <HorizontalAlign>RIGHT</HorizontalAlign>
+          <Size>20,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+      <Element id="Wind Speed Readout">
+        <FloatPosition>40.000,26.000</FloatPosition>
+        <GaugeText id="Wind Speed Readout">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>0x01E00D</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>12</FontHeight>
+          <GaugeString>*/%((A:AMBIENT WIND VELOCITY, knots) s0 0 &gt;)%{if}%(l0)%!3d!%{else}---%{end}</GaugeString>
+          <HorizontalAlign>LEFT</HorizontalAlign>
+          <Size>30,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+      <Element id="Wind Direction Arrow">
+        <FloatPosition>23.000,60.000</FloatPosition>
+        <Image id="Image" Name="mfd_arrow_wind_direction.bmp">
+          <Transparent>True</Transparent>
+          <Bright>True</Bright>
+          <Axis>14.141,13.907</Axis>
+        </Image>
+        <Rotation id="Rotation">
+          <PointsTo>NORTH</PointsTo>
+          <Expression id="Expression">
+            <Script>(A:AMBIENT WIND DIRECTION, degrees) (A:PLANE HEADING DEGREES GYRO, degrees) - (A:MAGVAR, degrees) - 180 + dgrd</Script>
+          </Expression>
+        </Rotation>
+      </Element>
+
+      <Element id="TAG Legend">
+        <FloatPosition>112.000,10.000</FloatPosition>
+        <GaugeText id="ADF 1 Legend">
+          <Bright>True</Bright>
+          <FontColor>white</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>13</FontHeight>
+          <GaugeString>MAG</GaugeString>
+          <HorizontalAlign>CENTER</HorizontalAlign>
+          <Size>60,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+
+      <Element id="GS Legend">
+        <FloatPosition>18.000,8.000</FloatPosition>
+        <GaugeText id="GS Legend">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>white</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>11</FontHeight>
+          <GaugeString>GS</GaugeString>
+          <HorizontalAlign>LEFT</HorizontalAlign>
+          <Size>18,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+      <Element id="GS Readout">
+        <FloatPosition>36.000,8.000</FloatPosition>
+        <GaugeText id="GS Readout">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>0x01E00D</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>12</FontHeight>
+          <GaugeString>%((A:GPS GROUND SPEED, knots) 999 min)%!3d!</GaugeString>
+          <HorizontalAlign>LEFT</HorizontalAlign>
+          <Size>24,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+
+      <Element id="TAS Legend">
+        <FloatPosition>58.000,8.000</FloatPosition>
+        <GaugeText id="TAS Legend">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>white</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>11</FontHeight>
+          <GaugeString>TAS</GaugeString>
+          <HorizontalAlign>LEFT</HorizontalAlign>
+          <Size>24,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+      <Element id="TAS Readout">
+        <FloatPosition>82.000,8.000</FloatPosition>
+        <GaugeText id="TAS Readout">
+          <Bold>True</Bold>
+          <Bright>True</Bright>
+          <FontColor>0x01E00D</FontColor>
+          <FontFace>Arial</FontFace>
+          <FontHeight>12</FontHeight>
+          <GaugeString>%((A:AIRSPEED TRUE, knots) 999 min)%!d!</GaugeString>
+          <HorizontalAlign>LEFT</HorizontalAlign>
+          <Size>20,14</Size>
+          <Transparent>True</Transparent>
+        </GaugeText>
+      </Element>
+
+      <Element id="Pointer 1 - VOR">
+        <Visibility>(L:VOR 1 Switch, number) 0 ==</Visibility>
+        <Element id="VOR 1 Legend">
+          <FloatPosition>20.000,245.000</FloatPosition>
+          <GaugeText id="VOR 1 Legend">
+            <Bright>True</Bright>
+            <FontColor>white</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>12</FontHeight>
+            <GaugeString>VOR 1</GaugeString>
+            <HorizontalAlign>LEFT</HorizontalAlign>
+            <Size>60,13</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+        <Element id="NAV 1 Ident">
+          <FloatPosition>20.000,258.000</FloatPosition>
+          <GaugeText id="NAV 1 Ident">
+            <Bright>True</Bright>
+            <FontColor>white</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>12</FontHeight>
+            <GaugeString>%((A:NAV1 IDENT, string))%!s!</GaugeString>
+            <HorizontalAlign>LEFT</HorizontalAlign>
+            <Size>60,13</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+        <Element id="DME">
+          <FloatPosition>20.000,271.000</FloatPosition>
+          <GaugeText id="DME">
+            <Bright>True</Bright>
+            <FontColor>0x01E00D</FontColor>
+            <FontFace>Arial</FontFace>
+            <FontHeight>12</FontHeight>
+            <GaugeString>%((A:GPS DRIVES NAV1, bool))%{if}GPS%{else}DME%{end} %((A:HSI DISTANCE, nmiles) s1 0 &gt;=)%{if}%(l1 100 &gt;=)%{if}%(l1)%!d!%{else}%(l1)%!0.1f!%{end}%{else}----%{end} NM</GaugeString>
+            <HorizontalAlign>LEFT</HorizontalAlign>
+            <Size>80,13</Size>
+            <Transparent>True</Transparent>
+          </GaugeText>
+        </Element>
+        <Element id="Pointer 1 Legend Arrow">
+          <FloatPosition>4.000,259.000</FloatPosition>
+          <Image id="Image" Name="mfd_adf_1_arrow.bmp">
+            <Transparent>True</Transparent>
+            <Bright>True</Bright>
+          </Image>
+        </Element>
+      </Element>
+
+	<Element id="Pointer 1 - ADF">
+		<Visibility>(L:VOR 1 Switch, number) 2 ==</Visibility>
+		<Element id="ADF 1 Legend">
+			<FloatPosition>20.000,245.000</FloatPosition>
+			<GaugeText id="ADF 1 Legend">
+				<Bright>True</Bright>
+				<FontColor>0x01E00D</FontColor>
+				<FontFace>Arial</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>ADF</GaugeString>
+				<HorizontalAlign>LEFT</HorizontalAlign>
+				<Size>60,13</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="ADF Readout">
+			<FloatPosition>20.000,258.000</FloatPosition>
+			<GaugeText id="ADF Readout">
+				<Bright>True</Bright>
+				<FontFace>Quartz</FontFace>
+				<FontColor>0x01E00D</FontColor>
+				<FontHeight>13</FontHeight>
+				<GaugeString>%((A:ADF ACTIVE FREQUENCY:1, Kilohertz))%!4.1f!%</GaugeString>
+				<HorizontalAlign>LEFT</HorizontalAlign>
+				<Size>60,14</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="Pointer 1 Legend Arrow">
+			<FloatPosition>4.000,259.000</FloatPosition>
+			<Image id="Image" Name="mfd_adf_1_arrow.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+		</Element>
+	</Element>
+
+	<Element id="Pointer 2 - VOR">
+		<Visibility>(L:VOR 2 Switch, number) 0 ==</Visibility>
+		<Element id="VOR 2 Legend">
+			<FloatPosition>205.000,245.000</FloatPosition>
+			<GaugeText id="VOR 2 Legend">
+				<Bright>True</Bright>
+				<FontColor>white</FontColor>
+				<FontFace>Arial</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>VOR 2</GaugeString>
+				<HorizontalAlign>RIGHT</HorizontalAlign>
+				<Size>60,13</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="NAV 2 Ident">
+			<FloatPosition>205.000,258.000</FloatPosition>
+			<GaugeText id="NAV 21 Ident">
+				<Bright>True</Bright>
+				<FontColor>white</FontColor>
+				<FontFace>Arial</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>%((A:NAV2 IDENT, string))%!s!</GaugeString>
+				<HorizontalAlign>RIGHT</HorizontalAlign>
+				<Size>60,13</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="DME">
+			<FloatPosition>185.000,271.000</FloatPosition>
+			<GaugeText id="DME">
+				<Bright>True</Bright>
+				<FontColor>0x01E00D</FontColor>
+				<FontFace>Arial</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>%((A:NAV2 DME, nmiles) s1 0 &gt;=)%{if}%(l1 100 &gt;=)%{if}%(l1)%!d!%{else}%(l1)%!0.1f!%{end}%{else}----%{end} NM</GaugeString>
+				<HorizontalAlign>RIGHT</HorizontalAlign>
+				<Size>80,13</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="Pointer 2 Legend Arrow">
+			<FloatPosition>267.000,259.000</FloatPosition>
+			<Image id="Image" Name="mfd_adf_2_arrow.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+		</Element>
+	</Element>
+	<Element id="Pointer 2 - ADF">
+		<Visibility>(L:VOR 2 Switch, number) 2 == </Visibility>
+ 		<Element id="ADF 1 Legend">
+ 			<FloatPosition>205.000,245.000</FloatPosition>
+ 			<GaugeText id="ADF 2 Legend">
+ 				<Bright>True</Bright>
+ 				<FontColor>0x01E00D</FontColor>
+ 				<FontFace>Arial</FontFace>
+ 				<FontHeight>12</FontHeight>
+ 				<GaugeString>ADF</GaugeString>
+ 				<HorizontalAlign>RIGHT</HorizontalAlign>
+ 				<Size>60,13</Size>
+ 				<Transparent>True</Transparent>
+ 			</GaugeText>
+ 		</Element>
+		<Element id="ADF Readout">
+		    <FloatPosition>205.000,258.000</FloatPosition>
+		    <GaugeText id="ADF Readout">
+			<Bright>True</Bright>
+			<FontFace>Quartz</FontFace>
+			<FontColor>0x01E00D</FontColor>
+			<FontHeight>13</FontHeight>
+			<GaugeString>%((A:ADF ACTIVE FREQUENCY:1, Kilohertz))%!4.1f!%</GaugeString>
+			<HorizontalAlign>RIGHT</HorizontalAlign>
+			<Size>60,14</Size>
+			<Transparent>True</Transparent>
+		    </GaugeText>
+		</Element>
+		<Element id="Pointer 2 Legend Arrow">
+			<FloatPosition>267.000,259.000</FloatPosition>
+			<Image id="Image" Name="mfd_adf_2_arrow.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+		</Element>
+	</Element>
+
+	<MouseArea id="MouseArea">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>285,285</Size>
+			<MouseArea id="Full Size Me">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>285,285</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script> 501 (&gt;K:PANEL_ID_TOGGLE)</Script>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_GAUGE_MFD</DefaultId>
+				</Tooltip>
+			</MouseArea>
+		<Tooltip id="Tooltip">
+			<DefaultId>TOOLTIPTEXT_GAUGE_MFD</DefaultId>
+		</Tooltip>
+	</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

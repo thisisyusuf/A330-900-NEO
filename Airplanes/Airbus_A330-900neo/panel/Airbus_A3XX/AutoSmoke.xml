@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Gauge Name="AutoSmoke" Version="2.2">
+  <Element>
+    <Select>
+      <Value>
+          (A:Turb eng1 N1, percent) 83 &gt; 
+          if{ (A:SMOKE ENABLE,bool) ! if{ (&gt;K:SMOKE_ON) } }
+          els{ (A:SMOKE ENABLE,bool) if{ (&gt;K:SMOKE_OFF) } }
+      </Value>
+    </Select>
+  </Element>
+</Gauge>

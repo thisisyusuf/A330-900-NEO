@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>HSI_Backup.xml</Filename>
+	<SimGauge.Gauge id="HSI_Backup" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>114,135</Size>
+		<Image id="Image" Name="HSI_Background.bmp">
+			<Transparent>True</Transparent>
+		</Image>
+		<Element id="DME 1">
+			<FloatPosition>10.000,22.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+			<GaugeText id="DME 1">
+				<Bright>True</Bright>
+				<FontColor>white</FontColor>
+				<FontFace>Quartz</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>%((A:NAV1 DME, nmiles) s1 0 &gt;=)%{if}%(l1 100 &gt;=)%{if}%(l1)%!d!%{else}%(l1)%!0.1f!%{end}%{else}----%{end}</GaugeString>
+				<HorizontalAlign>RIGHT</HorizontalAlign>
+				<Size>39,12</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="DME 2">
+			<FloatPosition>64.000,22.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool)</Visibility>
+			<GaugeText id="DME 2">
+				<Bright>True</Bright>
+				<FontColor>white</FontColor>
+				<FontFace>Quartz</FontFace>
+				<FontHeight>12</FontHeight>
+				<GaugeString>%((A:NAV2 DME, nmiles) s1 0 &gt;=)%{if}%(l1 100 &gt;=)%{if}%(l1)%!d!%{else}%(l1)%!0.1f!%{end}%{else}----%{end}</GaugeString>
+				<HorizontalAlign>RIGHT</HorizontalAlign>
+				<Size>39,12</Size>
+				<Transparent>True</Transparent>
+			</GaugeText>
+		</Element>
+		<Element id="Compass Card">
+			<FloatPosition>57.000,79.000</FloatPosition>
+			<Image id="Image" Name="HSI_Compass_Card.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+				<Axis>41,41</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Script>(A:heading indicator:2, degrees) /-/ dgrd</Script>
+				</Expression>
+				<FailureTable id="FailureTable">
+					<Failure id="Mag Slave Failure">
+						<Fail_Key>GAUGE_GYRO_HEADING</Fail_Key>
+						<Fail_Action>Freeze</Fail_Action>
+					</Failure>
+					<Failure id="Electric Failure">
+						<Fail_Key>SYSTEM_ELECTRICAL_PANELS</Fail_Key>
+						<Fail_Action>Freeze</Fail_Action>
+					</Failure>
+				</FailureTable>
+			</Rotation>
+		</Element>
+		<Element id="Needle 2">
+			<FloatPosition>57.143,79.714</FloatPosition>
+			<Image id="Image" Name="HSI_Needle_2.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+				<Axis>8.143,37.714</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>
+						(G:Var2) 0 ==
+						if{ (A:NAV2 radial, radians) (A:heading indicator:2, radians) - pi  + }
+						els{ (A:ADF radial:1, radians) }
+					</Script>
+				</Expression>
+				<Delay id="Delay">
+					<DelayValue>180.000</DelayValue>
+					<DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+		<Element id="Needle 1">
+			<FloatPosition>57.143,79.714</FloatPosition>
+			<Image id="Image" Name="HSI_Needle_1.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+				<Axis>3.143,35.714</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<PointsTo>NORTH</PointsTo>
+				<Expression id="Expression">
+					<Script>
+						(G:Var1) 0 ==
+						if{ (A:NAV1 radial, radians) (A:heading indicator:2, radians) - pi  + }
+						els{ (A:ADF1 radial, radians) }
+					</Script>
+				</Expression>
+				<Delay id="Delay">
+					<DelayValue>180.000</DelayValue>
+					<DelayUnits>DEGREES_PER_SECOND</DelayUnits>
+				</Delay>
+			</Rotation>
+		</Element>
+		<Element id="Fixed Pointers">
+			<FloatPosition>12.000,35.000</FloatPosition>
+			<Image id="Image" Name="HSI_Fixed_Pointers.bmp">
+				<Transparent>True</Transparent>
+				<Luminous>True</Luminous>
+			</Image>
+		</Element>
+		<Element id="Knob 1">
+			<FloatPosition>13.000,123.000</FloatPosition>
+			<Image id="Image" Name="HSI_Knob_1.bmp">
+				<Transparent>True</Transparent>
+				<Axis>4,12</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(G:Var1, number)</Script>
+				</Expression>
+				<PointsTo>NORTH</PointsTo>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>4.000,111.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>1</ExpressionResult>
+						<FloatPosition>26.000,129.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+			</Rotation>
+		</Element>
+		<Element id="Knob 2">
+			<FloatPosition>99.000,123.000</FloatPosition>
+			<Image id="Image" Name="HSI_Knob_2.bmp">
+				<Transparent>True</Transparent>
+				<Axis>4,12</Axis>
+			</Image>
+			<Rotation id="Rotation">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(G:Var2, number)</Script>
+				</Expression>
+				<PointsTo>NORTH</PointsTo>
+				<NonlinearityTable id="NonlinearityTable">
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>0</ExpressionResult>
+						<FloatPosition>109.000,111.000</FloatPosition>
+					</NonlinearityEntry>
+					<NonlinearityEntry id="NonlinearityEntry">
+						<ExpressionResult>1</ExpressionResult>
+						<FloatPosition>87.000,129.000</FloatPosition>
+					</NonlinearityEntry>
+				</NonlinearityTable>
+			</Rotation>
+		</Element>
+		<MouseArea id="MouseArea">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>114,135</Size>
+			<MouseArea id="VOR 1 Knob">
+				<FloatPosition>3.000,108.000</FloatPosition>
+				<Size>21,25</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(G:Var1) ++ 2 % (&gt;G:Var1)
+					</Script>
+				</MouseClick>
+			</MouseArea>
+			<MouseArea id="VOR 2 Knob">
+				<FloatPosition>89.000,108.000</FloatPosition>
+				<Size>21,25</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>
+						(G:Var2) ++ 2 % (&gt;G:Var2)
+					</Script>
+				</MouseClick>
+			</MouseArea>
+			<Tooltip id="Tooltip">
+				<DefaultId>TOOLTIPTEXT_GAUGE_BACKUP_VORADF</DefaultId>
+			</Tooltip>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>

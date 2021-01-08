@@ -1,0 +1,16 @@
+<Gauge Name="Tail_Number" Version="1.0">
+  <Image Name="Tail_Number.bmp" ImageSizes="74,14"/>
+
+  <Element>
+    <Position X="-10" Y="-2"/>
+    <Text X="120" Y="9" Length="8" Font="Arial" Color="#EEEEEE" Adjust="Center" VerticalAdjust="Center" Multiline="No" Bright="No">
+      <Axis X="14" Y="-4" Degrees="0"/>
+      <String>%((A:ATC ID, string))%!s!%</String>
+    </Text>
+  </Element>
+
+  <Mouse>
+    <Tooltip>%ATC ID%</Tooltip>
+  </Mouse>
+
+</Gauge>

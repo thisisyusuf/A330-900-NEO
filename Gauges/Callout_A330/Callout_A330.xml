@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+  <Descr>AceXML Document</Descr>
+  <Filename>Callout_A330.xml</Filename>
+  <SimGauge.Gauge id="Gauge" ArtDirectory=".">
+    <FloatPosition>0.000,0.000</FloatPosition>
+    <Size>1,1</Size>
+    <Update_When_Hidden>True</Update_When_Hidden>
+    <Macro id="Altitude" Name="Altitude">
+      <MacroValue>(A:RADIO HEIGHT, feet) 9 -</MacroValue>
+    </Macro>
+    <Update id="Callouts">
+      <Script>
+        (A:GENERAL ENG THROTTLE LEVER POSITION, percent) 85 &lt;
+        (A:VERTICAL SPEED, feet per minute) 0 &lt; &amp;&amp;
+        if{
+
+        <!-- 2500 ft -->
+        2498 2520 @Altitude rng
+        (L:Callout_2500_Played, bool) ! and
+        if{ 1 (>L:Callout_2500, number) }
+
+        (L:Callout_2500, number) 1 ==
+        if{ 1 (>L:Callout_2500_Played, bool) }
+
+        2400 2600 @Altitude rng !
+        (L:Callout_2500_Played, bool) and
+        if{ 0 (>L:Callout_2500_Played, bool) }
+
+        <!-- 1000 ft -->
+        998 1010 @Altitude rng
+        (L:Callout_1000_Played, bool) ! and
+        if{ 1 (>L:Callout_1000, number) }
+
+        (L:Callout_1000, number) 1 ==
+        if{ 1 (>L:Callout_1000_Played, bool) }
+
+        900 1100 @Altitude rng !
+        (L:Callout_1000_Played, bool) and
+        if{ 0 (>L:Callout_1000_Played, bool) }
+
+        <!-- 600 ft (Alert) -->
+        598 605 @Altitude rng
+        (L:Callout_Alert_Played, bool) ! and
+        if{ 1 (>L:Callout_Alert, number) }
+
+        (L:Callout_Alert, number) 1 ==
+        if{ 1 (>L:Callout_Alert_Played, bool) }
+
+        500 700 @Altitude rng !
+        (L:Callout_Alert_Played, bool) and
+        if{ 0 (>L:Callout_Alert_Played, bool) }
+
+        <!-- 500 ft -->
+        498 505 @Altitude rng
+        (L:Callout_500_Played, bool) ! and
+        if{ 1 (>L:Callout_500, number) }
+
+        (L:Callout_500, number) 1 ==
+        if{ 1 (>L:Callout_500_Played, bool) }
+
+        400 600 @Altitude rng !
+        (L:Callout_500_Played, bool) and
+        if{ 0 (>L:Callout_500_Played, bool) }
+
+        <!-- 400 ft -->
+        398 405 @Altitude rng
+        (L:Callout_400_Played, bool) ! and
+        if{ 1 (>L:Callout_400, number) }
+
+        (L:Callout_400, number) 1 ==
+        if{ 1 (>L:Callout_400_Played, bool) }
+
+        300 500 @Altitude rng !
+        (L:Callout_400_Played, bool) and
+        if{ 0 (>L:Callout_400_Played, bool) }
+
+        <!-- 300 ft -->
+        298 305 @Altitude rng
+        (L:Callout_300_Played, bool) ! and
+        if{ 1 (>L:Callout_300, number) }
+
+        (L:Callout_300, number) 1 ==
+        if{ 1 (>L:Callout_300_Played, bool) }
+
+        200 400 @Altitude rng !
+        (L:Callout_300_Played, bool) and
+        if{ 0 (>L:Callout_300_Played, bool) }
+
+        <!-- 200 ft -->
+        198 205 @Altitude rng
+        (L:Callout_200_Played, bool) ! and
+        if{ 1 (>L:Callout_200, number) }
+
+        (L:Callout_200, number) 1 ==
+        if{ 1 (>L:Callout_200_Played, bool) }
+
+        100 300 @Altitude rng !
+        (L:Callout_200_Played, bool) and
+        if{ 0 (>L:Callout_200_Played, bool) }
+
+        <!-- 100 ft -->
+        98 105 @Altitude rng
+        (L:Callout_100_Played, bool) ! and
+        if{ 1 (>L:Callout_100, number) }
+
+        (L:Callout_100, number) 1 ==
+        if{ 1 (>L:Callout_100_Played, bool) }
+
+        5 200 @Altitude rng !
+        (L:Callout_100_Played, bool) and
+        if{ 0 (>L:Callout_100_Played, bool) }
+
+        <!-- 50 ft -->
+        48 52 @Altitude rng
+        (L:Callout_50_Played, bool) ! and
+        if{ 1 (>L:Callout_50, number) }
+
+        (L:Callout_50, number) 1 ==
+        if{ 1 (>L:Callout_50_Played, bool) }
+
+        5 100 @Altitude rng !
+        (L:Callout_50_Played, bool) and
+        if{ 0 (>L:Callout_50_Played, bool) }
+
+        <!-- 40 ft -->
+        38 42 @Altitude rng
+        (L:Callout_40_Played, bool) ! and
+        if{ 1 (>L:Callout_40, number) }
+
+        (L:Callout_40, number) 1 ==
+         if{ 1 (>L:Callout_40_Played, bool) }
+
+        5 100 @Altitude rng !
+        (L:Callout_40_Played, bool) and
+        if{ 0 (>L:Callout_40_Played, bool) }
+
+        <!-- 30 ft -->
+        28 32 @Altitude rng
+        (L:Callout_30_Played, bool) ! and
+        if{ 1 (>L:Callout_30, number) }
+
+        (L:Callout_30, number) 1 ==
+        if{ 1 (>L:Callout_30_Played, bool) }
+
+        5 100 @Altitude rng !
+        (L:Callout_30_Played, bool) and
+        if{ 0 (>L:Callout_30_Played, bool) }
+
+        <!-- 20 ft -->
+        18 22 @Altitude rng
+        (L:Callout_20_Played, bool) ! and
+        if{ 1 (>L:Callout_20, number) }
+
+        (L:Callout_20, number) 1 ==
+        if{ 1 (>L:Callout_20_Played, bool) }
+
+        5 100 @Altitude rng !
+        (L:Callout_20_Played, bool) and
+        if{ 0 (>L:Callout_20_Played, bool) }
+
+        <!-- 10 ft / Retard -->
+        9 12 @Altitude rng
+        (L:Callout_10_Played, bool) ! and
+        if{ (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 3 &lt;=
+            (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) 3 &lt;= or
+            if{ 1 (>L:Callout_10, number) }
+            els{ 1 (>L:Callout_Retard, number) } }
+
+        (L:Callout_10, number) 1 ==
+        if{ 1 (>L:Callout_10_Played, bool) }
+
+        5 100 @Altitude rng !
+        (L:Callout_10_Played, bool) and
+        if{ 0 (>L:Callout_10_Played, bool) }
+
+        <!-- 100 Above -->
+        (A:DECISION HEIGHT, feet) 100 + (A:DECISION HEIGHT, feet) 120 + @Altitude rng
+        (L:Callout_100Above_Played, bool) ! and
+        if{ 1 (>L:Callout_100Above, number) }
+
+        (L:Callout_100Above, number) 1 ==
+        if{ 1 (>L:Callout_100Above_Played, bool) }
+
+        (A:DECISION HEIGHT, feet) (A:DECISION HEIGHT, feet) 200 + @Altitude rng !
+        (L:Callout_100Above_Played, bool) and
+        if{ 0 (>L:Callout_100Above_Played, bool) }
+
+        <!-- Minimum -->
+        (A:DECISION HEIGHT, feet) 20 - (A:DECISION HEIGHT, feet) @Altitude rng
+        (L:Callout_Minimum_Played, bool) ! and
+        if{ 1 (>L:Callout_Minimum, number) }
+
+        (L:Callout_Minimum, number) 1 ==
+        if{ 1 (>L:Callout_Minimum_Played, bool) }
+
+        (A:DECISION HEIGHT, feet) 100 - (A:DECISION HEIGHT, feet) 100 + @Altitude rng !
+        (L:Callout_Minimum_Played, bool) and
+        if{ 0 (>L:Callout_Minimum_Played, bool) }
+
+        }
+        </Script>
+      </Update>
+    </SimGauge.Gauge>
+</SimBase.Document>

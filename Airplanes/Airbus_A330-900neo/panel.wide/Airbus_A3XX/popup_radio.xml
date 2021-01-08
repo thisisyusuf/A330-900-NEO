@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<SimBase.Document Type="AceXML" version="1,0" id="popup_radio">
+    <Descr>AceXML Document</Descr>
+    <Filename>popup_radio.xml</Filename>
+    <SimGauge.Gauge id="popup_radio" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>246,296</Size>
+        <Image id="popup_radio_background.bmp" Name="popup_radio_background.bmp">
+            <Transparent>True</Transparent>
+        </Image>
+        <Element id="Active-Standby">
+            <FloatPosition>112.000,23.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:ActStby Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_active_standby_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_active_standby_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="COM 1">
+            <FloatPosition>31.000,54.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Radio Tune Select, number) 0 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_com1_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_com1_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="COM 2">
+            <FloatPosition>69.000,54.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Radio Tune Select, number) 1 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_com2_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_com2_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 1">
+            <FloatPosition>31.000,79.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Radio Tune Select, number) 2 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_nav1_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_nav1_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 2">
+            <FloatPosition>70.000,79.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Radio Tune Select, number) 3 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_nav2_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_nav2_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="ADF">
+            <FloatPosition>108.000,79.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Radio Tune Select, number) 4 ==</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_adf_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_annunciator_adf_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="COM 1 Audio">
+            <FloatPosition>21.000,62.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:COM 1 Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com1_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com1_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>f
+                </Case>
+            </Select>
+        </Element>
+        <Element id="COM 2 Audio">
+            <FloatPosition>60.000,62.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:COM 2 Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com2_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com2_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 1 Audio">
+            <FloatPosition>21.000,87.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:NAV 1 Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav1_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav1_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 2 Audio">
+            <FloatPosition>60.000,87.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:NAV 2 Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav2_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav2_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="ADF Audio">
+            <FloatPosition>99.000,87.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:ADF Pressed, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_adf_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_adf_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        
+        <Element id="COM 1 CALL">
+            <FloatPosition>19.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:COM TRANSMIT:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com1_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com1_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="COM 2 CALL">
+            <FloatPosition>49.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:COM TRANSMIT:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com2_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_com2_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 1 CALL">
+            <FloatPosition>80.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Nav sound:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav1_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav1_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="NAV 2 CALL">
+            <FloatPosition>110.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Nav sound:2,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav2_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_nav2_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="MKR CALL">
+            <FloatPosition>140.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Marker Sound, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_mkr_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_mkr_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="DME CALL">
+            <FloatPosition>171.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:DME Sound, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_dme_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_dme_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="ADF CALL">
+            <FloatPosition>201.000,122.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:ADF Sound:1, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_adf_call_annunciator_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="Image" Name="popup_radio_button_adf_call_annunciator_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="IDENT Button">
+            <FloatPosition>19.000,230.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>2.000</Maximum>
+                    <Script>(L:IDENT Pressed,number)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="popup_radio_button_ident_out.bmp" Name="popup_radio_button_ident_out.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="popup_radio_button_ident_in.bmp" Name="popup_radio_button_ident_in.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="COM 1 Volume **Not Implemented**">
+            <FloatPosition>30.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_com1.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="COM 2 Volume **Not Implemented**">
+            <FloatPosition>61.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_com2.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="NAV 1 Volume **Not Implemented**">
+            <FloatPosition>91.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_nav1.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="NAV 2 Volume **Not Implemented**">
+            <FloatPosition>121.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_nav2.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="MKR Volume **Not Implemented**">
+            <FloatPosition>152.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_mkr.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="DME Volume **Not Implemented**">
+            <FloatPosition>182.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_dme.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="ADF Volume **Not Implemented**">
+            <FloatPosition>213.000,162.000</FloatPosition>
+            <Image id="Image" Name="popup_radio_knob_adf.bmp">
+                <Bright>True</Bright>
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+        <Element id="ATC Fail **Not Implemented**">
+            <FloatPosition>112.000,248.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>0</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+                    <Image id="popup_radio_annunciator_atc_fail_off.bmp" Name="popup_radio_annunciator_atc_fail_off.bmp">
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+                    <Image id="popup_radio_annunciator_atc_fail_on.bmp" Name="popup_radio_annunciator_atc_fail_on.bmp">
+                        <Bright>True</Bright>
+                        <Transparent>True</Transparent>
+                    </Image>
+                </Case>
+            </Select>
+        </Element>
+        <Element id="Active Frequency Readout">
+            <FloatPosition>17.000,21.000</FloatPosition>
+            <GaugeText id="Active Frequency Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>21</FontHeight>
+                <GaugeString>
+                  %((L:Radio Tune Select, number))
+                  %{case}
+                  %{:0} %((A:Com active frequency:1,Megahertz))%!6.3f!%
+                  %{:1} %((A:Com active frequency:2,Megahertz))%!6.3f!%
+                  %{:2} %((A:Nav active frequency:1,Megahertz))%!6.3f!%
+                  %{:3} %((A:Nav active frequency:2,Megahertz))%!6.3f!%
+                  %{:4} %((A:Adf active frequency:1,Kilohertz))%!4.1f!%
+                  %{end}
+                </GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>82,25</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+        <Element id="Standby Frequency Readout">
+            <FloatPosition>136.000,21.000</FloatPosition>
+            <GaugeText id="Standby Frequency Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>21</FontHeight>
+                <GaugeString>
+                  %((L:Radio Tune Select, number))
+                  %{case}
+                  %{:0} %((A:Com standby frequency:1,Megahertz))%!6.3f!%
+                  %{:1} %((A:Com standby frequency:2,Megahertz))%!6.3f!%
+                  %{:2} %((A:Nav standby frequency:1,Megahertz))%!6.3f!%
+                  %{:3} %((A:Nav standby frequency:2,Megahertz))%!6.3f!%
+                  %{:4} %((A:Adf standby frequency:1,Kilohertz))%!4.1f!%
+                  %{end}
+                </GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>82,25</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+        <Element id="XPNDR Code">
+            <FloatPosition>80.000,206.000</FloatPosition>
+            <GaugeText id="XPNDR Code">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>21</FontHeight>
+                <GaugeString>%((A:TRANSPONDER1 CODE, BCO16) sp0)%(l0 12 &gt;&gt; 15 &amp;)%!d!%(l0 8 &gt;&gt; 15 &amp;)%!d!%(l0 4 &gt;&gt; 15 &amp;)%!d!%(l0 15 &amp;)%!d!</GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Size>82,24</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+        </Element>
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>246,296</Size>
+            <MouseArea id="Active - Standby Swap">
+                <FloatPosition>112.000,23.000</FloatPosition>
+                <Size>22,20</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:ActStby Pressed,bool) 
+						(L:Radio Tune Select, number) 0 == if{ 1 (&gt;K:COM_STBY_RADIO_SWAP) g0 }
+						(L:Radio Tune Select, number) 1 == if{ 1 (&gt;K:COM2_RADIO_SWAP) g0 }
+						(L:Radio Tune Select, number) 2 == if{ 1 (&gt;K:NAV1_RADIO_SWAP) g0 }
+						(L:Radio Tune Select, number) 3 == if{ 1 (&gt;K:NAV2_RADIO_SWAP) g0 }
+						(L:Radio Tune Select, number) 4 == if{ 1 (&gt;K:ADF1_RADIO_SWAP) g0 }
+						:0
+						} 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:ActStby Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="COM 1">
+                <FloatPosition>20.000,61.000</FloatPosition>
+                <Size>30,15</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:COM 1 Pressed,bool) 0 (&gt;L:Radio Tune Select, number) } 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:COM 1 Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="COM 2">
+                <FloatPosition>60.000,61.000</FloatPosition>
+                <Size>30,15</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:COM 2 Pressed,bool) 1 (&gt;L:Radio Tune Select, number) } 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:COM 2 Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="NAV 1">
+                <FloatPosition>21.000,87.000</FloatPosition>
+                <Size>30,15</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:NAV 1 Pressed,bool) 2 (&gt;L:Radio Tune Select, number) } 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:NAV 1 Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="NAV 2">
+                <FloatPosition>60.000,87.000</FloatPosition>
+                <Size>30,15</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:NAV 2 Pressed,bool) 3 (&gt;L:Radio Tune Select, number) } 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:NAV 2 Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="ADF">
+                <FloatPosition>100.000,87.000</FloatPosition>
+                <Size>30,15</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == if{ 1 (&gt;L:ADF Pressed,bool) 4 (&gt;L:Radio Tune Select, number) }  
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:ADF Pressed,bool) }
+					</Script>
+                    <ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Tune Knob">
+                <FloatPosition>152.000,55.000</FloatPosition>
+                <Size>49,49</Size>
+                <MouseArea id="Outer Ring Decrement">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>8,49</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        (L:Radio Tune Select,number) 0 == if{ 1 (&gt;K:COM_RADIO_WHOLE_DEC,number) g0 }
+                        (L:Radio Tune Select,number) 1 == if{ 1 (&gt;K:COM2_RADIO_WHOLE_DEC) g0 } 
+                        (L:Radio Tune Select,number) 2 == if{ 1 (&gt;K:NAV1_RADIO_WHOLE_DEC,number) g0 } 
+                        (L:Radio Tune Select,number) 3 == if{ 1 (&gt;K:NAV2_RADIO_WHOLE_DEC,number) g0 } 
+                        (L:Radio Tune Select,number) 4 == if{ 1 (&gt;K:ADF1_WHOLE_DEC,number) }
+                        :0
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inner Ring Decrement">
+                    <FloatPosition>8.000,0.000</FloatPosition>
+                    <Size>16,49</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        (L:Radio Tune Select,number) 0 == if{ 1 (&gt;K:COM_RADIO_FRACT_DEC,number) g0 }
+                        (L:Radio Tune Select,number) 1 == if{ 1 (&gt;K:COM2_RADIO_FRACT_DEC) g0 } 
+                        (L:Radio Tune Select,number) 2 == if{ 1 (&gt;K:NAV1_RADIO_FRACT_DEC,number) g0 } 
+                        (L:Radio Tune Select,number) 3 == if{ 1 (&gt;K:NAV2_RADIO_FRACT_DEC,number) g0 } 
+                        (L:Radio Tune Select,number) 4 == if{ 1 (&gt;K:ADF1_RADIO_TENTHS_DEC,number) }
+                        :0
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Inner Ring Increment">
+                    <FloatPosition>24.000,0.000</FloatPosition>
+                    <Size>17,49</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        (L:Radio Tune Select,number) 0 == if{ 1 (&gt;K:COM_RADIO_FRACT_INC,number) g0 }
+                        (L:Radio Tune Select,number) 1 == if{ 1 (&gt;K:COM2_RADIO_FRACT_INC) g0 } 
+                        (L:Radio Tune Select,number) 2 == if{ 1 (&gt;K:NAV1_RADIO_FRACT_INC,number) g0 } 
+                        (L:Radio Tune Select,number) 3 == if{ 1 (&gt;K:NAV2_RADIO_FRACT_INC,number) g0 } 
+                        (L:Radio Tune Select,number) 4 == if{ 1 (&gt;K:ADF1_RADIO_TENTHS_INC,number) }
+                        :0
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="Outer Ring Increment">
+                    <FloatPosition>41.000,0.000</FloatPosition>
+                    <Size>8,49</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <Script>
+                        (L:Radio Tune Select,number) 0 == if{ 1 (&gt;K:COM_RADIO_WHOLE_INC,number) g0 }
+                        (L:Radio Tune Select,number) 1 == if{ 1 (&gt;K:COM2_RADIO_WHOLE_INC) g0 } 
+                        (L:Radio Tune Select,number) 2 == if{ 1 (&gt;K:NAV1_RADIO_WHOLE_INC,number) g0 } 
+                        (L:Radio Tune Select,number) 3 == if{ 1 (&gt;K:NAV2_RADIO_WHOLE_INC,number) g0 } 
+                        (L:Radio Tune Select,number) 4 == if{ 1 (&gt;K:ADF1_WHOLE_INC,number) }
+                        :0
+                        </Script>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_RADIO_TUNER_KNOB</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="COM 1 Audio">
+                <FloatPosition>20.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>COM1_TRANSMIT_SELECT</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_COM1_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="COM 2 Audio">
+                <FloatPosition>50.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>COM2_TRANSMIT_SELECT</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_COM2_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="NAV 1 Audio">
+                <FloatPosition>80.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>RADIO_VOR1_IDENT_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_NAV1_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="NAV 2 Audio">
+                <FloatPosition>111.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>RADIO_VOR2_IDENT_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_NAV2_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Marker Audio">
+                <FloatPosition>141.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>MARKER_SOUND_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_MARKER_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="DME Audio">
+                <FloatPosition>171.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>RADIO_DME1_IDENT_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_DME_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="ADF Audio">
+                <FloatPosition>201.000,122.000</FloatPosition>
+                <Size>24,18</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>RADIO_ADF_IDENT_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_ADF1_AUDIO_SELECTOR</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="XPNDR Knob - Left">
+                <FloatPosition>54.000,244.000</FloatPosition>
+                <Size>62,48</Size>
+                <MouseArea id="1000s DEC">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>8,48</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_1000_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="100s DEC">
+                    <FloatPosition>8.000,0.000</FloatPosition>
+                    <Size>8,48</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_100_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="100s INC">
+                    <FloatPosition>26.000,0.000</FloatPosition>
+                    <Size>18,48</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_100_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="1000s INC">
+                    <FloatPosition>44.000,0.000</FloatPosition>
+                    <Size>8,48</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_1000_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_TRANSPONDER_ID</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="XPNDR Knob - Right">
+                <FloatPosition>139.000,244.000</FloatPosition>
+                <Size>52,48</Size>
+                <MouseArea id="10s DEC">
+                    <FloatPosition>0.000,0.000</FloatPosition>
+                    <Size>8,48</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_10_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="1s DEC">
+                    <FloatPosition>8.000,0.000</FloatPosition>
+                    <Size>18,48</Size>
+                    <CursorType>DownArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_1_DEC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="1s INC">
+                    <FloatPosition>26.000,0.000</FloatPosition>
+                    <Size>18,48</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_1_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <MouseArea id="10s INC">
+                    <FloatPosition>44.000,0.000</FloatPosition>
+                    <Size>8,48</Size>
+                    <CursorType>UpArrow</CursorType>
+                    <MouseClick id="MouseClick">
+                        <KeyEvent>XPNDR_10_INC</KeyEvent>
+                        <ClickRepeat>True</ClickRepeat>
+                    </MouseClick>
+                </MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_TRANSPONDER_ID</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_RADIO_CONTROL_HEAD</DefaultId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

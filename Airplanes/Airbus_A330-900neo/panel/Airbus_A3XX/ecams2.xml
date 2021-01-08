@@ -1,0 +1,2263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>ecams.xml</Filename>
+    <SimGauge.Gauge id="ecams_apu" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>283,282</Size>
+        
+        <Element id="ENG Secondary Screen ---------------------">
+			<Visibility>(L:ECAMS2 Display,number) 0 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_engine_secondary_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+
+			<Element id="FUEL USED - Left">
+				<FloatPosition>0.000,21.000</FloatPosition>
+				<GaugeText id="FUEL USED - Left">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG FUEL USED SINCE START:1, gallons) (A:Fuel weight per gallon, pounds) * 0.0004536 * )%!5d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>39,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="FUEL USED - Right">
+				<FloatPosition>160.000,21.000</FloatPosition>
+				<GaugeText id="FUEL USED - Left">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG FUEL USED SINCE START:2, gallons) (A:Fuel weight per gallon, pounds) * 0.0004536 * )%!5d!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>39,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Oil Quantity - Left">
+				<FloatPosition>40.500,73.000</FloatPosition>
+				<Image id="Image" Name="ecams_engine_secondary_needle_psi_left.bmp">
+					<Transparent>True</Transparent>
+					<Axis>29.500,1.562</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:ENG1 OIL QUANTITY, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>17,95</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>63,50</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="Oil Quantity - Right">
+				<FloatPosition>153.937,73.000</FloatPosition>
+				<Image id="Image" Name="ecams_engine_secondary_needle_psi_right.bmp">
+					<Transparent>True</Transparent>
+					<Axis>28.937,1.500</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:ENG2 OIL QUANTITY, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>130,95</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>176,50</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="Oil Pressure - Left">
+				<FloatPosition>40.500,137.000</FloatPosition>
+				<Image id="Image" Name="ecams_engine_secondary_needle_psi_left.bmp">
+					<Transparent>True</Transparent>
+					<Axis>29.500,1.562</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:GENERAL ENG1 OIL PRESSURE, psi)  abs</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>14,162</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>59,119</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="Oil Pressure - Right">
+				<FloatPosition>153.937,137.000</FloatPosition>
+				<Image id="Image" Name="ecams_engine_secondary_needle_psi_right.bmp">
+					<Transparent>True</Transparent>
+					<Axis>28.937,1.500</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:GENERAL ENG2 OIL PRESSURE, psi)  abs</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>128.000,162.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>173.000,119.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+
+			<Element id="OIL Temp - Left">
+				<FloatPosition>0.000,178.000</FloatPosition>
+				<GaugeText id="OIL Temp - Left">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG1 OIL TEMPERATURE, celsius)  abs)%!3d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>39,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="OIL Temp - Right">
+				<FloatPosition>150.000,178.000</FloatPosition>
+				<GaugeText id="OIL Temp - Left">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG2 OIL TEMPERATURE, celsius)  abs)%!3d!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>39,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Ign A">
+				<FloatPosition>16.000,198.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>3.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum)</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0.000</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_a_on.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3.000</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_a_on.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_a_off.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_a_off.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>		 
+			</Element>
+
+			<Element id="Ign B">
+				<FloatPosition>152.000,198.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>3.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum)</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0.000</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_b_on.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3.000</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_b_on.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_b_off.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_secondary_ign_b_off.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>		 
+		   </Element>
+
+			<Element id="Eng 1 Bleed PSI Readout">
+				<FloatPosition>18.000,235.000</FloatPosition>
+				<GaugeText id="Eng 1 Bleed PSI Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:TURB ENG1 BLEED AIR, psi))%!4.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>43,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 Bleed PSI Readout">
+				<FloatPosition>134.000,235.000</FloatPosition>
+				<GaugeText id="Eng 1 Bleed PSI Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:TURB ENG2 BLEED AIR, psi))%!4.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>43,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Eng 1 N2 Readout">
+				<FloatPosition>244.000,53.000</FloatPosition>
+				<GaugeText id="Eng 1 N2 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG1 N2, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>36,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 N2 Readout">
+				<FloatPosition>244.000,91.000</FloatPosition>
+				<GaugeText id="Eng 2 N2 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG2 N2, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>36,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Eng 1 Vibration Readout">
+				<FloatPosition>201.000,53.000</FloatPosition>
+				<GaugeText id="Fuel Flow">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG1 VIBRATION, number))%!2.1f!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>36,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 Vibration Readout">
+				<FloatPosition>201.000,91.000</FloatPosition>
+				<GaugeText id="Fuel Flow">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>white</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG2 VIBRATION, number))%!2.1f!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>36,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+        </Element>
+
+        <Element id="BLEED Screen ----------------------------- ">
+        	<Visibility>(L:ECAMS2 Display,number) 1 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_bleed_air_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>true</Bright>
+			</Image>
+			
+			<Element id="Eng 1 Bleed PSI Readout">
+				<FloatPosition>16.000,138.000</FloatPosition>
+				<GaugeText id="Eng 1 Bleed PSI Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:TURB ENG1 BLEED AIR, psi))%!4.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>47,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 Bleed PSI Readout">
+				<FloatPosition>221.000,138.000</FloatPosition>
+				<GaugeText id="Eng 1 Bleed PSI Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:TURB ENG2 BLEED AIR, psi))%!4.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>47,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Bleed Lines">
+				<FloatPosition>36.000,44.000</FloatPosition>
+            	<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum) 1 !=</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_green_lines.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_amber_lines.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="ENG 1 BLEED">
+				<FloatPosition>30.000,158.000</FloatPosition>
+            	<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>3.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum)</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0.000</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_1_on_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3.000</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_1_on_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_1_off_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_1_off_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>		 
+			</Element>
+
+			<Element id="APU Bleed">
+				<FloatPosition>112.000,136.000</FloatPosition>
+            	<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum) 2 ==</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_apu_on_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_apu_off_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>		 
+			</Element>
+
+ 			<Element id="BLEED ENG 2">
+				<FloatPosition>236.000,158.000</FloatPosition>
+            	<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>3.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum)</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>00</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_2_on_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_2_on_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_2_off_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_bleed_air_ip_2_off_green.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+        </Element>
+
+        <Element id="PRESS Screen -----------------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 2 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_cab_press_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>true</Bright>
+			</Image>
+			<Element id="Element">
+				<FloatPosition>20.000,48.000</FloatPosition>
+				<Image id="Image" Name="ecams_cab_press_arrow.bmp">
+					<Transparent>True</Transparent>
+					<Bright>true</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Cabin Pressure Differential">
+				<FloatPosition>54.000,104.000</FloatPosition>
+				<GaugeText id="RATE Readout">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:PRESSURIZATION PRESSURE DIFFERENTIAL, psi))%!3.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>31,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Cabin Rate">
+				<FloatPosition>145.000,86.000</FloatPosition>
+				<GaugeText id="RATE Readout">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:PRESSURIZATION CABIN ALTITUDE RATE, feet per minute))%!6d!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>31,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="C ALT Readout">
+				<FloatPosition>212.000,104.000</FloatPosition>
+				<GaugeText id="C ALT Readout">
+					<Bold>True</Bold>
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:PRESSURIZATION CABIN ALTITUDE, feet))%!6d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>61,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Cabin Diff Press Dial">
+				<FloatPosition>44.500,95.563</FloatPosition>
+				<Image id="Image" Name="ecams_cab_press_needle_differential_press.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+					<Axis>31.500,0.562</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>-1.000</Minimum>
+						<Maximum>9.500</Maximum>
+						<Script>(A:PRESSURIZATION PRESSURE DIFFERENTIAL, psi)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-1.000</ExpressionResult>
+							<FloatPosition>30.000,123.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>15.000,108.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>5.000</ExpressionResult>
+							<FloatPosition>24.000,69.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>8.000</ExpressionResult>
+							<FloatPosition>65.000,72.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>9.500</ExpressionResult>
+							<FloatPosition>75.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Cabin Altitude Rate Dial">
+				<FloatPosition>142.562,95.563</FloatPosition>
+				<Image id="Image" Name="ecams_cab_press_needle_vsi.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+					<Axis>31.562,0.562</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>-2500.000</Minimum>
+						<Maximum>2500.000</Maximum>
+						<Script>(A:PRESSURIZATION CABIN ALTITUDE RATE, feet per minute)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-2500.000</ExpressionResult>
+							<FloatPosition>152.000,125.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-2000.000</ExpressionResult>
+							<FloatPosition>139.000,128.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-1000.000</ExpressionResult>
+							<FloatPosition>117.000,115.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>110.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<FloatPosition>117.000,75.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<FloatPosition>139.000,64.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2500.000</ExpressionResult>
+							<FloatPosition>153.000,66.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Cabin Altitude Dial">
+				<FloatPosition>240.188,95.937</FloatPosition>
+				<Image id="Image" Name="ecams_cab_press_needle_altitude.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+					<Axis>31.187,0.937</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>11000.000</Maximum>
+						<Script>(A:PRESSURIZATION CABIN ALTITUDE, feet)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>216.000,117.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>5000.000</ExpressionResult>
+							<FloatPosition>218.000,72.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>10000.000</ExpressionResult>
+							<FloatPosition>268.000,81.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>11000.000</ExpressionResult>
+							<FloatPosition>269.000,88.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+        </Element>
+
+        <Element id="APU Screen -------------------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 3 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_apu_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+			
+			<Element id="APU GEN PCT Readout">
+				<FloatPosition>30.000,54.000</FloatPosition>
+				<GaugeText id="APU Volts Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:APU PCT RPM, percent))%!3d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>41,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="APU Volts Readout">
+				<FloatPosition>30.000,70.000</FloatPosition>
+				<GaugeText id="APU Volts Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>13</FontHeight>
+					<GaugeString>%((A:APU VOLTS, volts))%!3.1f!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>41,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="APU Bleed">
+				<FloatPosition>225.000,32.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:BLEED AIR SOURCE CONTROL, enum) 2 ==</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_apu_bleed_off.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_apu_bleed_on.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="APU N">
+				<FloatPosition>64.937,137.500</FloatPosition>
+				<Image id="Image" Name="ecams_apu_needle_n.bmp">
+					<Transparent>True</Transparent>
+					<Axis>29.937,1.500</Axis>
+					<Bright>True</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>120.000</Maximum>
+						<Script>(A:APU PCT RPM, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>40.000,157.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>83.000,113.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120.000</ExpressionResult>
+							<FloatPosition>93.000,128.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="APU N Readout">
+				<FloatPosition>64.000,144.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:APU PCT RPM, percent) abs 102 &gt; if{ 'red' } els{ 'white' )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:APU PCT RPM, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>24,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+        </Element>
+
+        <Element id="HYD Screen -------------------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 4 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_hyd_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+
+			<Element id="Green Valve">
+				<FloatPosition>21.000,156.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:ENG HYDRAULIC PRESSURE:1, psi) 1450 &lt;</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_fire_valve_green_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_fire_valve_green_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Green Pump">
+				<FloatPosition>21.000,52.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:ENG HYDRAULIC PRESSURE:1, psi) 1450 &lt;</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_engine_pump_green_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_engine_pump_green_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Green - Line">
+				<FloatPosition>27.000,135.000</FloatPosition>
+				<Visibility>(A:HYDRAULIC SWITCH:1, bool) 0 ==</Visibility>
+				<Image id="Image" Name="ecams_hyd_engine_pump_green_amber_line.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Blue Pump">
+				<FloatPosition>122.000,52.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>0</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_blue_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_blue_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Blue - Line">
+				<FloatPosition>128.000,163.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="Image" Name="ecams_hyd_blue_amber_line.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="PTU">
+				<FloatPosition>81.000,97.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>0</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_ptu_control_line_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_ptu_control_line_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Yellow Valve">
+				<FloatPosition>214.000,156.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:ENG HYDRAULIC PRESSURE:2, psi) 1450 &lt;</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_fire_valve_yellow_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_fire_valve_yellow_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Yellow Pump">
+				<FloatPosition>213.000,52.000</FloatPosition>
+				<Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>1.000</Maximum>
+						<Script>(A:ENG HYDRAULIC PRESSURE:2, psi) 1450 &lt;</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_electric_pump_yellow_open.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1.000</ExpressionResult>
+						<Image id="Image" Name="ecams_hyd_electric_pump_yellow_closed.bmp">
+							<Transparent>True</Transparent>
+							<Bright>True</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="Yellow - Line">
+				<FloatPosition>219.000,135.000</FloatPosition>
+				<Visibility>(A:HYDRAULIC SWITCH:2, bool) 0 ==</Visibility>
+				<Image id="Image" Name="ecams_hyd_engine_pump_yellow_amber_line.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="PTU - Text">
+				<FloatPosition>175.000,100.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="Image" Name="ecams_hyd_text_ptu.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Yellow - OVHT">
+				<FloatPosition>245.000,124.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="Image" Name="ecams_hyd_text_yellow_ovht.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Yellow - ELEC">
+				<FloatPosition>245.000,112.000</FloatPosition>
+				<Visibility>1</Visibility>
+				<Image id="Image" Name="ecams_hyd_text_yellow_elec.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Blue = OVHT">
+				<FloatPosition>155.000,152.000</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="Image" Name="ecams_hyd_text_blue_ovht.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Blue - ELEC">
+				<FloatPosition>155.000,140.000</FloatPosition>
+				<Visibility>1</Visibility>
+				<Image id="Image" Name="ecams_hyd_text_blue_elec.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Eng 1 PSI Readout">
+				<FloatPosition>18.000,81.000</FloatPosition>
+				<GaugeText id="Eng 1 PSI Readout">
+					<Bright>True</Bright>
+					<Bold>True</Bold>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:ENG HYDRAULIC PRESSURE:1, psi))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="APU PSI Readout ***INOP***">
+				<FloatPosition>120.000,81.000</FloatPosition>
+				<GaugeText id="APU PSI Readout">
+					<Bright>True</Bright>
+					<Bold>True</Bold>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>15</FontHeight>
+					<GaugeString>0</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 PSI Readout">
+				<FloatPosition>210.000,81.000</FloatPosition>
+				<GaugeText id="Eng 2 PSI Readout">
+					<Bright>True</Bright>
+					<Bold>True</Bold>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:ENG HYDRAULIC PRESSURE:2, psi))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+        </Element>
+
+        <Element id="FUEL Screen ------------------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 5 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_fuel_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+
+			<Element id="Fuel Pump - Left">
+				<FloatPosition>36.000,137.000</FloatPosition>
+			    <Select id="Select">
+				<Expression id="Expression">
+				    <Minimum>0.000</Minimum>
+				    <Maximum>1.000</Maximum>
+				    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:1, bool)</Script>
+				</Expression>
+				<Case id="Case">
+				    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_wing_tank_pump_left_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+				<Case id="Case">
+				    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_wing_tank_pump_left_off.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			    </Select>
+			</Element>
+			<Element id="Fuel Pump - Right">
+				<FloatPosition>216.000,137.000</FloatPosition>
+			    <Select id="Select">
+				<Expression id="Expression">
+				    <Minimum>0.000</Minimum>
+				    <Maximum>1.000</Maximum>
+				    <Script>(A:GENERAL ENG FUEL PUMP SWITCH:2, bool)</Script>
+				</Expression>
+				<Case id="Case">
+				    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_wing_tank_pump_right_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+				<Case id="Case">
+				    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_wing_tank_pump_right_off.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			    </Select>
+			</Element>
+
+			<Element id="Eng 1 Fuel Valve">
+				<FloatPosition>37.000,73.000</FloatPosition>
+			    <Select id="Select">
+				<Expression id="Expression">
+				    <Minimum>0.000</Minimum>
+				    <Maximum>1.000</Maximum>
+				    <Script>(A:GENERAL ENG1 FUEL VALVE, bool)</Script>
+				</Expression>
+				<Case id="Case">
+				    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_low_press_valve_left_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+				<Case id="Case">
+				    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_low_press_valve_left_off.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			    </Select>
+			</Element>
+			<Element id="Eng 2 Fuel Valve">
+				<FloatPosition>216.000,73.000</FloatPosition>
+			    <Select id="Select">
+				<Expression id="Expression">
+				    <Minimum>0.000</Minimum>
+				    <Maximum>1.000</Maximum>
+				    <Script>(A:GENERAL ENG2 FUEL VALVE, bool)</Script>
+				</Expression>
+				<Case id="Case">
+				    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_low_press_valve_right_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+				<Case id="Case">
+				    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_low_press_valve_right_off.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			    </Select>
+			</Element>
+
+			<Element id="Fuel Crossfeed">
+				<FloatPosition>129.000,105.000</FloatPosition>
+			    <Select id="Select">
+				<Expression id="Expression">
+				    <Minimum>0.000</Minimum>
+				    <Maximum>1.000</Maximum>
+				    <Script>(A:FUEL CROSS FEED, bool)</Script>
+				</Expression>
+				<Case id="Case">
+				    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_crossfeed_off.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+				<Case id="Case">
+				    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="ecams_fuel_crossfeed_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			    </Select>
+			</Element>
+
+			<Element id="Fuel Transfer Valve - Left">
+				<FloatPosition>46.000,176.000</FloatPosition>
+				<Image id="Image" Name="ecams_fuel_transfer_valve_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="Fuel Transfer Valve - Right">
+				<FloatPosition>225.000,176.000</FloatPosition>
+				<Image id="Image" Name="ecams_fuel_transfer_valve_right_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Fuel Used - Left  ">
+				<FloatPosition>24.000,59.000</FloatPosition>
+				<GaugeText id="Fuel Used - Left">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG FUEL USED SINCE START:1, gallons))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>52,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Used - Right">
+				<FloatPosition>202.000,59.000</FloatPosition>
+				<GaugeText id="Fuel Used - Right">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:GENERAL ENG FUEL USED SINCE START:2, gallons))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>52,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="FOB">
+				<FloatPosition>120.000,72.000</FloatPosition>
+				<GaugeText id="FOB">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>
+					  %(
+					  	(A:FUEL TANK LEFT AUX QUANTITY, gallons) 
+					  	(A:FUEL LEFT QUANTITY, gallons) +
+						(A:FUEL TANK CENTER QUANTITY, gallons) + 
+						(A:FUEL RIGHT QUANTITY, gallons) + 
+						(A:FUEL TANK RIGHT AUX QUANTITY, gallons) + 
+						(A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!
+					</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>43,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Qty - Left Aux">
+				<FloatPosition>11.000,184.000</FloatPosition>
+				<GaugeText id="Fuel Qty - Left Aux">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL TANK LEFT AUX QUANTITY, gallons) (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>41,15</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Qty - Left">
+				<FloatPosition>54.000,188.000</FloatPosition>
+				<GaugeText id="Fuel Qty - Left">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL LEFT QUANTITY, gallons) (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>55,18</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Qty - Center">
+				<FloatPosition>113.000,188.000</FloatPosition>
+				<GaugeText id="Fuel Qty - Center">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL TANK CENTER QUANTITY, gallons) (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>57,18</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Qty - Right">
+				<FloatPosition>173.000,188.000</FloatPosition>
+				<GaugeText id="Fuel Qty - Right">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL RIGHT QUANTITY, gallons) (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>57,18</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Qty - Right Aux">
+				<FloatPosition>232.000,184.000</FloatPosition>
+				<GaugeText id="Fuel Qty - Right Aux">
+					<Bright>True</Bright>
+					<FontColor>0x01E00D</FontColor>
+					<FontFace>Arial</FontFace>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL TANK RIGHT AUX QUANTITY, gallons) (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>41,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Temp Degrees C - Left">
+				<FloatPosition>46.000,238.000</FloatPosition>
+				<GaugeText id="SAT deg C">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>#67A4C1</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>&#xB0;C</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>12,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Fuel Temp - Left A">
+				<FloatPosition>16.000,238.000</FloatPosition>
+				<GaugeText id="Fuel Temp - Left A">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TOTAL AIR TEMPERATURE, celsius))%!4.1d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>24,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Fuel Temp - Left B">
+				<FloatPosition>62.000,238.000</FloatPosition>
+				<GaugeText id="Fuel Temp - Left B">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TOTAL AIR TEMPERATURE, celsius))%!4.1d!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>24,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Fuel Temp Degrees C - Right">
+				<FloatPosition>226.000,238.000</FloatPosition>
+				<GaugeText id="SAT deg C">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>#67A4C1</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>&#xB0;C</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>12,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Fuel Temp - Right A">
+				<FloatPosition>196.000,238.000</FloatPosition>
+				<GaugeText id="Fuel Temp - Right A">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TOTAL AIR TEMPERATURE, celsius))%!4.1d!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>24,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Fuel Temp - Right B">
+				<FloatPosition>242.000,238.000</FloatPosition>
+				<GaugeText id="Fuel Temp - Right B">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TOTAL AIR TEMPERATURE, celsius))%!4.1d!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>24,17</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+        </Element>
+
+        <Element id="FCTL Screen ------------------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 6 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_flight_ctl_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>True</Bright>
+			</Image>
+			
+			<Element id="Element">
+				<FloatPosition>43.000,45.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_spd_brake_bases_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>4.000,-11.000</Axis>
+				</Image>
+				<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+				</MaskImage>
+			</Element>
+
+			<Element id="Speed Brakes Applied">
+				<Visibility>(A:SPOILERS HANDLE POSITION, number) 0 &gt;</Visibility>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_5_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>0.000,-5.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_4_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-19.000,-4.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_3_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-38.000,-2.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_2_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-57.000,-1.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_1_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-76.000,-1.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_1_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-118.000,0.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_2_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-137.000,-1.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_3_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-156.000,-2.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_4_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-175.000,-4.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_5_green.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-194.000,-5.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+			</Element>
+
+			<Element id="Speed Brakes Applied - Low Pressure">
+				<Visibility>0</Visibility>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_bases_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>4.000,-11.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_5_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>0.000,-5.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_4_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-19.000,-4.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_3_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-38.000,-2.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_2_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-57.000,-1.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_left_2_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-76.000,0.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_1_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-118.000,0.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_2_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-137.000,-1.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_3_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-156.000,-2.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_4_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-175.000,-4.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>43.000,45.000</FloatPosition>
+					<Image id="Image" Name="ecams_flight_ctl_spd_brake_right_5_amber.bmp">
+						<Transparent>True</Transparent>
+						<Axis>-194.000,-5.000</Axis>
+					</Image>
+					<MaskImage id="MaskImage" Name="ecams_flight_ctl_spd_brake_mask.bmp">
+					</MaskImage>
+				</Element>
+			</Element>
+
+			<Element id="Aileron - Left Scale">
+				<FloatPosition>41.000,79.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_aileron_pos_scale_left_white.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="Aileron - Left Arrow">
+				<FloatPosition>49.000,102.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_aileron_pos_indicator_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,0.260</Scale>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:AILERON POSITION, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+
+			<Element id="Aileron - Right Scale">
+				<FloatPosition>234.000,79.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_aileron_pos_scale_right_white.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+			<Element id="Aileron - Right Arrow">
+				<FloatPosition>223.000,102.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_aileron_pos_indicator_right_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,-0.260</Scale>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:AILERON POSITION, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+
+			<Element id="Elevator - Right Scale">
+				<FloatPosition>221.000,142.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_elevator_pos_scale_right_white.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Elevator - Right Arrow">
+				<FloatPosition>211.000,165.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_elevator_pos_indicator_right_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,-0.260</Scale>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:ELEVATOR POSITION, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+
+			<Element id="Elevator - Left Scale">
+				<FloatPosition>53.000,142.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_elevator_pos_scale_left_white.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+			</Element>
+
+			<Element id="Elevator - Left Arrow">
+				<FloatPosition>62.000,165.000</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_elevator_pos_indicator_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+				</Image>
+				<Shift id="Shift">
+					<Scale>0.000,-0.260</Scale>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:ELEVATOR POSITION, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+				</Shift>
+			</Element>
+
+			<Element id="Rudder Trim - Blue (Normal)">
+				<FloatPosition>141.851,186.321</FloatPosition>
+				<Visibility>1</Visibility>
+				<Image id="Image" Name="ecams_flight_ctl_rudder_trim_position_blue.bmp">
+					<Transparent>True</Transparent>
+					<Bright>True</Bright>
+					<Axis>0.851,-38.679</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>SOUTH</PointsTo>
+				</Rotation>
+			</Element>
+			<Element id="Rudder Trim - Amber">
+				<FloatPosition>141.851,186.321</FloatPosition>
+				<Visibility>0</Visibility>
+				<Image id="Image" Name="ecams_flight_ctl_rudder_trim_position_amber.bmp">
+					<Transparent>True</Transparent>
+					<Axis>0.851,-38.679</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>SOUTH</PointsTo>
+				</Rotation>
+			</Element>
+
+			<Element id="Rudder Indicator">
+				<FloatPosition>141.851,186.321</FloatPosition>
+				<Image id="Image" Name="ecams_flight_ctl_rudder_indicator.bmp">
+					<Transparent>True</Transparent>
+					<Bright>0</Bright>
+					<Axis>5.851,1.321</Axis>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>SOUTH</PointsTo>
+					<Expression id="Expression">
+						<Minimum>-100.000</Minimum>
+						<Maximum>100.000</Maximum>
+						<Script>(A:RUDDER POSITION, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>165.000,216.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>142.000,225.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>-100.000</ExpressionResult>
+							<FloatPosition>116.000,216.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+        </Element>
+
+        <Element id="ENG Primary Screen -----------------------">
+        	<Visibility>(L:ECAMS2 Display,number) 7 == (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+			<Image id="Image" Name="ecams_engine_primary_background.bmp">
+				<Transparent>True</Transparent>
+				<Bright>true</Bright>
+			</Image>
+
+			<Element id="N1 Needle Left">
+				<FloatPosition>36.062,44.687</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_n1_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>26.062,0.687</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>120.000</Maximum>
+						<Script>(A:TURB ENG1 N1, percent)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>15.000,65.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>56.000,25.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120.000</ExpressionResult>
+							<FloatPosition>64.000,44.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 1 N1 Readout">
+				<FloatPosition>30.000,48.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:TURB ENG1 N1, percent) abs 100.1 &gt; if{ 'red' } els{ 'white' )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:TURB ENG1 N1, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>24,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="N1 Needle Right">
+				<FloatPosition>121.875,44.875</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_n1_right_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>26.875,0.875</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>120.000</Maximum>
+						<Script>(A:TURB ENG1 N2, percent)</Script>
+					</Expression>
+					<FailureTable id="FailureTable">
+						<Failure id="Failure">
+						</Failure>
+					</FailureTable>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>100.000,64.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>100.000</ExpressionResult>
+							<FloatPosition>141.000,25.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>120.000</ExpressionResult>
+							<FloatPosition>149.000,44.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 2 N1 Readout">
+				<FloatPosition>115.000,48.000</FloatPosition>
+				<GaugeText id="N2 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:TURB ENG1 N2, percent) abs 100.1 &gt; if{ 'red' } els{ 'white' )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:Turb eng1 N2, percent) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>24,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="EGT Needle Left">
+				<FloatPosition>36.437,106.562</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_egt_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>27.437,1.562</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+					<PointsTo>WEST</PointsTo>
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>2000.000</Maximum>
+						<Script>(A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>16.000,126.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<FloatPosition>9.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<FloatPosition>46.000,81.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<FloatPosition>64.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 1 EGT Readout">
+				<FloatPosition>29.000,110.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ &apos;white&apos; )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:GENERAL ENG1 EXHAUST GAS TEMPERATURE, celsius))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>26,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="EGT Needle Right">
+				<FloatPosition>121.875,106.562</FloatPosition>
+				<Image id="Image" Name="ecams_engine_primary_needle_egt_left_green.bmp">
+					<Transparent>True</Transparent>
+					<Axis>27.437,1.562</Axis>
+					<Bright>true</Bright>
+				</Image>
+				<Rotation id="Rotation">
+				   <PointsTo>WEST</PointsTo>
+				   <Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>2000.000</Maximum>
+						<Script>(A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius)</Script>
+					</Expression>
+					<NonlinearityTable id="NonlinearityTable">
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>0.000</ExpressionResult>
+							<FloatPosition>100.000,126.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>500.000</ExpressionResult>
+							<FloatPosition>95.000,95.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>1000.000</ExpressionResult>
+							<FloatPosition>132.000,80.000</FloatPosition>
+						</NonlinearityEntry>
+						<NonlinearityEntry id="NonlinearityEntry">
+							<ExpressionResult>2000.000</ExpressionResult>
+							<FloatPosition>149.000,106.000</FloatPosition>
+						</NonlinearityEntry>
+					</NonlinearityTable>
+				</Rotation>
+			</Element>
+			<Element id="Eng 2 EGT Readout">
+				<FloatPosition>115.000,110.000</FloatPosition>
+				<GaugeText id="N1 Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>%((A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius) abs 1000 &gt; if{ &apos;red&apos; } els{ &apos;white&apos; )</FontColor>
+					<FontHeight>12</FontHeight>
+					<GaugeString>%((A:GENERAL ENG2 EXHAUST GAS TEMPERATURE, celsius))%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>25,13</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Eng 1 N2 - Normal Range">
+				<Visibility>(A:Turb eng1 N2, percent) 105.0 &lt;= </Visibility>
+				<Element id="Eng 1 N2 Readout">
+					<FloatPosition>8.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+						<Bold>True</Bold>
+						<FontColor>0x01E00D</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG1 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>RIGHT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+			<Element id="Eng 1 N2 - Red Range">
+				<Visibility>(A:Turb eng1 N2, percent) 105.0 &gt; </Visibility>
+				<Element id="Eng 1 N2 Readout">
+					<FloatPosition>8.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>red</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG1 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>RIGHT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+
+			<Element id="Eng 2 N2 - Normal Range">
+				<Visibility>(A:Turb eng2 N2, percent) 105.0 &lt;= </Visibility>
+				<Element id="Eng 2 N2 Readout">
+					<FloatPosition>104.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>0x01E00D</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG2 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>LEFT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+			<Element id="Eng 2 N2 - Red Range">
+				<Visibility>(A:Turb eng2 N2, percent) 105.0 &gt; </Visibility>
+				<Element id="Eng 2 N2 Readout">
+					<FloatPosition>104.000,152.000</FloatPosition>
+					<GaugeText id="Eng 1 N2 Readout">
+						<Bright>True</Bright>
+						<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+						<FontColor>red</FontColor>
+						<FontHeight>14</FontHeight>
+						<GaugeString>%((A:TURB ENG2 N2, percent) abs)%!5.1f!</GaugeString>
+						<HorizontalAlign>LEFT</HorizontalAlign>
+						<Size>40,14</Size>
+						<Transparent>True</Transparent>
+					</GaugeText>
+				</Element>
+			</Element>
+
+			<Element id="Eng 1 - Fuel Flow PPH">
+				<FloatPosition>0.000,189.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<FontColor>0x01E00D</FontColor>
+					<Bold>True</Bold>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG1 FUEL FLOW PPH, PPH) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>RIGHT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+			<Element id="Eng 2 - Fuel Flow PPH">
+				<FloatPosition>106.000,189.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG2 FUEL FLOW PPH, PPH) abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Total Fuel Flow PPH">
+				<FloatPosition>225.000,78.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:TURB ENG1 FUEL FLOW PPH, PPH) (A:TURB ENG2 FUEL FLOW PPH, PPH) + abs)%!5.1f!</GaugeString>
+					<HorizontalAlign>LEFT</HorizontalAlign>
+					<Size>46,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="FOB - Fuel On Board">
+				<FloatPosition>204.000,100.000</FloatPosition>
+				<GaugeText id="FOB Readout">
+					<Bright>True</Bright>
+					<FontFace>Arial</FontFace>
+					<Bold>True</Bold>
+					<FontColor>0x01E00D</FontColor>
+					<FontHeight>14</FontHeight>
+					<GaugeString>%((A:FUEL LEFT QUANTITY, gallons) (A:FUEL TANK CENTER QUANTITY, gallons) + (A:FUEL RIGHT QUANTITY, gallons) + (A:FUEL WEIGHT PER GALLON, pounds) *)%!5d!</GaugeString>
+					<HorizontalAlign>CENTER</HorizontalAlign>
+					<Size>36,14</Size>
+					<Transparent>True</Transparent>
+				</GaugeText>
+			</Element>
+
+			<Element id="Flaps Indicator">
+				<FloatPosition>164.000,143.000</FloatPosition>
+				 <Select id="Select">
+					<Expression id="Expression">
+						<Minimum>0.000</Minimum>
+						<Maximum>4.000</Maximum>
+						<Script>(A:FLAPS HANDLE INDEX, number)</Script>
+					</Expression>
+					<Case id="Case">
+						<ExpressionResult>0</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_1.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>1</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_2.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>2</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_3.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>3</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_4.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>4</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_slats_flaps_5.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+					<Case id="Case">
+						<ExpressionResult>5</ExpressionResult>
+						<Image id="Image" Name="ecams_engine_primary_text_flaps_full.bmp">
+							<Transparent>True</Transparent>
+							<Bright>true</Bright>
+						</Image>
+					</Case>
+				</Select>
+			</Element>
+
+			<Element id="***NYI***">
+				<Visibility>0</Visibility>
+				<Element id="Element">
+					<FloatPosition>200.000,80.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_text_xx.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+
+				<Element id="Element">
+					<FloatPosition>272.000,191.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_flaps_bug_4.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>270.000,175.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_flaps_bug_3.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>263.000,162.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_flaps_bug_2.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>248.000,154.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_flaps_bug_1.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>166.000,179.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_slats_bug_3.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+
+				<Element id="Element">
+					<FloatPosition>168.000,165.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_slats_bug_2.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+				<Element id="Element">
+					<FloatPosition>176.000,153.000</FloatPosition>
+					<Image id="Image" Name="ecams_engine_primary_slats_bug_1.bmp">
+						<Transparent>True</Transparent>
+						<Bright>true</Bright>
+					</Image>
+				</Element>
+			</Element>
+		</Element>
+        
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>283,282</Size>
+			<MouseArea id="Full Size Me">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>283,282</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script> 503 (&gt;K:PANEL_ID_TOGGLE)</Script>
+				</MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_GAUGE_ECAMS</DefaultId>
+                </Tooltip>
+			</MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_ECAMS</DefaultId>
+            </Tooltip>
+        </MouseArea>
+    </SimGauge.Gauge>
+</SimBase.Document>

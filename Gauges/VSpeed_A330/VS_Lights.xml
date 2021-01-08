@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="VS_Lights" Version="1.0">
+  <Element>
+    <Select>
+      <Value>
+      (A:CIRCUIT GENERAL PANEL ON, bool) 0 ==
+      if{
+        0 (>L:VSLightsOnOff, enum)
+      }
+
+      (A:LIGHT PANEL, bool) 0 ==
+      if{
+        0 (>L:VSLightsOnOff, enum)
+      }
+
+      (A:LIGHT PANEL, bool) 1 ==
+      if{
+        2 (>L:VSLightsOnOff, enum)
+      }
+
+      (L:VSLightsOnOff, enum) 1 &lt;
+      if{
+        (>K:PANEL_LIGHTS_OFF)
+      }
+
+      (L:VSLightsOnOff, enum) 1 &gt;
+      if{
+        (>K:PANEL_LIGHTS_ON)
+      }
+      </Value>
+    </Select>
+  </Element>
+  <Comment>Checks if power is available for VS lights</Comment>
+</Gauge>

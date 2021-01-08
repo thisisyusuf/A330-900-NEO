@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Gauge Name="AutoBrake" Version="1.4">
+  <copyright>(c)2008 Hiroshi Igami, EDITED 2013 KENWIGAIR, Edited 2020 Phil Marion</copyright>
+  <Size X="20" Y="20"/>
+
+  <Element>
+    <Select>
+      <Value> 
+(L:AutoBrakeActive, bool) 0 == if{
+  <!-- Before Autobrake is On -->
+  (L:AutoBrake, enum) 0 &gt; if{
+    <!-- NORMAL MODE  -->
+    (A:AIRSPEED TRUE, knot) 50 &lt;
+    (A:SIM ON GROUND, bool) 1 == 
+    &amp; if{
+
+    }
+    els{
+      <!-- When Gear Compression is greater than 50 Will start Autobrake -->
+      (A:GEAR ANIMATION POSITION:1, percent) 50 &gt; 
+      (A:GEAR ANIMATION POSITION:2, percent) 50 &gt; 
+      &amp; if{
+        (L:AutoBrake, bool) 2 == if{
+          40 (&gt;L:AutoMaxBrake, percent)
+        }
+        (L:AutoBrake, bool) 3 == if{
+          60 (&gt;L:AutoMaxBrake, percent)
+        }
+        (L:AutoBrake, bool) 4 == if{
+          80 (&gt;L:AutoMaxBrake, percent)
+        }
+
+        40 (&gt;L:AutoBrakeDiscSPD, knot)
+
+        1 (&gt;L:AutoBrakeActive, bool)
+        (&gt;K:SPOILERS_ON)
+        }
+    }
+  }
+
+  (L:AutoBrake, bool) -1 == if{
+    <!-- RTO MODE  -->
+    (L:AutoBrakeRTOFLAG, bool) 0 == if{
+      <!-- Set RTO FLAG to "armed" when faster than 40 knots and both throttles are above 70% -->
+      (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 70 &gt; 
+      (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) 70 &gt; ||
+      (A:AIRSPEED TRUE, knot) 40 &gt; &amp;&amp;
+      if{
+        1 (&gt;L:AutoBrakeRTOFLAG, bool)
+      }
+    }
+
+    <!-- If RTO FLAG is "armed" and there is a throttle surge, trigger RTO autobrake and spoilers -->
+    (L:AutoBrakeRTOFLAG, bool) 1 == if{
+      (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 50 &lt; 
+      (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) 50 &lt; || if{
+        100 (&gt;L:AutoMaxBrake, bool)
+        20 (&gt;L:AutoBrakeDiscSPD, knot)
+        0 (&gt;L:AutoBrakeRTOFLAG, bool)
+        1 (&gt;L:AutoBrakeActive, bool)
+        (&gt;K:SPOILERS_ON)
+      }
+
+      <!-- If aircraft gets airborne, reset RTO mode -->
+      (A:SIM ON GROUND, bool) 0 == if{
+        0 (&gt;L:AutoBrake, bool)
+      }
+    }
+  }
+}
+
+els{
+  <!-- When Autobrake is On -->
+
+  <!-- Do Braking -->
+  <!-- Left -->
+  32768 100 / (L:AutoMaxBrake, percent) (A:BRAKE LEFT POSITION, percent) max * 16383 - (&gt;K:AXIS_LEFT_BRAKE_SET)
+  <!-- Right -->
+  32768 100 / (L:AutoMaxBrake, percent) (A:BRAKE RIGHT POSITION, percent) max * 16383 - (&gt;K:AXIS_RIGHT_BRAKE_SET)
+
+  <!-- Abort Conditions -->
+  <!-- When Speed falls under disconnect speed, cancel Autobrake -->
+  (A:AIRSPEED TRUE, knot) (L:AutoBrakeDiscSPD, knot) &lt; if{
+    0 (&gt;L:AutoBrake, bool)
+    0 (&gt;L:AutoBrakeActive, bool)
+    -16383 d (&gt;K:AXIS_LEFT_BRAKE_SET) (&gt;K:AXIS_RIGHT_BRAKE_SET)
+    (&gt;K:SPOILERS_OFF)
+  }
+  <!-- When Throttle up means Go Around .. cancel Autobrake -->
+  (A:GENERAL ENG THROTTLE LEVER POSITION:1, percent) 70 &gt; 
+  (A:GENERAL ENG THROTTLE LEVER POSITION:2, percent) 70 &gt; ||
+	(L:AutoBrake, bool) -1 != &amp;&amp; if{
+    0 (&gt;L:AutoBrake, enum)
+    0 (&gt;L:AutoBrakeActive, bool)
+    -16383 d (&gt;K:AXIS_LEFT_BRAKE_SET) (&gt;K:AXIS_RIGHT_BRAKE_SET)
+    (&gt;K:SPOILERS_OFF)
+  } els{
+    <!-- When Aircraft hops release Autobrake for antiskid -->
+    (A:SIM ON GROUND, bool) 0 == if{
+      -16383 d (&gt;K:AXIS_LEFT_BRAKE_SET) (&gt;K:AXIS_RIGHT_BRAKE_SET)
+    }
+  }
+}
+      </Value>
+    </Select>
+  </Element>
+ 
+</Gauge>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Altimeter" Version="1.0">
+  <Element>
+    <Image Name="Altimeter_BG.bmp" ImageSizes="256,256" Luminous="Yes"/>
+    <Element>
+      <Position X="47" Y="64"/>
+      <MaskImage Name="Altimeter_Upper_Mask.bmp" ImageSizes="158,44">
+        <Axis X="0" Y="0"/>
+      </MaskImage>
+      <Image Name="Altimeter_10K_Strip.bmp" ImageSizes="31,484" Luminous="Yes">
+        <Nonlinearity>
+          <Item Value="0" X="0" Y="440"/>
+          <Item Value="10" X="0" Y="0"/>
+        </Nonlinearity>
+      </Image>
+      <Shift>
+        <Value>
+          (P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } 
+          100000 + 100000 % d 20 % 20 / r 20 / flr d 500 / flr  r 500 %  499 == if{ + }
+        </Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+      </Shift>
+    </Element>
+    <Element>
+      <Position X="47" Y="64"/>
+      <MaskImage Name="Altimeter_Upper_Mask.bmp" ImageSizes="158,44">
+        <Axis X="34" Y="0"/>
+      </MaskImage>
+      <Image Name="Altimeter_1K_Strip.bmp" ImageSizes="31,484" Luminous="Yes">
+        <Nonlinearity>
+          <Item Value="0" X="0" Y="440"/>
+          <Item Value="10" X="0" Y="0"/>
+        </Nonlinearity>
+      </Image>
+      <Shift>
+        <Value>
+          (P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } 
+          abs 100000 + 100000 % d 20 % 20 / r 20 / flr d 50 / 10 % flr  r 50 %  49 == if{ + }
+        </Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+      </Shift>
+    </Element>
+    <Element>
+      <Position X="47" Y="64"/>
+      <MaskImage Name="Altimeter_Upper_Mask.bmp" ImageSizes="158,44">
+        <Axis X="77" Y="0"/>
+      </MaskImage>
+      <Image Name="Altimeter_1K_Strip.bmp" ImageSizes="31,484" Luminous="Yes">
+        <Nonlinearity>
+          <Item Value="0" X="0" Y="440"/>
+          <Item Value="10" X="0" Y="0"/>
+        </Nonlinearity>
+      </Image>
+      <Shift>
+        <Value>
+          (P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } 
+          abs 100000 + 100000 % d 20 % 20 / r 20 / flr d 5 / 10 % flr  r 5 %  4 == if{ + }
+        </Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+      </Shift>
+    </Element>
+    <Element>
+      <Position X="47" Y="64"/>
+      <MaskImage Name="Altimeter_Upper_Mask.bmp" ImageSizes="158,44">
+        <Axis X="110" Y="0"/>
+      </MaskImage>
+      <Image Name="Altimeter_20_Strip.bmp" ImageSizes="48,264" Luminous="Yes">
+        <Nonlinearity>
+          <Item Value="0" X="0" Y="220"/>
+          <Item Value="100" X="0" Y="0"/>
+        </Nonlinearity>
+      </Image>
+      <Shift>
+        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) } abs 100000 + 100000 % 100 %</Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+      </Shift>
+    </Element>
+    <Element>
+      <Position X="48" Y="165"/>
+      <Text X="75" Y="24" Length="4" Fixed="Yes" Font="Arial" Color="#FCFCFC" Adjust="Center" VerticalAdjust="Center" Luminous="Yes">
+        <String>%((A:KOHLSMAN SETTING MB, mbar))%!4.f!</String>
+      </Text>
+    </Element>
+    <Element>
+      <Position X="132" Y="165"/>
+      <Text X="75" Y="24" Length="5" Fixed="Yes" Font="Arial" Color="#FCFCFC" Adjust="Center" VerticalAdjust="Center" Luminous="Yes">
+        <String>%((A:KOHLSMAN SETTING HG, inHg))%!2.2f!</String>
+      </Text>
+    </Element>
+    <Element>
+      <Visible>(A:PARTIAL PANEL ALTIMETER, enum) (A:PARTIAL PANEL ELECTRICAL, enum) (A:PARTIAL PANEL PITOT, enum) + + 0 !=</Visible>
+      <Position X="47" Y="64"/>
+      <Image Name="Altimeter_Failed.bmp" ImageSizes="158,44" Luminous="Yes"/>
+    </Element>
+    <Element>
+      <Position X="128" Y="128"/>
+      <Image Name="Altimeter_Needle.bmp" PointsTo="North" ImageSizes="22,135" Luminous="Yes">
+        <Axis X="11" Y="123"/>
+      </Image>
+      <Rotate>
+        <Value>(P:Units of measure, enum) 2 == if{ (A:Indicated Altitude, meters) } els{ (A:Indicated Altitude, feet) }</Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+        <Nonlinearity>
+          <Item Value="0" X="128" Y="3"/>
+          <Item Value="500" X="128" Y="252"/>
+        </Nonlinearity>
+        <Delay DegreesPerSecond="90"/>
+      </Rotate>
+    </Element>
+    <Element>
+      <Position X="128" Y="128"/>
+      <Image Name="Altimeter_Bug.bmp" PointsTo="North" ImageSizes="24,24" Luminous="Yes">
+        <Axis X="12" Y="125"/>
+      </Image>
+      <Rotate>
+        <Value>(L:ALTIMETER REF, number)</Value>
+        <Failures>
+          <SYSTEM_PITOT_STATIC Action="Freeze"/>
+          <SYSTEM_ELECTRICAL Action="Freeze"/>
+          <GAUGE_ALTIMETER Action="Freeze"/>
+        </Failures>
+        <Nonlinearity>
+          <Item Value="0" X="128" Y="3"/>
+          <Item Value="500" X="128" Y="252"/>
+        </Nonlinearity>
+      </Rotate>
+    </Element>
+  </Element>
+  <Element>
+    <Position X="1" Y="216"/>
+    <Image Name="Altimeter_Knob_BG.bmp" ImageSizes="40,40"/>
+  </Element>
+  <Element>
+    <Position X="21" Y="235"/>
+    <Image Name="Altimeter_Bug_Knob.bmp" PointsTo="North" ImageSizes="24,24" Bilinear="Yes">
+      <Axis X="12" Y="12"/>
+    </Image>
+    <Rotate>
+      <Value>(L:ALTIMETER REF, number)</Value>
+      <Failures>
+        <SYSTEM_PITOT_STATIC Action="Freeze"/>
+        <SYSTEM_ELECTRICAL Action="Freeze"/>
+        <GAUGE_ALTIMETER Action="Freeze"/>
+      </Failures>
+      <Nonlinearity>
+        <Item Value="0" X="235" Y="226"/>
+        <Item Value="100" X="235" Y="246"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Mouse>
+    <Tooltip ID="TOOLTIPTEXT_ALTIMETER_FEET" MetricID="TOOLTIPTEXT_ALTIMETER_FEET_METERS_SPECIAL"/>
+    <Area Left="0" Right="80" Top="216" Bottom="256">
+      <Tooltip>Altimeter Reference Setting</Tooltip>
+      <Area Right="20">
+        <Cursor Type="DownArrow"/>
+        <Click Repeat="Yes">(L:ALTIMETER REF, number) 10 - d 0 &lt; if{ 1000 + } (&gt;L:ALTIMETER REF, number)</Click>
+      </Area>
+      <Area Left="20">
+        <Cursor Type="UpArrow"/>
+        <Click Repeat="Yes">(L:ALTIMETER REF, number) 10 + d 1000 &gt;= if{ 1000 - } (&gt;L:ALTIMETER REF, number)</Click>
+      </Area>
+    </Area>
+  </Mouse>
+</Gauge>

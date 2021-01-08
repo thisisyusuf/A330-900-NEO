@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Gauge Name="Airspeed" Version="1.0">
+  <Image Name="Airspeed_BG.bmp" ImageSizes="300,300" Luminous="Yes" />
+  <Element>
+    <Position X="147" Y="147"/>
+    <Image Name="Airspeed_Pointer.bmp" ImageSizes="137,15" Luminous="Yes">
+      <Axis X="22" Y="5" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="450">(A:Airspeed select indicated or true, knots) (A:Autopilot airspeed hold var, knots)</Value>
+      <Nonlinearity>
+        <Item Value="0" X="147" Y="25"/>
+        <Item Value="120" X="285" Y="80"/>
+        <Item Value="160" X="285" Y="223"/>
+        <Item Value="200" X="55" Y="290"/>
+        <Item Value="300" X="35" Y="178"/>
+        <Item Value="400" X="30" Y="50"/>
+      </Nonlinearity>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="147" Y="147"/>
+    <Image Name="Airspeed_Barber_Pole.bmp" ImageSizes="137,15" Luminous="Yes">
+      <Axis X="22" Y="5" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="450">(A:AIRSPEED BARBER POLE, knots)</Value>
+      <Nonlinearity>
+        <Item Value="0" X="147" Y="25"/>
+        <Item Value="120" X="285" Y="80"/>
+        <Item Value="160" X="285" Y="223"/>
+        <Item Value="200" X="55" Y="290"/>
+        <Item Value="300" X="35" Y="178"/>
+        <Item Value="400" X="30" Y="50"/>
+      </Nonlinearity>
+      <Delay DegreesPerSecond="12"/>
+      <Failures>
+        <SYSTEM_PITOT_STATIC Action="0"/>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+    </Rotate>
+  </Element>
+  <Element>
+    <Position X="147" Y="147"/>
+    <Image Name="Airspeed_Needle.bmp" ImageSizes="137,15" Luminous="Yes">
+      <Axis X="22" Y="5" PointsTo="East"/>
+    </Image>
+    <Rotate>
+      <Value Minimum="0" Maximum="450">(A:AIRSPEED INDICATED, knots)</Value>
+      <Nonlinearity>
+        <Item Value="0" X="147" Y="25"/>
+        <Item Value="120" X="285" Y="80"/>
+        <Item Value="160" X="285" Y="223"/>
+        <Item Value="200" X="55" Y="290"/>
+        <Item Value="300" X="35" Y="178"/>
+        <Item Value="400" X="30" Y="50"/>
+      </Nonlinearity>
+      <Failures>
+        <SYSTEM_PITOT_STATIC Action="0"/>
+        <GAUGE_AIRSPEED Action="Freeze"/>
+      </Failures>
+    </Rotate>
+  </Element>
+  <Mouse>
+    <Area Left="0" Top="175" Width="75" Height="75">
+	  <Help ID="HELPID_GAUGE_AIRSPEED"/>
+      <Tooltip ID="">Airspeed Indicator</Tooltip>
+    </Area>
+    <Area Left="0" Top="240" Width="25" Height="60">
+      <Cursor Type="DownArrow"/>
+      <Click Event="AP_SPD_VAR_DEC" Repeat="Yes"/>
+    </Area>
+    <Area Left="25" Top="240" Width="25" Height="60">
+      <Cursor Type="UpArrow"/>
+      <Click Event="AP_SPD_VAR_INC" Repeat="Yes"/>
+    </Area>
+  </Mouse>
+</Gauge>

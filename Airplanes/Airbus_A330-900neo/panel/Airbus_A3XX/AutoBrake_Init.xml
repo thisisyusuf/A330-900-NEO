@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Gauge Name="Autobrake_Init" Version="1.4">
+  <copyright>(c)2008 Hiroshi Igami, EDITED 2013 KENWIGAIR, Edited 2020 Phil Marion</copyright>
+  <Size X="20" Y="20"/>
+
+  <Element>
+    <Select>
+      <Value> 
+		(L:AutobrakeINIT, bool) 0 == if{
+		  1 (&gt;L:AutobrakeINIT, bool)
+		  <!-- Auto Brake not Armed -->
+		  0 (&gt;L:AutoBrake, bool)
+		  0 (&gt;L:AutoBrakeActive, bool)
+		}
+      </Value>
+    </Select>
+  </Element>
+
+</Gauge>

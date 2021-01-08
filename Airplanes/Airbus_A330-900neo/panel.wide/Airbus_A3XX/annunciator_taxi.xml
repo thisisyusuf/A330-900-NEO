@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0" id="annunciator taxi">
+	<Descr>AceXML Document</Descr>
+	<Filename>annunciator_taxi.xml</Filename>
+	<SimGauge.Gauge id="annunciator_taxi" ArtDirectory=".">
+		<FloatPosition>569.000,519.000</FloatPosition>
+		<Size>33,23</Size>
+
+		<Element id="Element">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Script>
+					(L:Taxi Speed, bool) (A:SIM ON GROUND, bool) &amp;&amp; 
+					if{ (A:AUTOPILOT AIRSPEED HOLD VAR, knots) 
+						(A:GROUND VELOCITY, knots) - s0 l0 5 &gt; if{ 5500 (&gt;K:THROTTLE_SET) } els{ 0 (&gt;K:THROTTLE_SET) } l0 0 &lt;
+						if{ (G:Var1) 0 == if{ 1 (&gt;K:BRAKES_LEFT) } (G:Var1) if{ 1 (&gt;K:BRAKES_RIGHT) } (G:Var1) ! (&gt;G:Var1) }
+					}
+					</Script>
+				</Expression>
+			</Select>
+		</Element>
+
+		<Element id="Element">
+			<FloatPosition>3.000,3.000</FloatPosition>
+			<Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == </Visibility>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:Taxi Speed, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="annunciator_taxi_speed_on.bmp" Name="annunciator_taxi_speed_off.bmp">
+						<Transparent>True</Transparent>
+						<Luminous>True</Luminous>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="annunciator_taxi_speed_on.bmp" Name="annunciator_taxi_speed_on.bmp">
+						<Transparent>True</Transparent>
+						<Bright>True</Bright>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="MouseArea - Panel">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>33,23</Size>
+			<MouseArea id="Taxi Speed">
+				<FloatPosition>0.000,0.000</FloatPosition>
+				<Size>33,23</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<Script>(L:Taxi Speed, bool) ! (&gt;L:Taxi Speed, bool) 15 (&gt;K:AP_SPD_VAR_SET) 0 (&gt;K:THROTTLE_SET)</Script>
+					<ClickType>LeftSingle</ClickType>
+				</MouseClick>
+			</MouseArea>
+			<Tooltip id="Tooltip">
+				<DefaultId>HELPID_TAXI_SPEED_SWITCH</DefaultId>
+			</Tooltip>
+		</MouseArea>
+
+	</SimGauge.Gauge>
+</SimBase.Document>

@@ -1,0 +1,2223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+    <Descr>AceXML Document</Descr>
+    <Filename>popup_overhead.xml</Filename>
+    <SimGauge.Gauge id="popup_overhead" ArtDirectory=".">
+        <FloatPosition>0.000,0.000</FloatPosition>
+        <Size>761,354</Size>
+        <Element id="Element">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Image id="Image" Name="popup_overhead_background.bmp">
+                <Transparent>True</Transparent>
+            </Image>
+        </Element>
+
+        <Element id="HYD - Eng 2">
+            <FloatPosition>685.000,10.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:Hydraulic Switch:2, bool) (A:Eng Hydraulic Pressure:2,psi) 100 &lt; 2 * + 
+                    	} 
+                    	els{ 1 }
+                   </Script> 	
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_2_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_2_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="HYD - Elec Pump">
+            <FloatPosition>627.000,6.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    (A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    (A:Hydraulic Switch:3, bool) (A:Eng Hydraulic Pressure:3,psi) 100 &lt; 2 * +
+                    } 
+                    els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_elec_pump_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_elec_pump_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_elec_pump_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_elec_pump_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="HYD - Eng 1">
+            <FloatPosition>575.000,4.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    (A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    (A:Hydraulic Switch:1, bool) (A:Eng Hydraulic Pressure:1,psi) 100 &lt; 2 * +
+                    } 
+                    els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_adirs_eng_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Eng 2 Fuel Pump">
+            <FloatPosition>680.000,169.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    (A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    (A:General eng fuel pump switch:2,bool) (A:General Eng2 Fuel Pressure:2,psi) 5 &lt; 2 * +
+                    } 
+                    els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_2_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_2_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fuel Crossfeed">
+            <FloatPosition>622.000,163.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    (A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    (A:FUEL CROSS FEED, bool) 
+                    }
+                    els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_x_feed_both_off.bmp">
+					<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_x_feed_both_on.bmp">
+					    <Bright>True</Bright>
+					<Transparent>True</Transparent>
+		      			</Image>
+		  </Case>
+         </Select>		 
+      </Element>
+        
+        <Element id="Eng 1 Fuel Pump">
+            <FloatPosition>565.000,163.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    (A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    (A:General eng fuel pump switch:1,bool) (A:General Eng1 Fuel Pressure:1,psi) 5 &lt; 2 * +
+                    } 
+                    els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fuel_eng_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+ 		</Select>		 
+        </Element>
+        
+        <Element id="Probe Heat">
+            <FloatPosition>673.000,228.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Pitot heat,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_probe_heat_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_probe_heat_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_probe_heat_green_lights_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_probe_heat_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="Anti-Ice Eng 2">
+            <FloatPosition>630.000,226.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:ENG ANTI ICE:2,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_2_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_2_both_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="Anti-Ice Eng 1">
+            <FloatPosition>596.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:ENG ANTI ICE:1,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_1_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_eng_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Anit-Ice Wing">
+            <FloatPosition>558.000,220.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Structural Deice Switch,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_wing_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_wing_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_wing_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_anti_ice_wing_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="APU Start">
+            <FloatPosition>389.000,263.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:APU PCT RPM,percent) 
+                    	10 &gt; if{ 1 } els{ 0 }
+                    	}
+                    	els{ 0 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_apu_start_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_apu_start_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_apu_start_avail_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_apu_start_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="Crossbleed - Eng 2 ***INOP***">
+            <FloatPosition>463.000,139.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>0</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_2_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_2_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="Crossbleed - APU ***INOP***">
+            <FloatPosition>298.000,139.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>0</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_apu_bleed_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_apu_bleed_on_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_apu_bleed_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_apu_bleed_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Crossbleed - Eng 1 ***INOP***">
+            <FloatPosition>217.000,145.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>0</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_x_bleed_eng_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fire - Eng 1">
+            <FloatPosition>230.000,6.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Eng On Fire:1,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_out_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_out_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_in_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_in_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fire - APU ">
+            <FloatPosition>337.000,6.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Apu On Fire Detected, bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_out_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_out_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+           </Select>		 
+        </Element>
+        
+        <Element id="Fire - Eng 2">
+            <FloatPosition>441.000,6.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Eng On Fire:2,bool) } els{ 0 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_out_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_out_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_in_annunciator_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_in_annunciator_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fire - Eng 1">
+            <FloatPosition>219.000,72.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:FIRE BOTTLE DISCHARGED:1,bool) 2 * (A:FIRE BOTTLE SWITCH:1,bool) +
+                    	}
+                    	els{ 0 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_squib_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_disch_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fire - APU">
+            <FloatPosition>324.000,64.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:FIRE BOTTLE DISCHARGED:3,bool) 2 * (A:FIRE BOTTLE SWITCH:3,bool) +
+                    	}
+                    	els{ 0 }
+                   </Script> 	
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_squib_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_disch_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_apu_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Fire - Eng 2">
+            <FloatPosition>487.000,67.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:FIRE BOTTLE DISCHARGED:2,bool) 2 * (A:FIRE BOTTLE SWITCH:2,bool) +
+                    	}
+                    	els{ 0 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_squib_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>2</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_disch_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fire_eng_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="GEN 2">
+            <FloatPosition>161.000,192.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:General Eng2 Generator Switch, bool) } els{ 1 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_2_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_2_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_2_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_2_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="GEN - APU">
+            <FloatPosition>117.000,199.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:APU Generator Switch, bool) } els{ 1 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_apu_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_apu_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_apu_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_apu_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="GEN 1">
+            <FloatPosition>70.000,200.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:General Eng1 Generator Switch, bool) } els{ 1 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_gen_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Battery Readout">
+            <FloatPosition>25.000,192.000</FloatPosition>
+            <Visibility>(A:CIRCUIT GENERAL PANEL ON, bool) (A:Electrical master battery,bool) &amp;&amp;</Visibility>
+            <GaugeText id="BATT Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>18</FontHeight>
+                <GaugeString>
+					%((L:DC Volts Selector,number))
+					%{case}  
+					%{:0} %((A:Electrical Battery Bus Voltage, volts))%!4.1f!
+					%{:1} %((A:Electrical GenAlt Bus Voltage:1, volts))%!4.1f!
+					%{:2} %((A:APU Volts, volts))%!4.1f!
+					%{:3} %((A:Electrical GenAlt Bus Voltage:2, volts))%!4.1f!
+					%{end}
+                </GaugeString>
+                <HorizontalAlign>CENTER</HorizontalAlign>
+                <Italic>false</Italic>
+                <Size>60,23</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>-4 dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="BATT">
+            <FloatPosition>18.000,214.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ (A:Electrical master battery,bool) } els{ 1 }</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_bat_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_bat_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_bat_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_electrical_bat_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="FLTCTL FAC 1">
+            <FloatPosition>119.000,101.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:FLY BY WIRE FAC SWITCH:1,bool) (A:FLY BY WIRE FAC FAILED:1,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_fac_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_fac_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_fac_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_fac_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="FLTCTL SEC 1">
+            <FloatPosition>74.000,105.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{ 
+                    	(A:FLY BY WIRE SEC SWITCH:1,bool) (A:FLY BY WIRE SEC FAILED:1,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_sec_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_sec_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_sec_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_sec_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="FLTCTL ELAC 1">
+            <FloatPosition>9.000,109.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{
+                    	(A:FLY BY WIRE ELAC SWITCH:1,bool) (A:FLY BY WIRE ELAC FAILED:1,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_elac_1_off_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_elac_1_both_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_elac_1_both_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_button_fltctl_elac_1_fault_on.bmp">
+					    <Bright>True</Bright>
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+
+
+
+        <Element id="ELAC 2">
+            <FloatPosition>563.000,96.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{
+                    	(A:FLY BY WIRE ELAC SWITCH:2,bool) (A:FLY BY WIRE ELAC FAILED:2,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image Name="popup_overhead_button_elac_2_off_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image Name="popup_overhead_button_elac_2_both_off.bmp">
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image Name="popup_overhead_button_elac_2_both_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image Name="popup_overhead_button_elac_2_fault_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="SEC 2">
+            <FloatPosition>610.000,94.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{
+                    	(A:FLY BY WIRE SEC SWITCH:2,bool) (A:FLY BY WIRE SEC FAILED:2,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_2_off_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_2_both_off.bmp">
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_2_both_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_2_fault_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="SEC 3">
+            <FloatPosition>651.000,90.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{
+                    	(A:FLY BY WIRE SEC SWITCH:3,bool) (A:FLY BY WIRE SEC FAILED:3,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_3_off_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_3_both_off.bmp">
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_3_both_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image Name="popup_overhead_button_sec_3_fault_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="FAC 2">
+            <FloatPosition>694.000,101.000</FloatPosition>
+             <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>
+                    	(A:CIRCUIT GENERAL PANEL ON, bool) 1 == if{
+                    	(A:FLY BY WIRE FAC SWITCH:2,bool) (A:FLY BY WIRE FAC FAILED:2,bool) 2 * +
+                    	}
+                    	els{ 1 }
+                    </Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image Name="popup_overhead_button_fac_2_off_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1</ExpressionResult>
+					<Image Name="popup_overhead_button_fac_2_both_off.bmp">
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image Name="popup_overhead_button_fac_2_both_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+				</Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image Name="popup_overhead_button_fac_2_fault_on.bmp">
+					    <Bright>True</Bright>
+					</Image>
+                </Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="No Smoking">
+            <FloatPosition>483.000,298.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:CABIN NO SMOKING ALERT SWITCH,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_no_smoking_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_no_smoking_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Seat Belts">
+            <FloatPosition>437.000,298.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:CABIN SEATBELTS ALERT SWITCH,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_seat_belts_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_seat_belts_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Int Lt">
+            <FloatPosition>446.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>2.000</Maximum>
+                    <Script>(L:Panel Cabin Lights, number)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_int_lt_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_int_lt_panel.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_int_lt_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Recog">
+            <FloatPosition>190.000,306.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light Recognition,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_recog_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_recog_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Landing Lts">
+            <FloatPosition>255.000,306.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light landing:1,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_land_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_land_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Taxi Lts">
+            <FloatPosition>295.000,305.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light Taxi, bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_taxi_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_taxi_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Logo Lts">
+            <FloatPosition>340.000,306.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light Logo,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_logo_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_logo_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Strobe Lts">
+            <FloatPosition>184.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light Strobe,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_strobe_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_strobe_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Beacon Lts">
+            <FloatPosition>254.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light beacon,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_bcn_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_bcn_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Wing Lts">
+            <FloatPosition>294.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light wing,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_wing_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_wing_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Nav Logo Lts">
+            <FloatPosition>337.000,223.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(A:Light nav,bool)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_nav_logo_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_switch_nav_logo_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        
+        <Element id="Crossbleed Knob">
+            <FloatPosition>351.000,137.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>3.000</Maximum>
+                    <Script>(A:BLEED AIR SOURCE CONTROL,enum)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_x_bleed_auto.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_x_bleed_shut.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_x_bleed_apu.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>3.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_x_bleed_engs.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Inertial Readout - TRK GS">
+            <FloatPosition>20.000,33.000</FloatPosition>
+            <Visibility>(L:Inertial Sys OnOff,number) 0 == (L:Inertial Data,number) 0 == &amp;&amp; d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <GaugeText id="Inertial Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>16</FontHeight>
+  				<GaugeString>
+  					%((A:GPS Ground True Track,degrees) abs)%!3d! %((A:GPS Ground Speed,knots) abs)%!3d!
+				</GaugeString>
+                <HorizontalAlign>LEFT</HorizontalAlign>
+                <Italic>false</Italic>
+                <Size>162,23</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>-4 dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="Inertial Readout - PPOS">
+            <FloatPosition>20.000,33.000</FloatPosition>
+            <Visibility>(L:Inertial Sys OnOff,number) 0 == (L:Inertial Data,number) 1 == &amp;&amp; d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <GaugeText id="Inertial Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>16</FontHeight>
+  				<GaugeString>
+  					%((A:GPS Position Lat,degrees) 0 &lt;)%{if}S%{else}N%{end}
+  					%((A:GPS Position Lat,degrees) abs flr)%!2d!
+  					.%((A:GPS Position Lat,degrees) abs d flr - 60 *)%!4.2f!
+  					%((A:GPS Position Lon,degrees) 0 &lt;)%{if} W%{else} E%{end}
+					%((A:GPS Position Lon,degrees) abs flr)%!3d!
+					.%((A:GPS Position Lon,degrees) abs d flr - 60 *)%!4.2f!
+				</GaugeString>
+                <HorizontalAlign>LEFT</HorizontalAlign>
+                <Italic>false</Italic>
+                <Size>162,23</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>-4 dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="Inertial Readout - Wind">
+            <FloatPosition>25.000,33.000</FloatPosition>
+            <Visibility>(L:Inertial Sys OnOff,number) 0 == (L:Inertial Data,number) 2 == &amp;&amp; d (A:CIRCUIT GENERAL PANEL ON, bool) &amp;&amp;</Visibility>
+            <GaugeText id="Inertial Readout">
+                <Bright>True</Bright>
+                <FontFace>Quartz</FontFace>
+                <FontColor>white</FontColor>
+                <FontHeight>16</FontHeight>
+  				<GaugeString>
+  					%((A:Ambient Wind Velocity,knots))%!5d!
+					 %((A:Ambient Wind Direction,degrees))%!5d!
+				</GaugeString>
+                <HorizontalAlign>LEFT</HorizontalAlign>
+                <Italic>false</Italic>
+                <Size>162,23</Size>
+                <Transparent>True</Transparent>
+            </GaugeText>
+            <Rotation id="Rotation">
+                <Expression id="Expression">
+                    <Script>-4 dgrd</Script>
+                </Expression>
+            </Rotation>
+        </Element>
+        <Element id="Data Knob">
+            <FloatPosition>33.000,70.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>2.000</Maximum>
+                    <Script>(L:Inertial Data,number)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_adirs_data_tkgs.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_adirs_data_ppos.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>2.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_adirs_data_wind_hdg.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+        
+        <Element id="Sys Knob">
+            <FloatPosition>90.000,46.000</FloatPosition>
+            <Select id="Select">
+                <Expression id="Expression">
+                    <Minimum>0.000</Minimum>
+                    <Maximum>1.000</Maximum>
+                    <Script>(L:Inertial Sys OnOff,number)</Script>
+                </Expression>
+                <Case id="Case">
+                    <ExpressionResult>1.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_adirs_sys_off.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+                </Case>
+                <Case id="Case">
+                    <ExpressionResult>0.000</ExpressionResult>
+					<Image id="Image" Name="popup_overhead_knob_adirs_sys_on.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>		 
+        </Element>
+ 
+        <MouseArea id="MouseArea">
+            <FloatPosition>0.000,0.000</FloatPosition>
+            <Size>761,354</Size>
+
+            <MouseArea id="Inertial Data Knob">
+                <FloatPosition>34.000,71.000</FloatPosition>
+                <Size>33,36</Size>
+				<MouseArea id="Inertial Data Knob DEC">
+					<FloatPosition>0.000,0.000</FloatPosition>
+					<Size>17,36</Size>
+					<CursorType>DownArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Inertial Data,number) -- s0 0 &lt; if{ 0 } els{ l0 } (&gt;L:Inertial Data,number)</Script>
+						<ClickType>LeftSingle</ClickType>
+					</MouseClick>
+				</MouseArea>
+				<MouseArea id="Inertial Data Knob INC">
+					<FloatPosition>17.000,0.000</FloatPosition>
+					<Size>16,36</Size>
+					<CursorType>UpArrow</CursorType>
+					<MouseClick id="MouseClick">
+						<Script>(L:Inertial Data,number) ++ s0 2 &gt; if{ 2 } els{ l0 } (&gt;L:Inertial Data,number)</Script>
+						<ClickType>LeftSingle</ClickType>
+					</MouseClick>
+				</MouseArea>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_INERTIAL_DATA_KNOB</DefaultId>
+                </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="Inertial Sys Switch">
+                <FloatPosition>114.000,67.000</FloatPosition>
+                <Size>30,31</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>(L:Inertial Sys OnOff,number) ++ 2 % (&gt;L:Inertial Sys OnOff,number)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_INERTIAL_DATA_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="Battery Switch">
+                <FloatPosition>34.000,224.000</FloatPosition>
+                <Size>31,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_MASTER_BATTERY</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_BATTERY_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="GEN 1">
+                <FloatPosition>87.000,220.000</FloatPosition>
+                <Size>30,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_ALTERNATOR1</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_B737_GEN1_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="APU GEN">
+                <FloatPosition>130.000,217.000</FloatPosition>
+                <Size>29,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>APU_GENERATOR_SWITCH_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_B737_APU1_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="GEN 2">
+                <FloatPosition>171.000,213.000</FloatPosition>
+                <Size>29,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_ALTERNATOR2</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_B737_GEN2_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+ 
+            <MouseArea id="Eng 1 Fire Ext">
+                <FloatPosition>237.000,77.000</FloatPosition>
+                <Size>30,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>11 (&gt;K:EXTINGUISH_ENGINE_FIRE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+						<DefaultId>TOOLTIPTEXT_ENG1_FIRE_SWITCH</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="APU Fire Ext ">
+                <FloatPosition>342.000,77.000</FloatPosition>
+                <Size>31,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>3 (&gt;K:APU_EXTINGUISH_FIRE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+						<DefaultId>TOOLTIPTEXT_APU_FIRE_SWITCH</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="Eng 2 Fire Ext">
+                <FloatPosition>510.000,77.000</FloatPosition>
+                <Size>30,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>22 (&gt;K:EXTINGUISH_ENGINE_FIRE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+						<DefaultId>TOOLTIPTEXT_ENG2_FIRE_SWITCH</DefaultId>
+				</Tooltip>
+			</MouseArea>
+
+		 <MouseArea id="Bleed Valves">
+                 <FloatPosition>353.000,144.000</FloatPosition>
+                 <Size>68,54</Size>
+ 				<MouseArea id="Bleed Valves DEC">
+ 					<FloatPosition>0.000,0.000</FloatPosition>
+ 					<Size>34,54</Size>
+ 					<CursorType>DownArrow</CursorType>
+ 					<MouseClick id="MouseClick">
+ 						<KeyEvent>BLEED_AIR_SOURCE_CONTROL_DEC</KeyEvent>
+ 						<ClickType>LeftSingle</ClickType>
+ 					</MouseClick>
+ 				</MouseArea>
+ 				<MouseArea id="Bleed Valves INC">
+ 					<FloatPosition>34.000,0.000</FloatPosition>
+ 					<Size>34,54</Size>
+ 					<CursorType>UpArrow</CursorType>
+ 					<MouseClick id="MouseClick">
+ 						<KeyEvent>BLEED_AIR_SOURCE_CONTROL_INC</KeyEvent>
+ 						<ClickType>LeftSingle</ClickType>
+ 					</MouseClick>
+ 				</MouseArea>
+ 				<Tooltip id="Tooltip">
+ 					<DefaultId></DefaultId>
+ 				</Tooltip>
+             </MouseArea>
+
+ 
+
+            <MouseArea id="Strobe Light">
+                <FloatPosition>219.000,250.000</FloatPosition>
+                <Size>30,42</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>(A:Light Strobe,bool) ++ 2 % (&gt;K:STROBES_SET)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_STROBE</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Beacon Light">
+                <FloatPosition>258.000,250.000</FloatPosition>
+                <Size>31,43</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_BEACON_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_BEACON</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Wing Light">
+                <FloatPosition>300.000,250.000</FloatPosition>
+                <Size>31,43</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_WING_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_WING</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="NAV Light">
+                <FloatPosition>346.000,242.000</FloatPosition>
+                <Size>30,52</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_NAV_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_NAV</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Recog Light">
+                <FloatPosition>224.000,298.000</FloatPosition>
+                <Size>30,43</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_RECOGNITION_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_RECOGNITION</DefaultId>
+                </Tooltip>
+            </MouseArea>
+			<MouseArea id="Landing Lights">
+				<FloatPosition>258.000,298.000</FloatPosition>
+				<Size>29,42</Size>
+				<CursorType>Hand</CursorType>
+				<MouseClick id="MouseClick">
+					<KeyEvent>LANDING_LIGHTS_TOGGLE</KeyEvent>
+					<ClickType>LeftSingle</ClickType>
+				</MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>HELPID_GAUGE_LIGHT_SWITCH_LANDING</DefaultId>
+				</Tooltip>
+			</MouseArea>
+            <MouseArea id="Taxi Lights">
+                <FloatPosition>301.000,298.000</FloatPosition>
+                <Size>30,43</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_TAXI_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_TAXI</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Logo Light">
+                <FloatPosition>347.000,298.000</FloatPosition>
+                <Size>29,43</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_LOGO_LIGHTS</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_LOGO</DefaultId>
+                </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="APU Stop / Run / Start ***???***">
+                <FloatPosition>403.000,283.000</FloatPosition>
+                <Size>27,26</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>
+						(M:Event) &apos;LeftSingle&apos; scmp 0 == 
+						if{ 
+							2 (&gt;L:APU Start Pressed,number) 
+                    		(A:APU PCT RPM,percent) 
+                    		1 &gt; 
+                    		if{ 1 (&gt;K:APU_OFF_SWITCH) } 
+                   			els{ 1 (&gt;K:APU_STARTER) } 
+						} 
+						(M:Event) &apos;LeftRelease&apos; scmp 0 == if{ 0 (&gt;L:APU Start Pressed,number) }
+					</Script>
+					<ClickType>LeftSingle+LeftRelease</ClickType>
+                </MouseClick>
+				<Tooltip id="Tooltip">
+					<DefaultId>TOOLTIPTEXT_APU_SWITCH</DefaultId>
+				</Tooltip>
+            </MouseArea>
+            
+            <MouseArea id="Panel and Cabin Lights">
+                <FloatPosition>471.000,241.000</FloatPosition>
+                <Size>29,45</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                	<Script>
+                		(L:Panel Cabin Lights, number) ++ 3 % s0 (&gt;L:Panel Cabin Lights) 
+                		l0 1 == if{ 1 (&gt;K:PANEL_LIGHTS_TOGGLE) 1 (&gt;K:TOGGLE_CABIN_LIGHTS) g0 }
+                		l0 2 == if{ 1 (&gt;K:PANEL_LIGHTS_TOGGLE) g0 }
+                		l0 0 == if{ 1 (&gt;K:TOGGLE_CABIN_LIGHTS) g0 }
+                		:0
+                	</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>HELPID_GAUGE_LIGHT_SWITCH_PANEL</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Seatbelts">
+                <FloatPosition>450.000,290.000</FloatPosition>
+                <Size>28,52</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>CABIN_SEATBELTS_ALERT_SWITCH_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_SEATBELTS_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="No Smoking">
+                <FloatPosition>489.000,290.000</FloatPosition>
+                <Size>30,51</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>CABIN_NO_SMOKING_ALERT_SWITCH_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_NOSMOKING_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+
+
+            <MouseArea id="HYD Eng 1">
+                 <FloatPosition>586.000,51.000</FloatPosition>
+                 <Size>28,30</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>1 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>TOOLTIPTEXT_B737_HYD_ENG1_SWITCH</DefaultId>
+                 </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD APU">
+                 <FloatPosition>640.000,54.000</FloatPosition>
+                 <Size>29,29</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>3 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>TOOLTIPTEXT_B737_HYD_ELEC_SWITCH</DefaultId>
+                 </Tooltip>
+             </MouseArea>
+             <MouseArea id="HYD Eng 2">
+                 <FloatPosition>698.000,58.000</FloatPosition>
+                 <Size>29,29</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                     <Script>2 (&gt;K:HYDRAULIC_SWITCH_TOGGLE)</Script>
+                     <ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>TOOLTIPTEXT_B737_HYD_ENG2_SWITCH</DefaultId>
+                 </Tooltip>
+            </MouseArea>
+
+            <MouseArea id="L Boost Pump Switch">
+                 <FloatPosition>581.000,188.000</FloatPosition>
+                 <Size>28,27</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_ELECT_FUEL_PUMP1</KeyEvent>
+					<ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>HELPID_GAUGE_SWITCH_FUEL_PUMP</DefaultId>
+                 </Tooltip>
+             </MouseArea>
+             <MouseArea id="Fuel Cross Feed">
+                 <FloatPosition>635.000,192.000</FloatPosition>
+                 <Size>27,28</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                    <KeyEvent>CROSS_FEED_TOGGLE</KeyEvent>
+					<ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>HELPID_GAUGE_FUEL_XFEED</DefaultId>
+                 </Tooltip>
+             </MouseArea>
+             <MouseArea id="R Boost Pump Switch">
+                 <FloatPosition>691.000,197.000</FloatPosition>
+                 <Size>28,27</Size>
+                 <CursorType>Hand</CursorType>
+                 <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_ELECT_FUEL_PUMP2</KeyEvent>
+					<ClickType>LeftSingle</ClickType>
+                 </MouseClick>
+                 <Tooltip id="Tooltip">
+                     <DefaultId>HELPID_GAUGE_SWITCH_FUEL_PUMP</DefaultId>
+                 </Tooltip>
+             </MouseArea>
+
+            <MouseArea id="Wing Anti Ice">
+                <FloatPosition>567.000,247.000</FloatPosition>
+                <Size>27,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>TOGGLE_STRUCTURAL_DEICE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_DEICE_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Eng 1 Anti Ice">
+                <FloatPosition>601.000,250.000</FloatPosition>
+                <Size>26,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:ANTI_ICE_TOGGLE_ENG1)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+             <MouseArea id="Eng 2 Anti Ice">
+                <FloatPosition>636.000,253.000</FloatPosition>
+                <Size>27,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:ANTI_ICE_TOGGLE_ENG2)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_ENG_ANTI_ICE_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="Anti-Ice Probes">
+                <FloatPosition>685.000,257.000</FloatPosition>
+                <Size>27,29</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <KeyEvent>PITOT_HEAT_TOGGLE</KeyEvent>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_PITOT_HEAT_SWITCH</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            
+            <MouseArea id="ELAC 1">
+                <FloatPosition>41.000,132.000</FloatPosition>
+                <Size>30,25</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:FLY_BY_WIRE_ELAC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_ELAC1</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="SEC 1">
+                <FloatPosition>86.000,128.000</FloatPosition>
+                <Size>32,28</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:FLY_BY_WIRE_SEC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_SEC1</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="FAC 1">
+                <FloatPosition>130.000,126.000</FloatPosition>
+                <Size>30,27</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>1 (&gt;K:FLY_BY_WIRE_FAC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_FAC1</DefaultId>
+                </Tooltip>
+           </MouseArea>
+
+            <MouseArea id="ELAC 2">
+                <FloatPosition>566.000,120.000</FloatPosition>
+                <Size>30,29</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>2 (&gt;K:FLY_BY_WIRE_ELAC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_ELAC2</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="SEC 2">
+                <FloatPosition>616.000,124.000</FloatPosition>
+                <Size>30,29</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>2 (&gt;K:FLY_BY_WIRE_SEC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_SEC2</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="SEC 3">
+                <FloatPosition>658.000,126.000</FloatPosition>
+                <Size>28,30</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>3 (&gt;K:FLY_BY_WIRE_SEC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_SEC3</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <MouseArea id="FAC 2">
+                <FloatPosition>701.000,129.000</FloatPosition>
+                <Size>30,29</Size>
+                <CursorType>Hand</CursorType>
+                <MouseClick id="MouseClick">
+                    <Script>2 (&gt;K:FLY_BY_WIRE_FAC_TOGGLE)</Script>
+                    <ClickType>LeftSingle</ClickType>
+                </MouseClick>
+                <Tooltip id="Tooltip">
+                    <DefaultId>TOOLTIPTEXT_A321_FAC2</DefaultId>
+                </Tooltip>
+            </MouseArea>
+            <Tooltip id="Tooltip">
+                <DefaultId>TOOLTIPTEXT_GAUGE_OVERHEAD_PANEL</DefaultId>
+            </Tooltip>
+        </MouseArea>
+        
+    </SimGauge.Gauge>
+</SimBase.Document>
