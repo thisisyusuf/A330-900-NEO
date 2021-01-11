@@ -47,7 +47,7 @@ AIRBUS A330-900 NEO Brief:
 ------------------------------
 FSX/P3D Airbus A330-900 neo in 5 liveries: House colours (F-WTTN), Delta Airlines (N404DX), Hifly (CS-TKY), TAP Portugal (CS-TUF) and a White livery for repaints.
 This aircraft is based on the blended winglets model by SAAD, featuring a brand new Airfile and new flight dynamics. All textures are very detailled with new alpha layers. All textures are DXT5. New A3XXneo wide 2D panel V1.0 (with default panel optional).
-The VC is the Tom Ruth (TomA333NG_interior) revised Airbus A330-300 VC model. This VC model includes working wipers (right mouse click on switch) and animated sun shades. Switches for LCD Screens, EICAS, PFD, MFD. Auto-brake switch. Realistic integrated FMC.
+The VC is the Tom Ruth (TomA333NG_interior) revised Airbus A330-300 VC model. This VC model includes working wipers and animated sun shades. Switches for LCD Screens, EICAS, PFD, MFD. Auto-brake switch. Realistic integrated FMC.
 Updated day and night VC textures. Includes 5 VC camera views, adding Autopilot (centered) and jumpseat, to First officer, Center console and Overhead. Updated MFD now showing Terrain elevation and traffic (TCAS).
 Fully working Auto-brake, Fully working Auto-taxi with panel lights, extended functionality for Warning/Caution buttons, fixed Flaps Transit angles in EICAS. Credits to Hiroshi Higami for the original Auto-brake gauge and Daniel Gauthier for the original Cockpit Sounds.
 The new panels are using the following extra gauges: FMC by Garret Smith, and VSpeed, Altitude Callout, Icons32 and new Cockpit sounds by myself. Most of these gauges are using the FSX XML Sound gauge by Doug Dawson.
