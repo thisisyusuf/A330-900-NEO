@@ -46,7 +46,7 @@ Air File: PhmA339.air
 - Correct ATC type and model.
 
 
-BOEING 737-800 Winglets Brief:
+AIRBUS A330-900 NEO Brief:
 ------------------------------
 FSX/P3D Airbus A330-900 neo in 5 liveries: House colours (F-WTTN), Delta Airlines (N404DX), Hifly (CS-TKY), TAP Portugal (CS-TUF) and a White livery for repaints.
 This aircraft is based on the blended winglets model by SAAD, featuring a brand new Airfile and new flight dynamics. All textures are very detailled with new alpha layers. All textures are DXT5. New A3XXneo wide 2D panel V1.0 (with default panel optional).
