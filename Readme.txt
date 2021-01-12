@@ -32,8 +32,10 @@ Aircraft Characteristics:
 Air File: PhmA339.air
 
 - Model with Full animations.
-- Fully working Virtual Cockpit.
+- Mostly working Virtual Cockpit.
 - 5 Virtual Cockpit camera views.
+- New Wide 2D Airbus 330 Panel.
+- Improved MFD with Terrain and Traffic.
 - Realistic A330-900 flight dynamics.
 - 2048x2048 DXT5 HD textures.
 - High quality engine & environment sounds.
