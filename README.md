@@ -1,6 +1,10 @@
 # A330-900-NEO
  FSX/P3D Airbus A330-900 neo
 
+[![GitHub latest release version](https://img.shields.io/github/v/release/villagedefrance/A330-900-NEO.svg?style=flat)](https://github.com/villagedefrance/A330-900-NEO/releases/latest)
+[![Github All Releases download count](https://img.shields.io/github/downloads/villagedefrance/A330-900-NEO/total.svg?style=flat)](https://github.com/villagedefrance/A330-900-NEO/releases/latest)
+[![GitHub contributors](https://img.shields.io/github/contributors/villagedefrance/A330-900-NEO.svg?style=flat)](https://github.com/villagedefrance/A330-900-NEO/graphs/contributors)
+
 ------------------------------------
   FSX/P3D AIRBUS A330-900 NEO
 ------------------------------------
