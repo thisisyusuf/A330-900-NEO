@@ -680,7 +680,7 @@
 				<Expression id="Expression">
 					<Minimum>0.000</Minimum>
 					<Maximum>1.000</Maximum>
-					<Script>(G:Var1)</Script>
+					<Script>(L:SideStick, bool)</Script>
 				</Expression>
 				<Case id="Case">
 					<ExpressionResult>0</ExpressionResult>
@@ -769,7 +769,7 @@
 				<CursorType>Hand</CursorType>
 				<MouseClick id="MouseClick">
 					<Script>
-						(G:Var1) ! (&gt;G:Var1) 1 (&gt;L:CS_Switch_Button, enum)
+						(L:SideStick, bool) ! (&gt;L:SideStick, bool) 1 (&gt;L:CS_Switch_Button, enum)
 					</Script>
 					<ClickType>LeftSingle</ClickType>
 				</MouseClick>

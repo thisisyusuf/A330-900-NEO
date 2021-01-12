@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimBase.Document Type="AceXML" version="1,0">
+	<Descr>AceXML Document</Descr>
+	<Filename>sidestick_fo.xml</Filename>
+	<SimGauge.Gauge id="sidestick_fo" ArtDirectory=".">
+		<FloatPosition>0.000,0.000</FloatPosition>
+		<Size>24,25</Size>
+
+		<Element id="SIDESTICK">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Select id="Select">
+				<Expression id="Expression">
+					<Minimum>0.000</Minimum>
+					<Maximum>1.000</Maximum>
+					<Script>(L:SideStick, bool)</Script>
+				</Expression>
+				<Case id="Case">
+					<ExpressionResult>0</ExpressionResult>
+					<Image id="Image" Name="annunciator_sidestick_cpt.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+				<Case id="Case">
+					<ExpressionResult>1</ExpressionResult>
+					<Image id="Image" Name="annunciator_sidestick_fo.bmp">
+						<Transparent>True</Transparent>
+					</Image>
+				</Case>
+			</Select>
+		</Element>
+
+		<MouseArea id="SIDESTICK">
+			<FloatPosition>0.000,0.000</FloatPosition>
+			<Size>24,25</Size>
+			<CursorType>Hand</CursorType>
+			<MouseClick id="MouseClick">
+				<Script>
+					(L:SideStick, bool) ! (&gt;L:SideStick, bool) 1 (&gt;L:CS_Switch_Button, enum)
+				</Script>
+				<ClickType>LeftSingle</ClickType>
+			</MouseClick>
+		</MouseArea>
+	</SimGauge.Gauge>
+</SimBase.Document>
